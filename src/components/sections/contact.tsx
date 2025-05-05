@@ -12,7 +12,7 @@ export default function Contact({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-screen w-full flex flex-col items-center justify-center p-8 snap-start bg-primary-background text-text-primary"
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-primary-background text-text-primary"
     >
       <div className="max-w-2xl text-center">
         <AnimatedText>

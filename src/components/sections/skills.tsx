@@ -66,7 +66,7 @@ export default function Skills({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-screen w-full flex flex-col items-center justify-center p-8 snap-start bg-secondary text-text-primary" // Use theme colors
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-secondary text-text-primary" // Use theme colors
     >
       <div className="max-w-5xl w-full">
         <AnimatedText>

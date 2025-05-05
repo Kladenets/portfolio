@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Header />
       {/* Scroll Container - takes available space */}
-      <main className="flex-grow overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+      <main className="flex-grow overflow-y-scroll snap-y snap-mandatory scroll-smooth scroll-pt-16">
         <Introduction id="intro" />
         <Skills id="skills" />
         <Experience id="experience" />
