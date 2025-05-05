@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  @apply overflow-hidden; /* Prevent the BODY itself from scrolling */
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  /* Use our theme background */
+  background-color: rgb(var(--color-primary-background));
+  color: rgb(var(--color-text-primary));
+}
+
+/* Ensure smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Light Theme Variables */
+  --color-primary-background: #ffffff;
+  --color-primary: #587b7f;
+  --color-secondary: #dee8d5;
+  --color-emphasis: #393e41;
+  --color-accent: #e9fae3;
+  --color-text-primary: #000000;
+  --color-text-emphasized: #ffffff;
+
+  /* Other base styles */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
+  /* Dark Theme Variables */
+  --color-primary-background: #393e41;
+  --color-primary: #587b7f; /* Same as light? Check if intended */
+  --color-secondary: #dee8d5; /* Same as light? Check if intended */
+  --color-emphasis: #ffffff;
+  --color-accent: #186777;
+  --color-text-primary: #ffffff;
+  --color-text-emphasized: #000000;
+
+  /* Other base styles */
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
