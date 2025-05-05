@@ -1,0 +1,9 @@
+// .vscode/extensions.json
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",    // ESLint integration
+    "esbenp.prettier-vscode",   // Prettier integration
+    "csstools.postcss",         // PostCSS language support (useful with Tailwind)
+    "bradlc.vscode-tailwindcss" // Tailwind CSS IntelliSense
+  ]
+}

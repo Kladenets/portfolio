@@ -1,0 +1,60 @@
+// .vscode/settings.json
+{
+    // ---- Editor Settings ----
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true, // Use spaces instead of tabs
+    "editor.detectIndentation": false, // Use tabSize/insertSpaces defined above
+  
+    // ---- Formatting (Prettier) ----
+    // Set Prettier as the default formatter for relevant languages
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+       "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+       "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    // Enable format on save
+    "editor.formatOnSave": true,
+  
+    // ---- Linting (ESLint) ----
+    // Run ESLint's auto-fixable rules (including import sort) on save
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit" // Use "explicit" for newer VS Code versions, "true" for older
+    },
+  
+    // ---- File Watching ----
+    // Exclude common build/dependency folders from file watcher for performance
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/.hg/store/**": true,
+      "**/.next/**": true
+    },
+  
+    // ---- TypeScript ----
+    // Optional: Enable organize imports on save (can sometimes conflict with eslint import sort, use ESLint one preferably)
+    // "editor.codeActionsOnSave": {
+    //   "source.organizeImports": true
+    // },
+    "typescript.tsdk": "node_modules/typescript/lib" // Ensure VSCode uses the project's TypeScript version
+  }
