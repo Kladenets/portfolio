@@ -1,10 +1,11 @@
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import Introduction from '@sections/introduction';
-import Skills from '@sections/skills';
-import Experience from '@sections/experience';
-import Projects from '@sections/projects';
 import Contact from '@sections/contact';
+import Experience from '@sections/experience';
+import Introduction from '@sections/introduction';
+import Projects from '@sections/projects';
+import Skills from '@sections/skills';
+
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 
 export default function Home() {
   return (

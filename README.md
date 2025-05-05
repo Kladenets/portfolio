@@ -10,24 +10,24 @@ This repository contains the source code for my personal portfolio website, desi
 
 ## ✨ Features
 
-*   **Responsive Design:** Adapts seamlessly to desktop, tablet, and mobile devices.
-*   **Dark Mode:** Supports system preference and includes a manual toggle for user control (using `next-themes`).
-*   **Full-Page Scroll Snapping:** Smooth, section-by-section scrolling experience.
-*   **Animations:** Subtle and engaging animations on scroll using Framer Motion.
-*   **Structured Content:** Sections for Introduction, Skills, Work Experience, Personal Projects, and Contact Information.
-*   **Modern Tech Stack:** Built with cutting-edge frontend technologies.
+- **Responsive Design:** Adapts seamlessly to desktop, tablet, and mobile devices.
+- **Dark Mode:** Supports system preference and includes a manual toggle for user control (using `next-themes`).
+- **Full-Page Scroll Snapping:** Smooth, section-by-section scrolling experience.
+- **Animations:** Subtle and engaging animations on scroll using Framer Motion.
+- **Structured Content:** Sections for Introduction, Skills, Work Experience, Personal Projects, and Contact Information.
+- **Modern Tech Stack:** Built with cutting-edge frontend technologies.
 
 ---
 
 ## 🚀 Tech Stack
 
-*   **Framework:** [Next.js](https://nextjs.org/) (v13+ with App Router)
-*   **Language:** [TypeScript](https://www.typescriptlang.org/)
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-*   **Animations:** [Framer Motion](https://www.framer.com/motion/)
-*   **UI Components:** Built with [React](https://reactjs.org/)
-*   **Dark Mode:** [next-themes](https://github.com/pacocoursey/next-themes)
-*   **Deployment:** (e.g., Vercel, Netlify - Add your platform here)
+- **Framework:** [Next.js](https://nextjs.org/) (v13+ with App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **UI Components:** Built with [React](https://reactjs.org/)
+- **Dark Mode:** [next-themes](https://github.com/pacocoursey/next-themes)
+- **Deployment:** (e.g., Vercel, Netlify - Add your platform here)
 
 ---
 
@@ -36,12 +36,14 @@ This repository contains the source code for my personal portfolio website, desi
 To run this project locally:
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/Kladenets/your-repo-name.git # Replace with your repo URL
     cd your-repo-name
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     # or
@@ -49,6 +51,7 @@ To run this project locally:
     ```
 
 3.  **Run the development server:**
+
     ```bash
     npm run dev
     # or
@@ -77,6 +80,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ---
 
 ## 📂 Project Structure (Simplified)
+
 .
 ├── app/ # Next.js App Router (Pages, Layouts)
 │ ├── layout.tsx # Root Layout
