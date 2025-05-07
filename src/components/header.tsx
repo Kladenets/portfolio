@@ -64,8 +64,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-primary-background/80 dark:bg-primary-background/80 backdrop-blur-sm shadow-md text-text-primary">
-        <nav className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 border-b-1 border-text backdrop-blur-sm shadow-md text-text-primary">
+        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center">
           {/* Logo/Name */}
           <a
             href="#intro"
@@ -80,7 +80,7 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-text-primary hover:text-primary dark:hover:text-secondary transition-colors"
+                className=" text-text hover:text-primary dark:hover:text-secondary transition-colors"
               >
                 {item.name}
               </a>
@@ -92,11 +92,11 @@ export default function Header() {
             <ThemeToggle />
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="md:hidden items-center">
               <button
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
-                className="text-text-primary focus:outline-none"
+                className="text-text focus:outline-none pt-2"
               >
                 {isMobileMenuOpen ? (
                   <CloseIcon className="h-6 w-6" />
@@ -117,14 +117,14 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-40 md:hidden bg-primary-background dark:bg-primary-background shadow-lg pt-4 pb-6 px-4 sm:px-6" // Adjust top-[px] based on header height
+            className="fixed inset-x-0 top-[60px] z-40 md:hidden bg-background shadow-lg pt-4 pb-6 px-4 sm:px-6" // Adjust top-[px] based on header height
           >
             <nav className="flex flex-col space-y-4 items-center">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-lg text-text-primary hover:text-primary dark:hover:text-secondary transition-colors"
+                  className="text-lg text-text hover:text-primary dark:hover:text-secondary transition-colors"
                   onClick={handleLinkClick} // Close menu on click
                 >
                   {item.name}
