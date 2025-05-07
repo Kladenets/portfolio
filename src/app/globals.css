@@ -1,66 +1,148 @@
 @import 'tailwindcss';
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-text-50: #f9f6f6;
+  --color-text-100: #f1eded;
+  --color-text-200: #e1d6d6;
+  --color-text-300: #c6b3b5;
+  --color-text-400: #a68a8d;
+  --color-text-500: #8c6b6e;
+  --color-text-600: #735658;
+  --color-text-700: #5e4647;
+  --color-text-800: #4f3d3e;
+  --color-text-900: #443637;
+  --color-text-950: #0e0b0b; /* primary shade of set */
+  --color-text: #0e0b0b; /* primary shade of set */
+
+  --color-background-50: #faf9f9; /* primary shade of set */
+  --color-background: #faf9f9; /* primary shade of set */
+  --color-background-100: #f0eeee;
+  --color-background-200: #dfd8d8;
+  --color-background-300: #c2b7b8;
+  --color-background-400: #a18f90;
+  --color-background-500: #857274;
+  --color-background-600: #6d5c5d;
+  --color-background-700: #594b4c;
+  --color-background-800: #4c4041;
+  --color-background-900: #413939;
+  --color-background-950: #2b2626;
+
+  --color-primary-50: #f9f7f7;
+  --color-primary-100: #f4eff0;
+  --color-primary-200: #eae1e2;
+  --color-primary-300: #d8c9cc;
+  --color-primary-400: #c2aaaf;
+  --color-primary-500: #a98a90;
+  --color-primary-600: #997a82; /* primary shade of set */
+  --color-primary: #997a82; /* primary shade of set */
+  --color-primary-700: #775961;
+  --color-primary-800: #654c54;
+  --color-primary-900: #58434b;
+  --color-primary-950: #2f2227;
+
+  --color-secondary-50: #f7f6f5;
+  --color-secondary-100: #edebe7;
+  --color-secondary-200: #dad7ce;
+  --color-secondary-300: #bfbaab; /* primary shade of set */
+  --color-secondary: #bfbaab; /* primary shade of set */
+  --color-secondary-400: #a9a08e;
+  --color-secondary-500: #978c78;
+  --color-secondary-600: #8a7d6c;
+  --color-secondary-700: #74685a;
+  --color-secondary-800: #5f554d;
+  --color-secondary-900: #4e4640;
+  --color-secondary-950: #292521;
+
+  --color-accent-50: #f5f6f4;
+  --color-accent-100: #e4e6df;
+  --color-accent-200: #c8cbbc;
+  --color-accent-300: #a9ad94; /* primary shade of set */
+  --color-accent: #a9ad94; /* primary shade of set */
+  --color-accent-400: #9b9e81;
+  --color-accent-500: #8f9070;
+  --color-accent-600: #7e7c61;
+  --color-accent-700: #6a6653;
+  --color-accent-800: #595547;
+  --color-accent-900: #4b483c;
+  --color-accent-950: #29271f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  @variant dark {
+    --color-text-50: #f9f7f7;
+    --color-text-100: #f4f1f1; /* primary shade of set */
+    --color-text: #f4f1f1; /* primary shade of set */
+    --color-text-200: #e7e1e1;
+    --color-text-300: #d6cbcb;
+    --color-text-400: #bdacac;
+    --color-text-500: #a48f8f;
+    --color-text-600: #8d7575;
+    --color-text-700: #756060;
+    --color-text-800: #625252;
+    --color-text-900: #544848;
+    --color-text-950: #2b2424;
+
+    --color-background-50: #f7f4f4;
+    --color-background-100: #e9e4e5;
+    --color-background-200: #d6cbcc;
+    --color-background-300: #b8a8ab;
+    --color-background-400: #947c80;
+    --color-background-500: #796164;
+    --color-background-600: #675355;
+    --color-background-700: #564849;
+    --color-background-800: #4b3f3f;
+    --color-background-900: #413839;
+    --color-background-950: #060505; /* primary shade of set */
+    --color-background: #060505; /* primary shade of set */
+
+    --color-primary-50: #f8f7f8;
+    --color-primary-100: #f3f0f1;
+    --color-primary-200: #e9e1e4;
+    --color-primary-300: #d7cacf;
+    --color-primary-400: #bea8b0;
+    --color-primary-500: #a88c95;
+    --color-primary-600: #907279;
+    --color-primary-700: #85666d; /* primary shade of set */
+    --color-primary: #85666d; /* primary shade of set */
+    --color-primary-800: #654f54;
+    --color-primary-900: #574448;
+    --color-primary-950: #322528;
+
+    --color-secondary-50: #f4f3f1;
+    --color-secondary-100: #e8e5df;
+    --color-secondary-200: #d3cec3;
+    --color-secondary-300: #b7b09f;
+    --color-secondary-400: #9d947e;
+    --color-secondary-500: #817861;
+    --color-secondary-600: #655e4b;
+    --color-secondary-700: #544f40; /* primary shade of set */
+    --color-secondary: #544f40; /* primary shade of set */
+    --color-secondary-800: #413d33;
+    --color-secondary-900: #39372e;
+    --color-secondary-950: #1d1b16;
+
+    --color-accent-50: #f4f4f1;
+    --color-accent-100: #e7e7e0;
+    --color-accent-200: #d1d2c4;
+    --color-accent-300: #b4b6a0;
+    --color-accent-400: #989b80;
+    --color-accent-500: #7b7f63;
+    --color-accent-600: #676b52; /* primary shade of set */
+    --color-accent: #676b52; /* primary shade of set */
+    --color-accent-700: #4b4e3d;
+    --color-accent-800: #3e4034;
+    --color-accent-900: #36382f;
+    --color-accent-950: #1c1d16;
   }
 }
 
 body {
   @apply overflow-hidden; /* Prevent the BODY itself from scrolling */
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  /* Use our theme background */
-  background-color: rgb(var(--color-primary-background));
-  color: rgb(var(--color-text-primary));
 }
 
 /* Ensure smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
-}
-
-:root {
-  /* Light Theme Variables */
-  --color-primary-background: #ffffff;
-  --color-primary: #587b7f;
-  --color-secondary: #dee8d5;
-  --color-emphasis: #393e41;
-  --color-accent: #e9fae3;
-  --color-text-primary: #000000;
-  --color-text-emphasized: #ffffff;
-
-  /* Other base styles */
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-.dark {
-  /* Dark Theme Variables */
-  --color-primary-background: #393e41;
-  --color-primary: #587b7f; /* Same as light? Check if intended */
-  --color-secondary: #dee8d5; /* Same as light? Check if intended */
-  --color-emphasis: #ffffff;
-  --color-accent: #186777;
-  --color-text-primary: #ffffff;
-  --color-text-emphasized: #000000;
-
-  /* Other base styles */
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
 }

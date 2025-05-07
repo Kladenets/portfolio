@@ -33,11 +33,11 @@ export default function Projects({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-secondary text-text-primary" // Different background
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-background text-text" // Different background
     >
       <div className="max-w-5xl w-full">
-        <AnimatedText>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-emphasis">
+        <AnimatedText className="w-fit">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-emphasis bg-accent-200 dark:bg-accent-800 p-4 text-text">
             Personal Projects
           </h2>
         </AnimatedText>
@@ -45,8 +45,8 @@ export default function Projects({ id }: SectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <AnimatedText key={project.title} delay={index * 0.15}>
-              <div className="bg-primary-background dark:bg-accent p-6 rounded-lg shadow-md h-full flex flex-col">
-                <h3 className="text-xl font-semibold mb-2 text-primary dark:text-secondary">
+              <div className="bg-background-300 p-6 rounded-lg shadow-md h-full flex flex-col">
+                <h3 className="text-xl font-semibold mb-2 text-text">
                   {project.title}
                 </h3>
                 <p className="text-text-primary mb-4 flex-grow">
@@ -60,7 +60,7 @@ export default function Projects({ id }: SectionProps) {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="bg-accent dark:bg-primary text-text-emphasized dark:text-text-primary text-xs font-medium px-2.5 py-0.5 rounded"
+                        className="bg-background text-text text-xs font-medium px-2.5 py-0.5 rounded"
                       >
                         {t}
                       </span>

@@ -8,21 +8,21 @@ export default function Introduction({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 mt-16 snap-start bg-primary-background text-text-primary" // Use theme colors
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 mt-16 snap-start 
+        bg-background text-text" // Use theme colors
     >
       <div className="max-w-4xl text-center">
         {/* Name as the highlight */}
         <AnimatedText className="mb-4">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-emphasis dark:text-emphasis tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 pb-10 bg-primary-400 dark:bg-primary-800 text-text tracking-tight">
             Kyle Kent
           </h1>
         </AnimatedText>
 
         {/* Subtitle */}
         <AnimatedText delay={0.3}>
-          <p className="text-lg md:text-xl lg:text-2xl text-primary dark:text-secondary">
-            A frontend engineer who builds engaging, crisp, and beautiful online
-            experiences.
+          <p className="text-lg md:text-xl lg:text-2xl text-text-primary">
+            I build crisp, clean, and engaging online experiences.
           </p>
         </AnimatedText>
 

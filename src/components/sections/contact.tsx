@@ -12,17 +12,17 @@ export default function Contact({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-primary-background text-text-primary"
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-background text-text"
     >
-      <div className="max-w-2xl text-center">
-        <AnimatedText>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-emphasis">
+      <div className="max-w-5xl w-full text-center">
+        <AnimatedText className="w-fit">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-emphasis bg-accent-200 dark:bg-accent-800 p-4 text-text">
             Get In Touch
           </h2>
         </AnimatedText>
 
         <AnimatedText delay={0.2}>
-          <p className="text-lg text-primary dark:text-secondary mb-8">
+          <p className="text-lg text-text mb-8">
             I am currently open to new opportunities and collaborations. Feel
             free to reach out!
           </p>
