@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-primary-background text-text-primary flex flex-col h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-background text-text flex flex-col h-screen`}
       >
         <Providers>{children}</Providers>
       </body>
