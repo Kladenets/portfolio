@@ -63,7 +63,7 @@ const ThemeToggle = () => {
       <button
         aria-label="Toggle theme"
         type="button"
-        className="p-2 h-10 w-10 rounded-md text-text-primary/50" // Use semi-transparent color
+        className="p-2 h-10 w-10 rounded-md text-text/50" // Use semi-transparent color
         disabled
       >
         <div className="h-6 w-6 animate-pulse bg-gray-300 dark:bg-gray-700 rounded"></div>{' '}
@@ -79,21 +79,27 @@ const ThemeToggle = () => {
   };
 
   return (
-    <motion.button
-      aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-      type="button"
-      className="p-2 rounded-md text-text-primary hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-primary-background dark:focus:ring-secondary transition-colors duration-200"
+    <div
       onClick={toggleTheme}
-      // Optional: Add subtle animation on toggle
-      whileTap={{ scale: 0.9 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+      className="inline-block rounded-md cursor-pointer"
+      onKeyDown={(e) =>
+        e.key === 'Enter' || e.key === ' ' ? toggleTheme() : null
+      }
     >
-      {isDarkMode ? (
-        <SunIcon className="h-6 w-6 text-yellow-400" />
-      ) : (
-        <MoonIcon className="h-6 w-6 text-indigo-600" />
-      )}
-    </motion.button>
+      <motion.button
+        aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+        type="button"
+        className="p-2 rounded-md text-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-text-800 focus:ring-offset-primary cursor-pointer"
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+      >
+        {isDarkMode ? (
+          <SunIcon className="h-6 w-6 text-text" />
+        ) : (
+          <MoonIcon className="h-6 w-6 text-text" />
+        )}
+      </motion.button>
+    </div>
   );
 };
 
