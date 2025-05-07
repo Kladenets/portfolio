@@ -8,12 +8,12 @@ export default function Introduction({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="section mt-16" // Use theme colors
+      className="section" // Use theme colors
     >
       <div className="max-w-4xl text-center">
         {/* Name as the highlight */}
         <AnimatedText className="mb-4">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 pb-10 bg-primary-400 dark:bg-primary-800 text-text tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 pb-10 bg-secondary-500 dark:bg-secondary-500 text-text tracking-tight">
             Kyle Kent
           </h1>
         </AnimatedText>
