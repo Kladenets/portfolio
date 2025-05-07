@@ -65,7 +65,7 @@ export default function Header() {
   // TODO: move the header to the top of the page as a blocking element instead of a fixed one
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
+      <header className="backdrop-blur-md">
         <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center border-b-1 border-text-500 my-transition-colors">
           {/* Logo/Name */}
           <a
@@ -76,16 +76,19 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden md:flex space-x-6 lg:space-x-12 pr-5 lg:pr-8">
+          <div className="flex items-center">
+            <div className="hidden md:flex items-center justify-center">
               {navItems.map((item) => (
-                <a
+                <motion.a
                   key={item.name}
                   href={item.href}
-                  className=" text-text hover:text-primary dark:hover:text-secondary my-transition-colors"
+                  className=" text-text py-2 px-5 hover:bg-secondary-500 my-transition-colors"
+                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 >
                   {item.name}
-                </a>
+                </motion.a>
               ))}
             </div>
 
@@ -94,17 +97,20 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden items-center">
-              <button
+              <motion.button
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
-                className="text-text focus:outline-none pt-2"
+                className="text-text focus:outline-none pt-2 my-transition-colors"
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
                 {isMobileMenuOpen ? (
                   <CloseIcon className="h-6 w-6" />
                 ) : (
                   <HamburgerIcon className="h-6 w-6" />
                 )}
-              </button>
+              </motion.button>
             </div>
           </div>
         </nav>
@@ -118,18 +124,21 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-40 md:hidden bg-background shadow-lg pt-4 pb-6 px-4 sm:px-6" // Adjust top-[px] based on header height
+            className="fixed inset-x-0 top-[60px] z-40 md:hidden bg-background shadow-lg pt-4 pb-6 px-4 sm:px-6 my-transition-colors" // Adjust top-[px] based on header height
           >
             <nav className="flex flex-col space-y-4 items-center">
               {navItems.map((item) => (
-                <a
+                <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-lg text-text hover:text-primary dark:hover:text-secondary transition-colors"
+                  className="text-lg text-text hover:text-primary dark:hover:text-secondary my-transition-colors"
                   onClick={handleLinkClick} // Close menu on click
+                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 >
                   {item.name}
-                </a>
+                </motion.a>
               ))}
             </nav>
           </motion.div>
