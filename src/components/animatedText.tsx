@@ -15,7 +15,7 @@ export default function AnimatedText({
 }: AnimatedTextProps) {
   return (
     <motion.div
-      initial={{ opacity: 1, y: 50 }} // Start invisible and slightly down
+      initial={{ opacity: 0, y: 50 }} // Start invisible and slightly down
       whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position when in view
       viewport={{ once: true }} // Only animate once
       transition={{ duration: 0.5, delay: delay }} // Control animation speed and delay
