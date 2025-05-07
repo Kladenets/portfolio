@@ -57,20 +57,20 @@ const ThemeToggle = () => {
   }, []);
 
   // // Render nothing or a placeholder on the server and initial client render to prevent hydration mismatch
-  // if (!mounted) {
-  //   // Return a placeholder button to prevent layout shift maybe?
-  //   return (
-  //     <button
-  //       aria-label="Toggle theme"
-  //       type="button"
-  //       className="p-2 h-10 w-10 rounded-md text-text/50" // Use semi-transparent color
-  //       disabled
-  //     >
-  //       <div className="h-6 w-6 animate-pulse bg-gray-300 dark:bg-gray-700 rounded"></div>{' '}
-  //       {/* Simple pulse animation */}
-  //     </button>
-  //   );
-  // }
+  if (!mounted) {
+    // Return a placeholder button to prevent layout shift maybe?
+    return (
+      <button
+        aria-label="Toggle theme"
+        type="button"
+        className="p-2 h-10 w-10 rounded-md text-text/50" // Use semi-transparent color
+        disabled
+      >
+        <div className="h-6 w-6 animate-pulse bg-gray-300 dark:bg-gray-700 rounded"></div>{' '}
+        {/* Simple pulse animation */}
+      </button>
+    );
+  }
 
   const isDarkMode = resolvedTheme === 'dark';
 
@@ -89,7 +89,7 @@ const ThemeToggle = () => {
       <motion.button
         aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
         type="button"
-        className="p-2 rounded-md text-text hover:bg-accent dark:hover:bg-accent focus:outline-none focus:ring-2 focus:ring-text cursor-pointer my-transition-colors"
+        className="p-2 text-text hover:bg-secondary-500 focus:outline-none  cursor-pointer my-transition-colors"
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.05 }}
         disabled={!mounted}
