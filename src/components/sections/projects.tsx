@@ -6,20 +6,6 @@ interface SectionProps {
 
 const projects = [
   {
-    title: 'To-dos App',
-    description:
-      'A basic todo list application built for learning purposes, focusing on implementing Tailwind CSS, the Next.js App Router, and MinimongoDB for local storage.',
-    tech: [
-      'Next.js (App Router)',
-      'React',
-      'Tailwind CSS',
-      'TypeScript',
-      'MinimongoDB',
-    ],
-    link: 'https://github.com/Kladenets/next-intro',
-    liveLink: null, // Add if deployed
-  },
-  {
     title: "Portfolio Website (you're here!)",
     description:
       'Single page portfolio website showcasing my projects, skills, and work experience. Built with Next.js, Tailwind CSS, and TypeScript.',
@@ -32,6 +18,20 @@ const projects = [
       'Github Pages',
     ],
     link: 'https://github.com/Kladenets/portfolio',
+    liveLink: null, // Add if deployed
+  },
+  {
+    title: 'To-dos App',
+    description:
+      'A basic todo list application built for learning purposes, focusing on implementing Tailwind CSS, the Next.js App Router, and MinimongoDB for local storage.',
+    tech: [
+      'Next.js (App Router)',
+      'React',
+      'Tailwind CSS',
+      'TypeScript',
+      'MinimongoDB',
+    ],
+    link: 'https://github.com/Kladenets/next-intro',
     liveLink: null, // Add if deployed
   },
   // Add more projects here as needed
