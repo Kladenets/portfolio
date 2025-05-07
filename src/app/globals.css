@@ -81,6 +81,11 @@
   .section {
     @apply min-h-[calc(100vh_-_3.5rem)] w-full flex flex-col items-center justify-center p-8 snap-start;
   }
+
+  .contact-link {
+    @apply flex items-center text-text hover:text-secondary-500 hover:underline font-medium;
+  }
+
   @variant dark {
     --color-text-50: #f9f7f7;
     --color-text-100: #f4f1f1; /* primary shade of set */
