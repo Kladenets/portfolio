@@ -33,7 +33,7 @@ export default function Projects({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-background text-text" // Different background
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start" // Different background
     >
       <div className="max-w-5xl w-full">
         <AnimatedText className="w-fit">

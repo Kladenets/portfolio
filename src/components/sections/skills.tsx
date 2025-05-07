@@ -66,7 +66,7 @@ export default function Skills({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start bg-background text-text" // Use theme colors
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 snap-start" // Use theme colors
     >
       <div className="max-w-5xl w-full">
         <AnimatedText className="w-fit">
@@ -78,7 +78,7 @@ export default function Skills({ id }: SectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
             <AnimatedText key={category.title} delay={0.1 * index}>
-              <div className="bg-background p-6 rounded-lg shadow-md h-full border border-text">
+              <div className="bg-background p-6 rounded-lg shadow-lg dark:shadow-none h-full border border-text">
                 <h3 className="border-b-2 pb-2 border-text font-semibold mb-4 text-text">
                   {category.title}
                 </h3>

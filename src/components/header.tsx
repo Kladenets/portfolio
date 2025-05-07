@@ -64,31 +64,31 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 border-b-1 border-text backdrop-blur-sm shadow-md text-text-primary">
-        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm text-text my-transition-colors">
+        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center bg-background/80 border-b-1 border-text-500">
           {/* Logo/Name */}
           <a
             href="#intro"
-            className="text-xl font-bold text-emphasis dark:text-emphasis"
+            className="text-xl font-bold text-text my-transition-colors"
           >
             Kyle Kent
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className=" text-text hover:text-primary dark:hover:text-secondary transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-
-          {/* Right side controls: Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
+            <div className="hidden md:flex space-x-6 lg:space-x-12 pr-5 lg:pr-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className=" text-text hover:text-primary dark:hover:text-secondary my-transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+
+            {/* Right side controls: Theme Toggle and Mobile Menu Button */}
             <ThemeToggle />
 
             {/* Mobile Menu Button */}
