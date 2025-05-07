@@ -10,23 +10,24 @@ export default function Introduction({ id }: SectionProps) {
       id={id}
       className="section" // Use theme colors
     >
-      <div className="max-w-4xl text-center">
+      <div className="flex flex-col items-center max-w-4xl text-center">
         {/* Name as the highlight */}
-        <AnimatedText className="mb-4">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 pb-10 bg-secondary-500 dark:bg-secondary-500 text-text tracking-tight">
+        <AnimatedText className="mb-4 w-fit">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold p-10 bg-secondary-500 dark:bg-secondary-500 text-text tracking-tight">
             Kyle Kent
           </h1>
         </AnimatedText>
 
         {/* Subtitle */}
-        <AnimatedText delay={0.3}>
+        <AnimatedText delay={0.3} className="mt-8 ">
           <p className="text-lg md:text-xl lg:text-2xl text-text ">
-            I build crisp, clean, and engaging online experiences
+            I build crisp, clean, and engaging online experiences for users to
+            enjoy
           </p>
         </AnimatedText>
 
         {/* Optional: Add a subtle scroll down indicator */}
-        <AnimatedText delay={0.8} className="mt-16">
+        <AnimatedText delay={0.8} className="mt-24 ">
           <div className="animate-bounce text-primary dark:text-secondary ">
             <svg
               className="w-8 h-8 mx-auto"
