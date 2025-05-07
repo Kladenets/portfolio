@@ -57,18 +57,18 @@ export default function Experience({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 pt-0 snap-start bg-primary-background text-text-primary"
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 pt-0 snap-start bg-background text-text"
     >
-      <div className="max-w-4xl w-full pt-20 md:pt-24 lg:pt-28">
-        <AnimatedText>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-emphasis">
+      <div className="max-w-5xl w-full pt-20 md:pt-24 lg:pt-28">
+        <AnimatedText className="w-fit">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text">
             Work Experience
           </h2>
         </AnimatedText>
 
-        <div className="space-y-12 relative border-l-2 border-primary dark:border-secondary pl-6">
+        <div className="space-y-12 relative border-l-5 border-primary pl-6">
           {/* Dashed line effect (optional) */}
-          {/* <div className="absolute top-0 bottom-0 left-[calc(0.75rem - 1px)] w-0.5 bg-primary dark:bg-secondary"></div> */}
+          {/* <div className="absolute top-0 bottom-0 left-[calc(0.75rem - 1px)] w-0.5 bg-primary"></div> */}
 
           {experiences.map((exp, index) => (
             <AnimatedText key={index} delay={index * 0.15}>
@@ -79,9 +79,9 @@ export default function Experience({ id }: SectionProps) {
                 <h3 className="text-xl md:text-2xl font-semibold text-emphasis">
                   {exp.role}
                 </h3>
-                <p className="text-md font-medium text-primary dark:text-secondary mb-1">
+                <p className="text-md font-medium text-primary mb-1">
                   {exp.company}{' '}
-                  <span className="text-sm text-text-primary/70">
+                  <span className="text-sm text-primary/70">
                     ({exp.location})
                   </span>
                 </p>
