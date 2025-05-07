@@ -71,11 +71,15 @@
 
 @layer base {
   .my-transition-colors {
-    @apply transition-colors duration-300;
+    @apply transition-colors duration-500 ease-out;
     /* might have to come back to this, I think there's a chrome bug where child transition's don't start until their parent's transition has finished
        if I want to still have the colors transition, which I think I do, maybe I'll have to think of some other way to do it more stylized,
        like maybe having it propagate down the screen or something, I'm not sure that would solve the problem though
        maybe just a shorter transition so it's less noticeable, but I like the longer ones */
+  }
+
+  .section {
+    @apply min-h-[calc(100vh_-_3.5rem)] w-full flex flex-col items-center justify-center p-8 snap-start;
   }
   @variant dark {
     --color-text-50: #f9f7f7;

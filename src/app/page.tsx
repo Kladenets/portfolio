@@ -12,15 +12,14 @@ export default function Home() {
     <>
       <Header />
       {/* Scroll Container - takes available space */}
-      <main className="flex-grow overflow-y-scroll snap-y snap-mandatory scroll-smooth scroll-pt-16">
+      <main className="flex-grow overflow-y-scroll snap-y snap-mandatory scroll-smooth scroll-pt-14">
         <Introduction id="intro" />
         <Skills id="skills" />
         <Experience id="experience" />
         <Projects id="projects" />
         <Contact id="contact" />
+        <Footer />
       </main>
-
-      <Footer />
     </>
   );
 }
