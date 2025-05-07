@@ -13,8 +13,8 @@ const projects = [
       'Next.js (App Router)',
       'React',
       'Tailwind CSS',
-      'MinimongoDB',
       'TypeScript',
+      'MinimongoDB',
     ],
     link: 'https://github.com/Kladenets/next-intro',
     liveLink: null, // Add if deployed
@@ -23,7 +23,14 @@ const projects = [
     title: "Portfolio Website (you're here!)",
     description:
       'Single page portfolio website showcasing my projects, skills, and work experience. Built with Next.js, Tailwind CSS, and TypeScript.',
-    tech: ['Next.js (App Router)', 'React', 'Tailwind CSS', 'TypeScript'],
+    tech: [
+      'Next.js (App Router)',
+      'React',
+      'Tailwind CSS',
+      'Motion',
+      'TypeScript',
+      'Github Pages',
+    ],
     link: 'https://github.com/Kladenets/portfolio',
     liveLink: null, // Add if deployed
   },
@@ -53,22 +60,22 @@ export default function Projects({ id }: SectionProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <AnimatedText key={project.title} delay={index * 0.15}>
-              <div className="bg-background-300 p-6 rounded-lg shadow-md h-full flex flex-col my-transition-colors">
-                <h3 className="text-xl font-semibold mb-2 text-text my-transition-colors">
+              <div className="bg-background p-6 rounded-lg shadow-lg dark:shadow-none border border-text h-full flex flex-col my-transition-colors">
+                <h3 className="text-xl font-semibold mb-2 text-text border-b-2 border-text/30 pb-2 my-transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-text mb-4 flex-grow my-transition-colors">
+                <p className="text-text mt-2 mb-4 flex-grow my-transition-colors">
                   {project.description}
                 </p>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold mb-1 text-accent my-transition-colors">
+                  <p className="text-sm font-semibold mb-1 text-text my-transition-colors">
                     Technologies Used:
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="bg-background text-text text-xs font-medium px-2.5 py-0.5 rounded my-transition-colors"
+                        className="bg-accent-100 dark:bg-accent-600 text-text text-xs font-medium px-2.5 py-1 rounded my-transition-colors"
                       >
                         {t}
                       </span>
@@ -81,7 +88,7 @@ export default function Projects({ id }: SectionProps) {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline my-transition-colors"
+                      className="text-text hover:underline my-transition-colors"
                     >
                       GitHub Repo
                     </a>
@@ -91,7 +98,7 @@ export default function Projects({ id }: SectionProps) {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline my-transition-colors"
+                      className="text-text hover:underline my-transition-colors"
                     >
                       Live Demo
                     </a>

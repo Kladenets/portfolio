@@ -79,7 +79,7 @@ export default function Skills({ id }: SectionProps) {
           {skillCategories.map((category, index) => (
             <AnimatedText key={category.title} delay={0.1 * index}>
               <div className="bg-background p-6 rounded-lg shadow-lg dark:shadow-none h-full border border-text my-transition-colors">
-                <h3 className="border-b-2 pb-2 border-text font-semibold mb-4 text-text my-transition-colors">
+                <h3 className="border-b-1 pb-2 border-text/30 font-semibold mb-4 text-text my-transition-colors">
                   {category.title}
                 </h3>
                 <ul className="space-y-2">
