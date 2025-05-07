@@ -57,11 +57,11 @@ export default function Experience({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 pt-0 snap-start bg-background text-text"
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 snap-start bg-background text-text"
     >
-      <div className="max-w-5xl w-full pt-20 md:pt-24 lg:pt-28">
+      <div className="max-w-5xl w-full pt-0 md:pt-16 lg:pt-20">
         <AnimatedText className="w-fit">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text">
             Work Experience
           </h2>
         </AnimatedText>
