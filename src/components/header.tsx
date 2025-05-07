@@ -62,10 +62,11 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  // TODO: move the header to the top of the page as a blocking element instead of a fixed one
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm text-text my-transition-colors">
-        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center bg-background/80 border-b-1 border-text-500">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
+        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center border-b-1 border-text-500 my-transition-colors">
           {/* Logo/Name */}
           <a
             href="#intro"

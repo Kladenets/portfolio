@@ -89,7 +89,7 @@ const ThemeToggle = () => {
       <motion.button
         aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
         type="button"
-        className="p-2 rounded-md text-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2  focus:ring-text  cursor-pointer"
+        className="p-2 rounded-md text-text hover:bg-accent dark:hover:bg-accent focus:outline-none focus:ring-2 focus:ring-text cursor-pointer my-transition-colors"
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.05 }}
         disabled={!mounted}

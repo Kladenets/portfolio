@@ -4,6 +4,7 @@ interface SectionProps {
   id: string;
 }
 
+// can I pull my experiences from my resume json site?
 const experiences = [
   {
     company: 'IKEA North America Services, LLC',
@@ -31,7 +32,7 @@ const experiences = [
     ],
   },
   {
-    company: 'BrickSimple LLC',
+    company: 'BrickSimple, LLC',
     role: 'Software Engineer',
     dates: 'Feb 2020 – Jan 2021',
     location: 'Doylestown, PA',
@@ -55,18 +56,15 @@ const experiences = [
 
 export default function Experience({ id }: SectionProps) {
   return (
-    <section
-      id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 snap-start"
-    >
-      <div className="max-w-5xl w-full pt-0 md:pt-16 lg:pt-20">
+    <section id={id} className="section">
+      <div className="max-w-5xl w-full py-0 md:py-16 lg:py-20">
         <AnimatedText className="w-fit">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text my-transition-colors">
             Work Experience
           </h2>
         </AnimatedText>
 
-        <div className="space-y-12 relative border-l-5 border-primary pl-6">
+        <div className="space-y-12 relative border-l-5 border-accent pl-6 my-transition-colors">
           {/* Dashed line effect (optional) */}
           {/* <div className="absolute top-0 bottom-0 left-[calc(0.75rem - 1px)] w-0.5 bg-primary"></div> */}
 
@@ -76,17 +74,17 @@ export default function Experience({ id }: SectionProps) {
                 {/* Dot on the timeline */}
                 {/* <div className="absolute -left-[calc(0.75rem_+_6px)] top-1 w-3 h-3 rounded-full bg-primary dark:bg-secondary border-2 border-primary-background dark:border-primary-background"></div> */}
 
-                <h3 className="text-xl md:text-2xl font-semibold text-emphasis">
+                <h3 className="text-xl md:text-2xl font-semibold text-text my-transition-colors">
                   {exp.role}
                 </h3>
-                <p className="text-md font-medium text-primary-800 dark:text-primary-300 mb-1">
+                <p className="text-md font-medium text-accent-700 dark:text-accent-300 mb-1 my-transition-colors">
                   {exp.company}{' '}
-                  <span className="text-sm dark:text-primary-300/80">
+                  <span className="text-sm text-accent-700/80 dark:text-accent-300/80 whitespace-nowrap my-transition-colors">
                     ({exp.location})
                   </span>
                 </p>
                 <p className="text-sm text-text-primary/70 mb-3">{exp.dates}</p>
-                <ul className="list-disc list-outside ml-5 space-y-1 text-sm md:text-base text-text-primary">
+                <ul className="list-disc list-outside ml-5 space-y-1 text-sm md:text-base text-text-primary my-transition-colors">
                   {exp.points.map((point, pIndex) => (
                     <li key={pIndex}>{point}</li>
                   ))}
