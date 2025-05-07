@@ -6,9 +6,9 @@ interface SectionProps {
 
 export default function Contact({ id }: SectionProps) {
   const email = 'kkent908@gmail.com';
-  const githubUrl = 'https://github.com/Kladenets';
-  const linkedinUrl = 'YOUR_LINKEDIN_URL'; // Replace with your actual LinkedIn URL
-  const resumeUrl = 'YOUR_LINKEDIN_URL'; // Replace with your actual LinkedIn URL
+  const githubUrl = 'https://github.com/Kladenets/';
+  const linkedinUrl = 'https://www.linkedin.com/in/kylekentpa/'; // Replace with your actual LinkedIn URL
+  const resumeUrl = 'https://registry.jsonresume.org/Kladenets/'; // Replace with your actual LinkedIn URL
 
   return (
     <section id={id} className="section">
@@ -20,7 +20,7 @@ export default function Contact({ id }: SectionProps) {
         </AnimatedText>
 
         <AnimatedText delay={0.2}>
-          <p className="text-lg md:text-xl text-primary dark:text-secondary mb-10 md:mb-12 leading-relaxed my-transition-colors">
+          <p className="text-lg md:text-xl text-text mb-10 md:mb-12 leading-relaxed my-transition-colors">
             I&apos;m passionate about crafting beautiful and intuitive digital
             experiences. Whether you have a project in mind, a role to discuss,
             or just want to chat about tech, I&apos;d love to hear from you!
@@ -68,7 +68,7 @@ export default function Contact({ id }: SectionProps) {
                 className="flex items-center text-primary hover:text-accent dark:hover:text-secondary transition-colors font-medium group my-transition-colors"
               >
                 {/* <DocumentDownloadIcon className="w-6 h-6 mr-2 group-hover:scale-110 transition-transform" /> */}
-                Download Resume
+                Online Resume
               </a>
             </div>
           </AnimatedText>
