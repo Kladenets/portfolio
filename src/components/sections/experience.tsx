@@ -57,7 +57,7 @@ export default function Experience({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 snap-start bg-background text-text"
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center p-8 snap-start"
     >
       <div className="max-w-5xl w-full pt-0 md:pt-16 lg:pt-20">
         <AnimatedText className="w-fit">
@@ -79,9 +79,9 @@ export default function Experience({ id }: SectionProps) {
                 <h3 className="text-xl md:text-2xl font-semibold text-emphasis">
                   {exp.role}
                 </h3>
-                <p className="text-md font-medium text-primary mb-1">
+                <p className="text-md font-medium text-primary-800 dark:text-primary-300 mb-1">
                   {exp.company}{' '}
-                  <span className="text-sm text-primary/70">
+                  <span className="text-sm dark:text-primary-300/80">
                     ({exp.location})
                   </span>
                 </p>

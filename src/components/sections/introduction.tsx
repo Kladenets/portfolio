@@ -8,29 +8,28 @@ export default function Introduction({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 mt-16 snap-start 
-        bg-background text-text" // Use theme colors
+      className="min-h-[calc(100vh_-_7rem)] w-full flex flex-col items-center justify-center p-8 mt-16 snap-start" // Use theme colors
     >
       <div className="max-w-4xl text-center">
         {/* Name as the highlight */}
         <AnimatedText className="mb-4">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 pb-10 bg-primary-400 dark:bg-primary-800 text-text tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 pb-10 bg-primary-400 dark:bg-primary-800 text-text tracking-tight my-transition-colors">
             Kyle Kent
           </h1>
         </AnimatedText>
 
         {/* Subtitle */}
         <AnimatedText delay={0.3}>
-          <p className="text-lg md:text-xl lg:text-2xl text-text-primary">
-            I build crisp, clean, and engaging online experiences.
+          <p className="text-lg md:text-xl lg:text-2xl text-text my-transition-colors">
+            I build crisp, clean, and engaging online experiences
           </p>
         </AnimatedText>
 
         {/* Optional: Add a subtle scroll down indicator */}
         <AnimatedText delay={0.8} className="mt-16">
-          <div className="animate-bounce text-primary dark:text-secondary">
+          <div className="animate-bounce text-primary dark:text-secondary my-transition-colors">
             <svg
-              className="w-6 h-6 mx-auto"
+              className="w-8 h-8 mx-auto"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
