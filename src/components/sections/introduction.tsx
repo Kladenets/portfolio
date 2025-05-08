@@ -8,7 +8,7 @@ export default function Introduction({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="section" // Use theme colors
+      className="section mb-15 md:mb-0" // Use theme colors
     >
       <div className="flex flex-col items-center max-w-4xl text-center">
         {/* Name as the highlight */}

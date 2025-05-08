@@ -4,7 +4,7 @@
 
 This repository contains the source code for my personal portfolio website, designed to showcase my skills, work experience, and personal projects as a Frontend Software Engineer.
 
-**Live Demo:** [kylekent.dev](YOUR_DEPLOYMENT_LINK) <!-- Replace with your actual deployment link -->
+**Live Demo:** [portfolio](https://kladenets.github.io/portfolio/) <!-- Replace with your actual deployment link -->
 
 ---
 
@@ -27,7 +27,7 @@ This repository contains the source code for my personal portfolio website, desi
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **UI Components:** Built with [React](https://reactjs.org/)
 - **Dark Mode:** [next-themes](https://github.com/pacocoursey/next-themes)
-- **Deployment:** (e.g., Vercel, Netlify - Add your platform here)
+- **Deployment:** [Github Pages](https://docs.github.com/en/pages)
 
 ---
 
@@ -71,35 +71,27 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
----
-
 ## 📂 Project Structure (Simplified)
 
 .
 ├── app/ # Next.js App Router (Pages, Layouts)
+│ ├── globals.css # Global Styles & Tailwind directives
 │ ├── layout.tsx # Root Layout
 │ ├── page.tsx # Main Page (renders sections)
-│ └── globals.css # Global Styles & Tailwind directives
+│ └── providers.tsx # Provider for next-themes
 ├── components/ # Reusable React Components
-│ ├── Header.tsx
-│ ├── Footer.tsx
-│ ├── ThemeToggle.tsx
 │ ├── AnimatedText.tsx
+│ ├── Footer.tsx
+│ ├── Header.tsx
+│ ├── ThemeToggle.tsx
 │ └── sections/ # Section-specific components
-│ ├── Introduction.tsx
-│ ├── Skills.tsx
-│ └── ...
-├── lib/ # Utility functions, data constants (optional)
-├── public/ # Static assets (images, fonts)
-├── styles/ # Additional global styles (if needed)
-├── tailwind.config.ts # Tailwind CSS configuration
+│ ├── contact.tsx
+│ ├── experience.tsx
+│ ├── introduction.tsx
+│ ├── projects.tsx
+│ └── skills.tsx
 ├── next.config.mjs # Next.js configuration
+├── tailwind.config.ts # Tailwind CSS configuration
 └── tsconfig.json # TypeScript configuration
 
 ---
@@ -113,5 +105,3 @@ This project is licensed under the MIT License - see the `LICENSE` file for deta
 ## Contact
 
 Kyle Kent - [kkent908@gmail.com](mailto:kkent908@gmail.com)
-
-Project Link: [https://github.com/Kladenets/your-repo-name](https://github.com/Kladenets/your-repo-name) <!-- Replace -->
