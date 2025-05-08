@@ -64,7 +64,7 @@ export default function Experience({ id }: SectionProps) {
           </h2>
         </AnimatedText>
 
-        <div className="space-y-12 relative border-l-5 border-accent pl-6 my-transition-colors">
+        <div className="space-y-12 relative border-l-5 border-secondary-600 dark:border-secondary-300 pl-6 my-transition-colors">
           {/* Dashed line effect (optional) */}
           {/* <div className="absolute top-0 bottom-0 left-[calc(0.75rem - 1px)] w-0.5 bg-primary"></div> */}
 
@@ -77,9 +77,9 @@ export default function Experience({ id }: SectionProps) {
                 <h3 className="text-xl md:text-2xl font-semibold text-text my-transition-colors">
                   {exp.role}
                 </h3>
-                <p className="text-md font-medium text-accent-700 dark:text-accent-300 mb-1 my-transition-colors">
+                <p className="text-md font-medium text-secondary-700 dark:text-secondary-300 mb-1 my-transition-colors">
                   {exp.company}{' '}
-                  <span className="text-sm text-accent-700/80 dark:text-accent-300/80 whitespace-nowrap my-transition-colors">
+                  <span className="text-sm text-secondary-700/80 dark:text-secondary-300/80 whitespace-nowrap my-transition-colors">
                     ({exp.location})
                   </span>
                 </p>
