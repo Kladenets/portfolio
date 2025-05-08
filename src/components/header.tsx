@@ -62,7 +62,6 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
-  // TODO: move the header to the top of the page as a blocking element instead of a fixed one
   return (
     <>
       <header className="fixed md:static top-0 left-0 right-0 z-100 bg-background my-transition-colors">
