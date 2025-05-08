@@ -26,7 +26,7 @@ export default function Introduction({ id }: SectionProps) {
         </AnimatedText>
 
         {/* Optional: Add a subtle scroll down indicator */}
-        <AnimatedText delay={0.8} className="mt-24 ">
+        <AnimatedText delay={0.8} className="relative top-40">
           <div className="animate-bounce text-primary dark:text-secondary ">
             <svg
               className="w-8 h-8 mx-auto"
