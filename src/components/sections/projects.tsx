@@ -1,5 +1,7 @@
 import AnimatedText from '@/components/animatedText';
 
+import ShadowBox from '../shadowBox';
+
 interface SectionProps {
   id: string;
 }
@@ -61,59 +63,63 @@ export default function Projects({ id }: SectionProps) {
               delay={index * 0.15}
               className="relative"
             >
-              {/* Black Shadow Layer - Same size as button, but transformed */}
-              <div
-                className="absolute top-0 left-0 w-full h-full border-4 border-secondary-200 dark:border-secondary-800 z-0 my-transition-colors"
-                style={{
-                  transform: 'translate(6px, 6px)',
-                }} /* Offset 8px right, 8px down */
-              ></div>
-
-              <div className="relative bg-background p-6 h-full flex flex-col my-transition-colors text-text border-4 border-secondary-500 dark:border-secondary-300 z-10 my-transition-colors">
-                <h3 className="text-xl font-semibold mb-2 text-text border-b-2 border-text/30 pb-2 my-transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-text mt-2 mb-4 flex-grow my-transition-colors">
-                  {project.description}
-                </p>
-                <div className="mb-4">
-                  <p className="text-sm font-semibold mb-1 text-text my-transition-colors">
-                    Technologies Used:
+              <ShadowBox
+                className="h-full"
+                shadowBorderStyles="w-full h-full border-4 border-secondary-200 dark:border-secondary-800"
+                mainBorderStyles="w-full h-full p-6 border-4 border-secondary-500 dark:border-secondary-300 
+                  relative bg-background flex flex-col my-transition-colors text-text z-10 my-transition-colors"
+              >
+                <div className="h-full flex flex-col text-text z-10 my-transition-colors">
+                  <h3 className="text-xl font-semibold mb-2 text-text border-b-2 border-text/30 pb-2 my-transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-text mt-2 mb-4 flex-grow my-transition-colors">
+                    {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="bg-accent-100 dark:bg-accent-600 text-text text-xs font-medium px-2.5 py-1 my-transition-colors"
+                  <div className="mb-4">
+                    <p className="text-sm font-semibold mb-1 text-text my-transition-colors">
+                      Technologies Used:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((t) => (
+                        <ShadowBox
+                          shadowBorderStyles="w-full h-full border-1 border-secondary-200 dark:border-secondary-800"
+                          mainBorderStyles="border-2 border-secondary-500 dark:border-secondary-300 
+                            relative bg-background flex flex-col my-transition-colors text-text z-10 my-transition-colors"
+                          key={t}
+                          transform={{ x: 2, y: 2 }}
+                        >
+                          <span className=" text-text text-xs font-medium px-2.5 py-1 my-transition-colors">
+                            {t}
+                          </span>
+                        </ShadowBox>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-auto flex space-x-4">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text hover:underline my-transition-colors"
                       >
-                        {t}
-                      </span>
-                    ))}
+                        GitHub Repo
+                      </a>
+                    )}
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text hover:underline my-transition-colors"
+                      >
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
-                <div className="mt-auto flex space-x-4">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-text hover:underline my-transition-colors"
-                    >
-                      GitHub Repo
-                    </a>
-                  )}
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-text hover:underline my-transition-colors"
-                    >
-                      Live Demo
-                    </a>
-                  )}
-                </div>
-              </div>
+              </ShadowBox>
             </AnimatedText>
           ))}
           {/* Placeholder for more projects */}
