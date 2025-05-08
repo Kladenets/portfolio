@@ -46,10 +46,7 @@ const projects = [
 
 export default function Projects({ id }: SectionProps) {
   return (
-    <section
-      id={id}
-      className="section mb-25 md:mb-0" // Different background
-    >
+    <section id={id} className="section">
       <div className="max-w-5xl w-full">
         <AnimatedText className="w-fit">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-emphasis bg-accent-200 dark:bg-accent-800 p-4 text-text my-transition-colors">
