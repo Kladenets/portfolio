@@ -65,7 +65,7 @@ export default function Skills({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="section" // Use theme colors
+      className="section mb-20 md:mb-0" // Use theme colors
     >
       <div className="max-w-5xl w-full">
         <AnimatedText className="w-fit">

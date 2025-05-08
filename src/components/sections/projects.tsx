@@ -48,7 +48,7 @@ export default function Projects({ id }: SectionProps) {
   return (
     <section
       id={id}
-      className="section" // Different background
+      className="section mb-25 md:mb-0" // Different background
     >
       <div className="max-w-5xl w-full">
         <AnimatedText className="w-fit">
