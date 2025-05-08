@@ -15,6 +15,25 @@ export default function Contact({ id }: SectionProps) {
   const linkedinUrl = 'https://www.linkedin.com/in/kylekentpa/'; // Replace with your actual LinkedIn URL
   const resumeUrl = 'https://registry.jsonresume.org/Kladenets/'; // Replace with your actual LinkedIn URL
 
+  const links = [
+    {
+      text: 'View My GitHub',
+      href: githubUrl,
+    },
+    {
+      text: 'View My Resume',
+      href: resumeUrl,
+    },
+    {
+      text: 'Connect on LinkedIn',
+      href: linkedinUrl,
+    },
+    {
+      text: 'Send Me an Email',
+      href: mailToLink,
+    },
+  ];
+
   return (
     <section id={id} className="section">
       <div className="max-w-5xl text-center w-full flex flex-col items-center">
@@ -35,50 +54,28 @@ export default function Contact({ id }: SectionProps) {
 
         <div className="space-y-6 md:space-y-8">
           {/* Social & Resume Links */}
-          <AnimatedText delay={0.6}>
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mt-6">
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link my-transition-colors"
-              >
-                {/* <GithubIcon className="w-6 h-6 mr-2 group-hover:scale-110 transition-transform" /> */}
-                View My GitHub
-              </a>
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer" // Or use download attribute: download="kyle-kent-resume.pdf"
-                className="contact-link my-transition-colors"
-              >
-                {/* <DocumentDownloadIcon className="w-6 h-6 mr-2 group-hover:scale-110 transition-transform" /> */}
-                View My Resume
-              </a>
-              <a
-                href={linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link my-transition-colors"
-              >
-                {/* <LinkedinIcon className="w-6 h-6 mr-2 group-hover:scale-110 transition-transform" /> */}
-                Connect on LinkedIn
-              </a>
-              <a
-                href={mailToLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link my-transition-colors"
-              >
-                {/* <GithubIcon className="w-6 h-6 mr-2 group-hover:scale-110 transition-transform" /> */}
-                Send Me an Email
-              </a>
-            </div>
-          </AnimatedText>
+
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-10 mt-6">
+            {links.map((link, index) => (
+              <AnimatedText delay={0.3 + index * 0.1} key={index}>
+                <motion.a
+                  className="contact-link my-transition-colors"
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                >
+                  {link.text}
+                </motion.a>
+              </AnimatedText>
+            ))}
+          </div>
         </div>
 
         <AnimatedText delay={0.8} className="mt-12 md:mt-16">
-          <p className="text-sm text-text/70">
+          <p className="text-sm text-text/70 my-transition-colors">
             Based in the Greater Philadelphia Area – Open to remote
             opportunities.
           </p>
