@@ -38,13 +38,13 @@ export default function Contact({ id }: SectionProps) {
     <section id={id} className="section">
       <div className="max-w-5xl text-center w-full flex flex-col items-center">
         <AnimatedText className="w-fit justify-center">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-10 md:mb-16 text-emphasis bg-accent-200 dark:bg-accent-800 p-7 md:p-10 text-text my-transition-colors">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-10 md:mb-16 text-emphasis bg-accent-200 dark:bg-accent-800 p-5 md:p-10 text-text my-transition-colors">
             Let&apos;s Connect
           </h2>
         </AnimatedText>
 
         <AnimatedText delay={0.2}>
-          <p className="text-lg md:text-xl text-text mb-10 md:mb-12 leading-relaxed my-transition-colors">
+          <p className="text-lg md:text-xl text-text mb-6 md:mb-12 leading-relaxed my-transition-colors">
             I&apos;m passionate about crafting beautiful and intuitive digital
             experiences and the ever-changing tech they&apos;re built with.
             Whether you have a project in mind, a role to discuss, or just want

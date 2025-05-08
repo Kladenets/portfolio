@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header />
       {/* Scroll Container - takes available space */}
-      <main className="overflow-y-scroll snap-y snap-mandatory scroll-smooth ">
+      <main className="md:overflow-y-scroll md:snap-y md:snap-mandatory scroll-smooth">
         <Introduction id="intro" />
         <Skills id="skills" />
         <Experience id="experience" />
