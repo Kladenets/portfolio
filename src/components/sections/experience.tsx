@@ -56,7 +56,7 @@ const experiences = [
 
 export default function Experience({ id }: SectionProps) {
   return (
-    <section id={id} className="section mb-20 md:mb-0">
+    <section id={id} className="section">
       <div className="max-w-5xl w-full py-0 md:py-16 lg:py-20">
         <AnimatedText className="w-fit">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text my-transition-colors">
