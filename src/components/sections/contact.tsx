@@ -93,7 +93,7 @@ export default function Contact({ id }: SectionProps) {
 
                 {/* Actual Button Content with Yellow Border */}
                 <motion.a
-                  className="contact-link my-transition-colors underline"
+                  className="contact-link my-transition-colors underline md:no-underline"
                   // Animation for the button itself (lifting)
                   initial={{ x: 0, y: 0 }} // Explicitly set initial state
                   whileHover={{ x: -3, y: -3 }} // Lifts up and left by 4px

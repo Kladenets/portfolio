@@ -81,7 +81,7 @@ export default function Header() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className=" text-text py-1 px-4 hover:bg-secondary-200 dark:hover:bg-secondary-700 active:bg-secondary-300 rounded-md my-transition-colors"
+                  className=" text-text py-1 px-4 hover:bg-secondary-200 dark:hover:bg-secondary-700 active:bg-secondary-300 fmy-transition-colors"
                   whileTap={{ scale: 0.95 }}
                   whileHover={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
