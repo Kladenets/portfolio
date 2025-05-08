@@ -66,7 +66,7 @@ export default function Header() {
   return (
     <>
       <header className="backdrop-blur-md">
-        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center border-b-1 border-text-500 my-transition-colors">
+        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center border-b-1 border-text/30 my-transition-colors">
           {/* Logo/Name */}
           <a
             href="#intro"
@@ -77,14 +77,14 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="flex items-center">
-            <div className="hidden md:flex items-center justify-center">
+            <div className="hidden md:flex items-center justify-center space-x-2 mr-4">
               {navItems.map((item) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className=" text-text py-2 px-5 hover:bg-secondary-500 my-transition-colors"
+                  className=" text-text py-1 px-4 hover:bg-secondary-200 dark:hover:bg-secondary-700 active:bg-secondary-300 rounded-md my-transition-colors"
                   whileTap={{ scale: 0.95 }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 >
                   {item.name}
@@ -102,7 +102,7 @@ export default function Header() {
                 aria-label="Toggle menu"
                 className="text-text focus:outline-none pt-2 my-transition-colors"
                 whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
                 {isMobileMenuOpen ? (
