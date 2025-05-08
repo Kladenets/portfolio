@@ -13,7 +13,7 @@ export default function Introduction({ id }: SectionProps) {
       <div className="flex flex-col items-center max-w-4xl text-center">
         {/* Name as the highlight */}
         <AnimatedText className="mb-4 w-fit">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold p-8 md:p-12 bg-secondary-500 dark:bg-secondary-500 text-text tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold p-8 md:p-12 bg-secondary-500 dark:bg-secondary-500 text-text tracking-tight my-transition-colors">
             Kyle Kent
           </h1>
         </AnimatedText>
