@@ -81,7 +81,7 @@ const ThemeToggle = () => {
   return (
     <div
       onClick={toggleTheme}
-      className="inline-block rounded-md cursor-pointer"
+      className="inline-block rounded-full cursor-pointer"
       onKeyDown={(e) =>
         e.key === 'Enter' || e.key === ' ' ? toggleTheme() : null
       }
@@ -89,9 +89,9 @@ const ThemeToggle = () => {
       <motion.button
         aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
         type="button"
-        className="p-2 text-text hover:bg-secondary-500 focus:outline-none  cursor-pointer my-transition-colors"
+        className="p-2 text-text hover:bg-secondary-100 dark:hover:bg-secondary-700 focus:outline-none cursor-pointer rounded-full my-transition-colors"
         whileTap={{ scale: 0.95 }}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1 }}
         disabled={!mounted}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
