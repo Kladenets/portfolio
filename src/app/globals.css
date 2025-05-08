@@ -83,7 +83,7 @@
   }
 
   .contact-link {
-    @apply text-text hover:bg-secondary-200 dark:hover:bg-secondary-700 font-medium border-1 border-accent lg:border-none p-2 md:p-3 rounded-md lg:rounded-lg block shadow-md;
+    @apply font-medium p-2 md:p-3 relative block bg-background text-text border-4 border-accent-600 dark:border-accent-500 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-yellow-500;
   }
 
   @variant dark {
