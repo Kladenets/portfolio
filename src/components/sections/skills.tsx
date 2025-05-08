@@ -1,5 +1,7 @@
 import AnimatedText from '@/components/animatedText';
 
+import ShadowBox from '../shadowBox';
+
 interface SectionProps {
   id: string;
 }
@@ -82,15 +84,11 @@ export default function Skills({ id }: SectionProps) {
               delay={0.1 * index}
               className="relative h-full"
             >
-              {/* Black Shadow Layer - Same size as button, but transformed */}
-              <div
-                className="absolute top-0 left-0 w-full h-full border-4 border-secondary-200 dark:border-secondary-800 z-0 my-transition-colors"
-                style={{
-                  transform: 'translate(6px, 6px)',
-                }} /* Offset 8px right, 8px down */
-              ></div>
-
-              <div className="relative h-full w-full block p-6 bg-background text-text border-4 border-secondary-500 dark:border-secondary-300 z-10 my-transition-colors">
+              <ShadowBox
+                className="h-full"
+                shadowBorderStyles="h-full w-full border-4 border-secondary-200 dark:border-secondary-800"
+                mainBorderStyles="p-6 h-full w-full border-4 border-secondary-500 dark:border-secondary-300"
+              >
                 {/* border on h3 is just on the bottom and separates the title from the content */}
                 <h3 className="border-b-1 pb-2 border-text/30 font-semibold mb-4 text-text my-transition-colors">
                   {category.title}
@@ -105,7 +103,7 @@ export default function Skills({ id }: SectionProps) {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </ShadowBox>
             </AnimatedText>
           ))}
         </div>
