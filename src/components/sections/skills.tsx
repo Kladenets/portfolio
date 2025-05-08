@@ -4,6 +4,7 @@ interface SectionProps {
   id: string;
 }
 
+// TODO: use boxed shadows instead of classic shadows to stay with the sharper theme (will these work in the header buttons?)
 export default function Skills({ id }: SectionProps) {
   // Consider organizing skills into categories
   const skillCategories = [

@@ -52,12 +52,16 @@ export default function Contact({ id }: SectionProps) {
           </p>
         </AnimatedText>
 
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-6 md:space-y-8 w-full">
           {/* Social & Resume Links */}
 
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-10 mt-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-10 mt-6 w-full">
             {links.map((link, index) => (
-              <AnimatedText delay={0.3 + index * 0.1} key={index}>
+              <AnimatedText
+                delay={0.3 + index * 0.1}
+                key={index}
+                className="w-full"
+              >
                 <motion.a
                   className="contact-link my-transition-colors"
                   href={link.href}
