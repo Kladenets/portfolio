@@ -155,7 +155,7 @@
 }
 
 body {
-  @apply overflow-hidden; /* Prevent the BODY itself from scrolling */
+  @apply md:overflow-hidden; /* Prevent the BODY itself from scrolling */
 }
 
 /* Ensure smooth scrolling for anchor links */

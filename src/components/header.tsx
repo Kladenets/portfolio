@@ -65,7 +65,7 @@ export default function Header() {
   // TODO: move the header to the top of the page as a blocking element instead of a fixed one
   return (
     <>
-      <header className="backdrop-blur-md">
+      <header className="fixed md:static top-0 left-0 right-0 z-100 bg-background/80 backdrop-blur-sm md:backdrop-blur-none">
         <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center border-b-1 border-text/30 my-transition-colors">
           {/* Logo/Name */}
           <a
