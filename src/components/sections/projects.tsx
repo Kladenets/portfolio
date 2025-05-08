@@ -56,8 +56,20 @@ export default function Projects({ id }: SectionProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <AnimatedText key={project.title} delay={index * 0.15}>
-              <div className="bg-background p-6 rounded-lg shadow-lg dark:shadow-none border border-text h-full flex flex-col my-transition-colors">
+            <AnimatedText
+              key={project.title}
+              delay={index * 0.15}
+              className="relative"
+            >
+              {/* Black Shadow Layer - Same size as button, but transformed */}
+              <div
+                className="absolute top-0 left-0 w-full h-full border-4 border-secondary-200 dark:border-secondary-800 z-0 my-transition-colors"
+                style={{
+                  transform: 'translate(6px, 6px)',
+                }} /* Offset 8px right, 8px down */
+              ></div>
+
+              <div className="relative bg-background p-6 h-full flex flex-col my-transition-colors text-text border-4 border-secondary-500 dark:border-secondary-300 z-10 my-transition-colors">
                 <h3 className="text-xl font-semibold mb-2 text-text border-b-2 border-text/30 pb-2 my-transition-colors">
                   {project.title}
                 </h3>
@@ -72,7 +84,7 @@ export default function Projects({ id }: SectionProps) {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="bg-accent-100 dark:bg-accent-600 text-text text-xs font-medium px-2.5 py-1 rounded my-transition-colors"
+                        className="bg-accent-100 dark:bg-accent-600 text-text text-xs font-medium px-2.5 py-1 my-transition-colors"
                       >
                         {t}
                       </span>
