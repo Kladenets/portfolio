@@ -62,11 +62,10 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
-  // TODO: move the header to the top of the page as a blocking element instead of a fixed one
   return (
     <>
       <header className="fixed md:static top-0 left-0 right-0 z-100 bg-background my-transition-colors">
-        <nav className="container mx-auto px-4 sm:px-6 py-2 flex justify-between items-center border-b-1 border-text/30 my-transition-colors">
+        <nav className="container mx-auto px-6 py-2 flex justify-between items-center border-b-1 border-text/30 my-transition-colors">
           {/* Logo/Name */}
           <a
             href="#intro"
@@ -124,7 +123,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-[56px] z-40 md:hidden bg-background shadow-lg pt-5 pb-5 px-3 sm:px-6 my-transition-colors" // Adjust top-[px] based on header height
+            className="fixed inset-x-0 top-[56px] z-40 md:hidden bg-background shadow-lg pt-5 pb-5 px-6 my-transition-colors" // Adjust top-[px] based on header height
           >
             <nav className="flex flex-col space-y-5 items-center">
               {navItems.map((item) => (
