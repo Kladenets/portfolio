@@ -1,9 +1,12 @@
 import AnimatedText from '@/components/animatedText';
 
+import ShadowBox from '../shadowBox';
+
 interface SectionProps {
   id: string;
 }
 
+// TODO: use boxed shadows instead of classic shadows to stay with the sharper theme (will these work in the header buttons?)
 export default function Skills({ id }: SectionProps) {
   // Consider organizing skills into categories
   const skillCategories = [
@@ -76,12 +79,21 @@ export default function Skills({ id }: SectionProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <AnimatedText key={category.title} delay={0.1 * index}>
-              <div className="bg-background p-6 rounded-lg shadow-lg dark:shadow-none h-full border border-text my-transition-colors">
+            <AnimatedText
+              key={category.title}
+              delay={0.1 * index}
+              className="relative h-full"
+            >
+              <ShadowBox
+                className="h-full"
+                shadowBorderStyles="h-full w-full border-4 border-secondary-200 dark:border-secondary-800"
+                mainBorderStyles="p-6 h-full w-full border-4 border-secondary-500 dark:border-secondary-300"
+              >
+                {/* border on h3 is just on the bottom and separates the title from the content */}
                 <h3 className="border-b-1 pb-2 border-text/30 font-semibold mb-4 text-text my-transition-colors">
                   {category.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 h-full">
                   {category.skills.map((skill) => (
                     <li
                       key={skill}
@@ -91,7 +103,7 @@ export default function Skills({ id }: SectionProps) {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </ShadowBox>
             </AnimatedText>
           ))}
         </div>
