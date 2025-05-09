@@ -79,7 +79,7 @@
   }
 
   .section {
-    @apply min-h-[calc(100vh_-_3.5rem)] w-full flex flex-col items-center justify-center snap-start p-8 pt-23 md:pt-8;
+    @apply min-h-[calc(100vh_-_3.5rem)] w-full flex flex-col items-center justify-center snap-start p-8 pt-23 lg:pt-8;
   }
 
   .contact-link {
@@ -155,7 +155,7 @@
 }
 
 body {
-  @apply md:overflow-hidden; /* Prevent the BODY itself from scrolling */
+  @apply lg:overflow-hidden; /* Prevent the BODY itself from scrolling */
 }
 
 /* Ensure smooth scrolling for anchor links */
