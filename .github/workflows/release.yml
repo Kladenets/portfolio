@@ -61,3 +61,7 @@ jobs:
       - name: Rebase release branch
         uses: martincostello/rebaser@v1
         id: rebase
+
+      - name: Push changes
+        if: ${{ steps.rebase.outputs.result == 'success' }}
+        run: git push --force-with-lease origin release
