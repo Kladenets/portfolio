@@ -1,8 +1,5 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
-#
-# To get started with Next.js see: https://nextjs.org/docs/getting-started
-#
-name: Deploy Next.js site to Pages
+# workflow to deploy to Github Pages when changes are pushed to the main branch
+name: Deploy Next.js site to Pages (pre-production)
 
 on:
   # Runs on pushes targeting the default branch
