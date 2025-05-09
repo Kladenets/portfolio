@@ -28,6 +28,7 @@ This repository contains the source code for my personal portfolio website, desi
 - **UI Components:** Built with [React](https://reactjs.org/)
 - **Dark Mode:** [next-themes](https://github.com/pacocoursey/next-themes)
 - **Deployment:** [Github Pages](https://docs.github.com/en/pages)
+- **AI Assistant** [Google AI Studio](https://aistudio.google.com/welcome)
 
 ---
 
