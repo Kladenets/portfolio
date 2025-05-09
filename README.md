@@ -1,6 +1,6 @@
 # Kyle Kent - Personal Portfolio
 
-![Portfolio Screenshot](placeholder.png) <!-- Optional: Replace placeholder.png with an actual screenshot link after deploying or locally -->
+<!-- ![Portfolio Screenshot](placeholder.png): Replace placeholder.png with an actual screenshot link after deploying or locally -->
 
 This repository contains the source code for my personal portfolio website, designed to showcase my skills, work experience, and personal projects as a Frontend Software Engineer.
 
