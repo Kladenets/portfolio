@@ -34,7 +34,7 @@ jobs:
       - id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
-          github_token: ${{ secrets.OC_BOT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: ${{ needs.calculate-version.outputs.new_tag }}
           tag_prefix: ''
           custom_release_rules: config:patch:Configuration Changes,chore:patch:Miscellaneous,
