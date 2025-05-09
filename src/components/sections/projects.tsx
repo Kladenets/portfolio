@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Portfolio Website (you're here!)",
     description:
-      'Single page portfolio website showcasing my projects, skills, and work experience. Built with Next.js, Tailwind CSS, and TypeScript.',
+      'Single page portfolio website showcasing my projects, skills, and work experience. Built with Next.js, Tailwind CSS, Framer Motion, and TypeScript.',
     tech: [
       'Next.js (App Router)',
       'React',
@@ -18,6 +18,7 @@ const projects = [
       'Motion',
       'TypeScript',
       'Github Pages',
+      'Google AI Studio',
     ],
     link: 'https://github.com/Kladenets/portfolio',
     liveLink: null, // Add if deployed
@@ -25,7 +26,7 @@ const projects = [
   {
     title: 'To-dos App',
     description:
-      'A basic todo list application built for learning purposes, focusing on implementing Tailwind CSS, the Next.js App Router, and MinimongoDB for local storage.',
+      'A (WIP!) basic todo list application built for learning purposes, focusing on implementing Tailwind CSS, the Next.js App Router, and MinimongoDB for local storage.',
     tech: [
       'Next.js (App Router)',
       'React',
