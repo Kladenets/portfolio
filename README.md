@@ -73,7 +73,7 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## 📂 Project Structure (Simplified)
-
+```
 .
 ├── app/ # Next.js App Router (Pages, Layouts)
 │ ├── globals.css # Global Styles & Tailwind directives
@@ -94,7 +94,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ├── next.config.mjs # Next.js configuration
 ├── tailwind.config.ts # Tailwind CSS configuration
 └── tsconfig.json # TypeScript configuration
-
+```
 ---
 
 ## License
