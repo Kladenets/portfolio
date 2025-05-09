@@ -58,10 +58,10 @@ jobs:
         with:
           ref: release
 
-      - name: Rebase release branch
-        uses: martincostello/rebaser@v1
-        id: rebase
+      - name: Merge main -> release branch
+        id: merge
+        run: git merge main
 
       - name: Push changes
-        if: ${{ steps.rebase.outputs.result == 'success' }}
-        run: git push --force-with-lease origin release
+        if: ${{ steps.merge.outputs.status == 'success' }}
+        run: git push origin release
