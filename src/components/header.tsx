@@ -62,10 +62,12 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
   return (
     <>
-      <header className="fixed md:static top-0 left-0 right-0 z-100 bg-background my-transition-colors">
-        <nav className="container mx-auto px-6 py-2 flex justify-between items-center border-b-1 border-text/30 my-transition-colors">
+      <header className="fixed lg:static top-0 left-0 right-0 z-100 my-transition-colors bg-background">
+        <nav className="w-full lg:container flex lg:mx-auto px-6 py-2 justify-between items-center border-b-1 border-text/30 my-transition-colors">
           {/* Logo/Name */}
           <a
             href="#intro"
@@ -93,6 +95,10 @@ export default function Header() {
 
             {/* Right side controls: Theme Toggle and Mobile Menu Button */}
             <ThemeToggle />
+
+            {isDevelopment && (
+              <div className="h-10 w-10 block sm:bg-blue-400 md:bg-red-400 lg:bg-yellow-400 xl:bg-purple-400"></div>
+            )}
 
             {/* Mobile Menu Button */}
             <div className="md:hidden items-center">
