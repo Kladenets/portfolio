@@ -57,14 +57,14 @@ const experiences = [
 export default function Experience({ id }: SectionProps) {
   return (
     <section id={id} className="section">
-      <div className="max-w-5xl w-full py-0 md:py-16 lg:py-20">
+      <div className="max-w-5xl w-full py-0 md:py-16">
         <AnimatedText className="w-fit">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text my-transition-colors">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 lg:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text my-transition-colors">
             Work Experience
           </h2>
         </AnimatedText>
 
-        <div className="space-y-12 relative border-l-5 border-secondary-600 dark:border-secondary-300 pl-6 my-transition-colors">
+        <div className="space-y-12 relative border-l-5 border-secondary-600 dark:border-secondary-300 pl-6 pb-8 snap-end scroll-mb-10 my-transition-colors">
           {/* Dashed line effect (optional) */}
           {/* <div className="absolute top-0 bottom-0 left-[calc(0.75rem - 1px)] w-0.5 bg-primary"></div> */}
 
