@@ -40,7 +40,6 @@ jobs:
       tag: ${{ steps.validate_tag.outputs.tag }}
     steps:
       - name: Validate tag
-        if: "${{ github.event.inputs.rollback_tag != '' }}"
         id: validate_tag
         run: |
           if [[ "${{ github.event.inputs.rollback_tag }}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
