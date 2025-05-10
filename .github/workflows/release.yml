@@ -92,7 +92,7 @@ jobs:
 
       - name: Reset release branch to selected release
         run: |
-          echo "Resetting release branch to $TAG..."
+          echo "Resetting release branch to ${{ env.TAG }}..."
           git fetch origin --tags
-          git reset --hard $TAG
+          git reset --hard ${{ env.TAG }}
           git push origin release --force
