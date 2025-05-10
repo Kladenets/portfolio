@@ -58,12 +58,10 @@ jobs:
         with:
           ref: release
 
-      - name: Merge main -> release branch
+      - name: Merge main -> release
+        uses: devmasx/merge-branch@master
         id: merge
-        run: |
-          git checkout release
-          git merge main
-
-      - name: Push changes
-        if: ${{ steps.merge.outputs.status == 'success' }}
-        run: git push origin release
+        with:
+          type: now
+          target_branch: release
+          github_token: ${{ secrets.GITHUB_TOKEN }}
