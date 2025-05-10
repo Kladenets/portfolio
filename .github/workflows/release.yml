@@ -13,6 +13,7 @@ permissions:
 jobs:
   validate-rollback-tag:
     runs-on: ubuntu-latest
+    continue-on-error: true
     outputs:
       status: ${{ steps.validate_tag.outputs.status }}
     steps:
