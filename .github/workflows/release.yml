@@ -51,17 +51,15 @@ jobs:
 
   bump-release-branch:
     runs-on: ubuntu-latest
-    needs: [create-release]
+    needs: [calculate-version, create-release]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: release
 
-      - name: Merge main -> release
-        uses: devmasx/merge-branch@master
-        id: merge
-        with:
-          type: now
-          target_branch: release
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Reset release branch to latest release
+        run: |
+          git fetch origin --tags
+          git reset --hard ${{ needs.calculate-version.outputs.new_tag }}
+          git push origin release --force
