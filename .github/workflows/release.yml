@@ -16,20 +16,21 @@ jobs:
     continue-on-error: true
     outputs:
       status: ${{ steps.validate_tag.outputs.status }}
+      rollback: ${{ steps.validate_tag.outputs.rollback }}
     steps:
       - name: Validate tag
         id: validate_tag
         run: |
           if [[ "${{ github.event.inputs.rollback_tag }}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "TAG=${{ github.event.inputs.rollback_tag }}" >> $GITHUB_ENV
+            echo "rollback=true" >> $GITHUB_OUTPUT
           else
             echo "Invalid rollback tag format. Expected format: X.Y.Z"
             echo "rollback=false" >> $GITHUB_OUTPUT
-            exit 1
           fi
 
   calculate-version:
-    if: ${{ needs.validate-rollback-tag.outputs.status == 'failure' }}
+    if: ${{ needs.validate-rollback-tag.outputs.rollback == 'false' }}
     needs: [validate-rollback-tag]
     runs-on: ubuntu-latest
     outputs:
@@ -51,7 +52,7 @@ jobs:
           echo "TAG=${{ steps.tag_version_dry_run.outputs.new_tag }}" >> $GITHUB_ENV
 
   create-release:
-    if: ${{ needs.validate-rollback-tag.outputs.status == 'failure' }}
+    if: ${{ needs.validate-rollback-tag.outputs.rollback == 'false' }}
     runs-on: ubuntu-latest
     needs: [validate-rollback-tag, calculate-version]
     outputs:
@@ -86,9 +87,9 @@ jobs:
         with:
           ref: release
 
-      - name: Reset release branch to latest release
-        if: ${{ needs.validate-rollback-tag.outputs.status == 'success' }}
+      - name: Reset release branch to selected release
         run: |
+          echo "Resetting release branch to $TAG..."
           git fetch origin --tags
           git reset --hard $TAG
           git push origin release --force
