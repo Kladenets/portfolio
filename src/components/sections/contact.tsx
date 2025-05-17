@@ -26,7 +26,7 @@ const shadowBackgroundVariants = {
 };
 
 export default function Contact({ id }: SectionProps) {
-  const email = 'kkent908@gmail.com';
+  const email = 'connect@kylekent.dev';
   const mailToLink = `mailto:${email}`;
   const githubUrl = 'https://github.com/Kladenets/';
   const linkedinUrl = 'https://www.linkedin.com/in/kylekentpa/'; // Replace with your actual LinkedIn URL
