@@ -9,7 +9,7 @@ on:
       - '**/src/**'
       - '**/public/**'
       - '**/package*.json'
-      - '**/next.config.js'
+      - '**/next.config.ts'
       - '**/tailwind.config.js'
       - '**/tsconfig.json'
 

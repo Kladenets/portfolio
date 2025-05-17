@@ -73,6 +73,7 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## 📂 Project Structure (Simplified)
+
 ```
 .
 ├── app/ # Next.js App Router (Pages, Layouts)
@@ -95,6 +96,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ├── tailwind.config.ts # Tailwind CSS configuration
 └── tsconfig.json # TypeScript configuration
 ```
+
 ---
 
 ## License
@@ -105,4 +107,4 @@ This project is licensed under the MIT License - see the `LICENSE` file for deta
 
 ## Contact
 
-Kyle Kent - [kkent908@gmail.com](mailto:kkent908@gmail.com)
+Kyle Kent - [develop@kylekent.dev](mailto:develop@kylekent.dev)
