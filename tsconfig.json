@@ -18,10 +18,9 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"],
-      "@sections/*": ["components/sections/*"]
+      "@/*": ["./src/*"],
+      "@sections/*": ["./src/components/sections/*"]
     }
   },
   "include": [
