@@ -3,6 +3,7 @@
   --resume-muted: #66595a;
   --resume-paper: var(--color-background);
   --resume-rule: #d9d0d0;
+  --resume-shadow: var(--color-secondary);
   min-height: 100vh;
   background: var(--color-background);
   color: var(--resume-ink);
@@ -18,14 +19,15 @@
   box-shadow: 0 0.75rem 2rem rgb(33 29 30 / 12%);
 }
 
+.headerBox {
+  margin-bottom: 2rem;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  border-top: 0.45rem solid var(--resume-accent);
-  border-right: 0.45rem solid var(--resume-accent);
   padding: 1.25rem 1.25rem 1.75rem;
-  margin-bottom: 2rem;
 }
 
 .kicker {
@@ -39,6 +41,7 @@
 
 .header h1 {
   font-size: clamp(2.25rem, 7vw, 4.4rem);
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.95;
   margin: 0;
@@ -49,9 +52,9 @@
   color: var(--resume-muted);
   display: flex;
   flex-direction: column;
-  font-size: 0.78rem;
   font-style: normal;
   gap: 0.3rem;
+  font-size: 0.78rem;
   line-height: 1.35;
   text-align: right;
 }
@@ -69,27 +72,23 @@
   margin-top: 2rem;
 }
 
-.section h2 {
-  align-items: center;
-  display: flex;
-  font-size: 0.78rem;
-  gap: 0.7rem;
-  letter-spacing: 0.14em;
+.sectionHeading {
+  border-left: 5px solid var(--color-secondary-600);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.1;
   margin: 0 0 0.85rem;
+  padding: 0.65rem 0 0.65rem 0.75rem;
   text-transform: uppercase;
 }
 
-.section h2::before {
-  background: var(--resume-accent);
-  content: '';
-  display: block;
-  height: 1.2rem;
-  width: 0.35rem;
+:global(.dark) .sectionHeading {
+  border-left-color: var(--color-secondary-300);
 }
 
 .skills {
-  border-top: 1px solid var(--resume-rule);
-  padding-top: 0.7rem;
+  padding-top: 0.05rem;
 }
 
 .skills p,
@@ -146,6 +145,7 @@
 }
 
 .entry ul {
+  list-style: none;
   margin: 0.7rem 0 0;
   padding-left: 1.2rem;
 }
@@ -155,6 +155,17 @@
   line-height: 1.5;
   margin: 0.32rem 0;
   padding-left: 0.2rem;
+  position: relative;
+}
+
+.entry li::before {
+  background: var(--resume-accent);
+  content: '';
+  height: 0.38rem;
+  left: -1.05rem;
+  position: absolute;
+  top: 0.55rem;
+  width: 0.38rem;
 }
 
 .project h3 {
@@ -206,11 +217,6 @@
     margin: 0;
     max-width: none;
     padding: 0;
-  }
-
-  .header {
-    border-top-width: 0.3rem;
-    border-right-width: 0.3rem;
   }
 
   @page {
