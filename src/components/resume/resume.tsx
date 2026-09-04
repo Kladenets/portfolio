@@ -1,0 +1,217 @@
+import type { CSSProperties } from 'react';
+
+import styles from './resume.module.css';
+
+interface Basics {
+  name?: string;
+  email?: string;
+  phone?: string;
+  url?: string;
+  profiles?: Array<{ network?: string; url?: string }>;
+}
+
+interface Skill {
+  name?: string;
+  keywords?: string[];
+}
+
+interface WorkEntry {
+  name?: string;
+  position?: string;
+  location?: string;
+  startDate?: string;
+  endDate?: string;
+  highlights?: string[];
+}
+
+interface Project {
+  name?: string;
+  url?: string;
+  description?: string;
+}
+
+interface EducationEntry {
+  institution?: string;
+  studyType?: string;
+  location?: string;
+  startDate?: string;
+  endDate?: string;
+}
+
+export interface ResumeData {
+  basics?: Basics;
+  skills?: Skill[];
+  work?: WorkEntry[];
+  projects?: Project[];
+  education?: EducationEntry[];
+}
+
+function formatDate(value?: string) {
+  if (!value || value === 'Present') return value;
+
+  const [year, month] = value.split('-');
+  if (!month) return value;
+
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(Number(year), Number(month) - 1));
+}
+
+function dateRange(startDate?: string, endDate?: string) {
+  const start = formatDate(startDate);
+  const end = formatDate(endDate);
+  if (!start) return end;
+  if (!end) return start;
+  return `${start} - ${end}`;
+}
+
+function ExternalLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer">
+      {children}
+    </a>
+  );
+}
+
+export default function Resume({ resume }: { resume: ResumeData }) {
+  const basics = resume.basics;
+  const profiles = basics?.profiles?.filter((profile) => profile.url) ?? [];
+  const accentStyle = { '--resume-accent': '#997a82' } as CSSProperties;
+
+  return (
+    <main className={styles.page} style={accentStyle}>
+      <article className={styles.document}>
+        <header className={styles.header}>
+          <div>
+            <p className={styles.kicker}>Software Engineer</p>
+            <h1>{basics?.name}</h1>
+          </div>
+          <address className={styles.contact}>
+            {basics?.email && (
+              <a href={`mailto:${basics.email}`}>{basics.email}</a>
+            )}
+            {basics?.phone && (
+              <a href={`tel:${basics.phone}`}>{basics.phone}</a>
+            )}
+            {basics?.url && (
+              <ExternalLink href={basics.url}>
+                {basics.url.replace(/^https?:\/\//, '')}
+              </ExternalLink>
+            )}
+            {profiles.map((profile) => (
+              <ExternalLink key={profile.url} href={profile.url!}>
+                {profile.network}
+              </ExternalLink>
+            ))}
+          </address>
+        </header>
+
+        {resume.skills?.length ? (
+          <section className={styles.section} aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <div className={styles.skills}>
+              {resume.skills.map((skill) => (
+                <p key={skill.name}>
+                  <strong>{skill.name}:</strong> {skill.keywords?.join(', ')}
+                </p>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {resume.work?.length ? (
+          <section
+            className={styles.section}
+            aria-labelledby="experience-heading"
+          >
+            <h2 id="experience-heading">Experience</h2>
+            <div className={styles.entries}>
+              {resume.work.map((entry) => (
+                <article
+                  className={styles.entry}
+                  key={`${entry.name}-${entry.startDate}`}
+                >
+                  <div className={styles.entryHeader}>
+                    <div>
+                      <h3>{entry.name}</h3>
+                      <p className={styles.role}>{entry.position}</p>
+                    </div>
+                    <div className={styles.meta}>
+                      <p>{dateRange(entry.startDate, entry.endDate)}</p>
+                      <p>{entry.location}</p>
+                    </div>
+                  </div>
+                  {entry.highlights?.length ? (
+                    <ul>
+                      {entry.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {resume.projects?.length ? (
+          <section
+            className={styles.section}
+            aria-labelledby="projects-heading"
+          >
+            <h2 id="projects-heading">Projects</h2>
+            <div className={styles.entries}>
+              {resume.projects.map((project) => (
+                <article className={styles.project} key={project.name}>
+                  <h3>
+                    {project.name}
+                    {project.url && (
+                      <ExternalLink href={project.url}>
+                        {' '}
+                        {project.url.replace(/^https?:\/\//, '')}
+                      </ExternalLink>
+                    )}
+                  </h3>
+                  {project.description && <p>{project.description}</p>}
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {resume.education?.length ? (
+          <section
+            className={styles.section}
+            aria-labelledby="education-heading"
+          >
+            <h2 id="education-heading">Education</h2>
+            <div className={styles.entries}>
+              {resume.education.map((entry) => (
+                <article
+                  className={styles.entryHeader}
+                  key={`${entry.institution}-${entry.startDate}`}
+                >
+                  <div>
+                    <h3>{entry.institution}</h3>
+                    <p className={styles.role}>{entry.studyType}</p>
+                  </div>
+                  <div className={styles.meta}>
+                    <p>{dateRange(entry.startDate, entry.endDate)}</p>
+                    <p>{entry.location}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+      </article>
+    </main>
+  );
+}

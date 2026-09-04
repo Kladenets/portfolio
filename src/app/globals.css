@@ -162,3 +162,29 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.resume-page {
+  height: 100dvh;
+  overflow-y: auto;
+}
+
+.resume-back-link {
+  margin: 0 auto;
+  max-width: 52rem;
+  padding: 1rem;
+  text-align: left;
+}
+
+.resume-back-link a {
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+@media print {
+  .resume-back-link {
+    display: none;
+  }
+}

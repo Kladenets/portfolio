@@ -30,7 +30,7 @@ export default function Contact({ id }: SectionProps) {
   const mailToLink = `mailto:${email}`;
   const githubUrl = 'https://github.com/Kladenets/';
   const linkedinUrl = 'https://www.linkedin.com/in/kylekentpa/'; // Replace with your actual LinkedIn URL
-  const resumeUrl = 'https://registry.jsonresume.org/Kladenets/'; // Replace with your actual LinkedIn URL
+  const resumeUrl = '/resume';
 
   const links = [
     {
