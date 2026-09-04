@@ -1,5 +1,7 @@
 import type { CSSProperties } from 'react';
 
+import ShadowBox from '@/components/shadowBox';
+
 import styles from './resume.module.css';
 
 interface Basics {
@@ -33,6 +35,8 @@ interface Project {
 interface EducationEntry {
   institution?: string;
   studyType?: string;
+  area?: string;
+  courses?: string[];
   location?: string;
   startDate?: string;
   endDate?: string;
@@ -80,42 +84,64 @@ function ExternalLink({
   );
 }
 
+function SectionHeading({
+  id,
+  children,
+}: {
+  id: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <h2 className={styles.sectionHeading} id={id}>
+      {children}
+    </h2>
+  );
+}
+
 export default function Resume({ resume }: { resume: ResumeData }) {
   const basics = resume.basics;
   const profiles = basics?.profiles?.filter((profile) => profile.url) ?? [];
-  const accentStyle = { '--resume-accent': '#997a82' } as CSSProperties;
+  const accentStyle = {
+    '--resume-accent': 'var(--color-accent)',
+  } as CSSProperties;
 
   return (
     <main className={styles.page} style={accentStyle}>
       <article className={styles.document}>
-        <header className={styles.header}>
-          <div>
-            <p className={styles.kicker}>Software Engineer</p>
-            <h1>{basics?.name}</h1>
-          </div>
-          <address className={styles.contact}>
-            {basics?.email && (
-              <a href={`mailto:${basics.email}`}>{basics.email}</a>
-            )}
-            {basics?.phone && (
-              <a href={`tel:${basics.phone}`}>{basics.phone}</a>
-            )}
-            {basics?.url && (
-              <ExternalLink href={basics.url}>
-                {basics.url.replace(/^https?:\/\//, '')}
-              </ExternalLink>
-            )}
-            {profiles.map((profile) => (
-              <ExternalLink key={profile.url} href={profile.url!}>
-                {profile.network}
-              </ExternalLink>
-            ))}
-          </address>
-        </header>
+        <ShadowBox
+          className={styles.headerBox}
+          shadowBorderStyles="h-full w-full border-4 border-secondary-200 dark:border-secondary-800"
+          mainBorderStyles="h-full w-full border-4 border-secondary-500 dark:border-secondary-300"
+        >
+          <header className={styles.header}>
+            <div>
+              <p className={styles.kicker}>Software Engineer</p>
+              <h1>{basics?.name}</h1>
+            </div>
+            <address className={styles.contact}>
+              {basics?.email && (
+                <a href={`mailto:${basics.email}`}>{basics.email}</a>
+              )}
+              {basics?.phone && (
+                <a href={`tel:${basics.phone}`}>{basics.phone}</a>
+              )}
+              {basics?.url && (
+                <ExternalLink href={basics.url}>
+                  {basics.url.replace(/^https?:\/\//, '')}
+                </ExternalLink>
+              )}
+              {profiles.map((profile) => (
+                <ExternalLink key={profile.url} href={profile.url!}>
+                  {profile.network}
+                </ExternalLink>
+              ))}
+            </address>
+          </header>
+        </ShadowBox>
 
         {resume.skills?.length ? (
           <section className={styles.section} aria-labelledby="skills-heading">
-            <h2 id="skills-heading">Skills</h2>
+            <SectionHeading id="skills-heading">Skills</SectionHeading>
             <div className={styles.skills}>
               {resume.skills.map((skill) => (
                 <p key={skill.name}>
@@ -131,7 +157,7 @@ export default function Resume({ resume }: { resume: ResumeData }) {
             className={styles.section}
             aria-labelledby="experience-heading"
           >
-            <h2 id="experience-heading">Experience</h2>
+            <SectionHeading id="experience-heading">Experience</SectionHeading>
             <div className={styles.entries}>
               {resume.work.map((entry) => (
                 <article
@@ -166,7 +192,7 @@ export default function Resume({ resume }: { resume: ResumeData }) {
             className={styles.section}
             aria-labelledby="projects-heading"
           >
-            <h2 id="projects-heading">Projects</h2>
+            <SectionHeading id="projects-heading">Projects</SectionHeading>
             <div className={styles.entries}>
               {resume.projects.map((project) => (
                 <article className={styles.project} key={project.name}>
@@ -191,7 +217,7 @@ export default function Resume({ resume }: { resume: ResumeData }) {
             className={styles.section}
             aria-labelledby="education-heading"
           >
-            <h2 id="education-heading">Education</h2>
+            <SectionHeading id="education-heading">Education</SectionHeading>
             <div className={styles.entries}>
               {resume.education.map((entry) => (
                 <article
@@ -200,7 +226,11 @@ export default function Resume({ resume }: { resume: ResumeData }) {
                 >
                   <div>
                     <h3>{entry.institution}</h3>
-                    <p className={styles.role}>{entry.studyType}</p>
+                    <p className={styles.role}>
+                      {entry.studyType && entry.area
+                        ? `${entry.studyType}: ${entry.area}`
+                        : entry.studyType || entry.area}
+                    </p>
                   </div>
                   <div className={styles.meta}>
                     <p>{dateRange(entry.startDate, entry.endDate)}</p>
