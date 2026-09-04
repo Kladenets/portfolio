@@ -29,6 +29,9 @@ interface WorkEntry {
 interface Project {
   name?: string;
   url?: string;
+  startDate?: string;
+  endDate?: string;
+  keywords?: string[];
   description?: string;
 }
 
@@ -193,16 +196,33 @@ export default function Resume({ resume }: { resume: ResumeData }) {
             <div className={styles.entries}>
               {resume.projects.map((project) => (
                 <article className={styles.project} key={project.name}>
-                  <h3>
-                    {project.name}
-                    {project.url && (
-                      <ExternalLink href={project.url}>
-                        {' '}
-                        {project.url.replace(/^https?:\/\//, '')}
-                      </ExternalLink>
-                    )}
-                  </h3>
-                  {project.description && <p>{project.description}</p>}
+                  <div className={styles.entryHeader}>
+                    <div>
+                      <h3>{project.name}</h3>
+                      {project.keywords?.length ? (
+                        <p className={styles.role}>
+                          {project.keywords.join(', ')}
+                        </p>
+                      ) : null}
+                    </div>
+                    <div className={styles.meta}>
+                      {(project.startDate || project.endDate) && (
+                        <p>{dateRange(project.startDate, project.endDate)}</p>
+                      )}
+                      {project.url && (
+                        <p>
+                          <ExternalLink href={project.url}>
+                            {project.url.replace(/^https?:\/\//, '')}
+                          </ExternalLink>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  {project.description && (
+                    <ul>
+                      <li>{project.description}</li>
+                    </ul>
+                  )}
                 </article>
               ))}
             </div>

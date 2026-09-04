@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Portfolio Website (you're here!)",
     description:
-      'Single page portfolio website showcasing my projects, skills, and work experience. Built with Next.js, Tailwind CSS, Framer Motion, and TypeScript.',
+      'Single page portfolio website showcasing my projects, skills, and work experience.',
     tech: [
       'Next.js (App Router)',
       'React',

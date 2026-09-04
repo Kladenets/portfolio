@@ -129,7 +129,8 @@
     {
       "name": "Portfolio",
       "startDate": "2025-05",
-      "description": "Single-page portfolio website showcasing projects, skills, and work experience. Built with Next.js, Tailwind CSS, Motion, and TypeScript.",
+      "keywords": ["Next.js", "Tailwind CSS", "Motion", "TypeScript"],
+      "description": "Single-page portfolio website showcasing projects, skills, and work experience.",
       "url": "https://kylekent.dev"
     }
   ],
