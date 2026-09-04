@@ -122,9 +122,6 @@ export default function Resume({ resume }: { resume: ResumeData }) {
               {basics?.email && (
                 <a href={`mailto:${basics.email}`}>{basics.email}</a>
               )}
-              {basics?.phone && (
-                <a href={`tel:${basics.phone}`}>{basics.phone}</a>
-              )}
               {basics?.url && (
                 <ExternalLink href={basics.url}>
                   {basics.url.replace(/^https?:\/\//, '')}
