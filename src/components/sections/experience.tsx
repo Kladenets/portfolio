@@ -60,7 +60,14 @@ export default function Experience({ id }: SectionProps) {
       <div className="max-w-5xl w-full py-0 md:py-16">
         <AnimatedText className="w-fit">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-10 lg:mb-16 bg-accent-200 dark:bg-accent-800 p-4 text-text my-transition-colors">
-            Work Experience
+            <span className="block">Work Experience</span>
+            <a
+              href="/resume"
+              className="mt-2 block text-right text-sm font-normal normal-case tracking-normal md:text-base my-transition-colors"
+            >
+              <span className="underline underline-offset-4">View full resume</span>{' '}
+              &rarr;
+            </a>
           </h2>
         </AnimatedText>
 
