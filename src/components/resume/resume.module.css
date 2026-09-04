@@ -146,13 +146,15 @@
   font-weight: 600;
 }
 
-.entry ul {
+.entry ul,
+.project ul {
   list-style: none;
   margin: 0.7rem 0 0;
   padding-left: 1.2rem;
 }
 
-.entry li {
+.entry li,
+.project li {
   font-size: 0.86rem;
   line-height: 1.5;
   margin: 0.32rem 0;
@@ -160,7 +162,8 @@
   position: relative;
 }
 
-.entry li::before {
+.entry li::before,
+.project li::before {
   background: var(--resume-accent);
   content: '';
   height: 0.38rem;
@@ -170,16 +173,17 @@
   width: 0.38rem;
 }
 
-.project h3 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.project .role {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  margin: 0.2rem 0 0;
 }
 
-.project h3 a {
+.project .meta a {
   color: var(--resume-muted);
-  font-size: 0.78rem;
-  font-weight: 400;
+  overflow-wrap: anywhere;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
 }
 
 @media (max-width: 38rem) {
