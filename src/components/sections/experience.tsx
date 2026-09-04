@@ -65,7 +65,9 @@ export default function Experience({ id }: SectionProps) {
               href="/resume"
               className="mt-2 block text-right text-sm font-normal normal-case tracking-normal md:text-base my-transition-colors"
             >
-              <span className="underline underline-offset-4">View full resume</span>{' '}
+              <span className="underline underline-offset-4">
+                View full resume
+              </span>{' '}
               &rarr;
             </a>
           </h2>
