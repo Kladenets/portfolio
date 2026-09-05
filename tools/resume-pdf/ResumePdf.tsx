@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Document,
   Link,
@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
-} from "@react-pdf/renderer";
+} from '@react-pdf/renderer';
 
 export interface PdfResumeData {
   basics?: {
@@ -45,8 +45,8 @@ export interface PdfResumeData {
 
 const styles = StyleSheet.create({
   page: {
-    color: "#161313",
-    fontFamily: "Helvetica",
+    color: '#161313',
+    fontFamily: 'Helvetica',
     fontSize: 9.5,
     lineHeight: 1.35,
     paddingBottom: 42,
@@ -55,58 +55,77 @@ const styles = StyleSheet.create({
     paddingTop: 42,
   },
   header: {
-    borderBottomColor: "#978c78",
+    borderBottomColor: '#978c78',
     borderBottomWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 18,
     paddingBottom: 12,
+  },
+  headerMain: {
+    flex: 1,
+    paddingRight: 18,
   },
   name: {
     fontSize: 26,
     fontWeight: 700,
-    marginBottom: 3,
+    marginTop: 3,
   },
   label: {
-    color: "#74685a",
+    color: '#74685a',
     fontSize: 9,
     letterSpacing: 1,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
   contacts: {
-    color: "#66595a",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 8,
-    marginTop: 7,
+    alignItems: 'flex-end',
+    color: '#66595a',
+    flexDirection: 'column',
+    flexShrink: 0,
+    width: 156,
+  },
+  contactText: {
+    textAlign: 'right',
+    width: 156,
   },
   section: {
-    marginBottom: 15,
+    marginBottom: 18,
   },
   sectionTitle: {
-    borderLeftColor: "#8a7d6c",
-    borderLeftWidth: 3,
-    color: "#3f3937",
+    color: '#3f3937',
     fontSize: 12,
     fontWeight: 700,
     letterSpacing: 0.8,
-    marginBottom: 8,
     paddingLeft: 6,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
+  },
+  sectionTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: 30,
+    marginBottom: 8,
+  },
+  sectionTitleBar: {
+    backgroundColor: '#8a7d6c',
+    height: 30,
+    marginRight: 6,
+    width: 3,
   },
   skill: {
     marginBottom: 3,
   },
   muted: {
-    color: "#66595a",
+    color: '#66595a',
   },
   entry: {
     marginBottom: 10,
   },
   entryHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   entryMain: {
-    flexGrow: 1,
+    flex: 1,
     paddingRight: 14,
   },
   entryTitle: {
@@ -114,47 +133,59 @@ const styles = StyleSheet.create({
     fontWeight: 700,
   },
   role: {
-    color: "#66595a",
+    color: '#66595a',
     marginTop: 2,
   },
   metadata: {
-    color: "#66595a",
+    alignItems: 'flex-end',
+    color: '#66595a',
+    flexDirection: 'column',
     flexShrink: 0,
-    textAlign: "right",
+    width: 140,
+  },
+  metadataText: {
+    textAlign: 'right',
+    width: 140,
   },
   metadataStrong: {
-    color: "#161313",
+    color: '#161313',
     fontWeight: 700,
   },
   bullets: {
     marginTop: 6,
   },
   bulletRow: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 2,
   },
   bullet: {
-    color: "#a9ad94",
-    width: 10,
+    color: '#3f3937',
+    width: 12,
+  },
+  skillBullet: {
+    color: '#3f3937',
+    fontSize: 9.5,
+    marginTop: 1,
+    width: 16,
   },
   bulletText: {
-    flexGrow: 1,
+    flex: 1,
   },
   link: {
-    color: "#66595a",
-    textDecoration: "underline",
+    color: '#66595a',
+    textDecoration: 'underline',
   },
 });
 
 function formatDate(value?: string) {
-  if (!value || value === "Present") return value ?? "";
+  if (!value || value === 'Present') return value ?? '';
 
-  const [year, month] = value.split("-");
+  const [year, month] = value.split('-');
   if (!month) return value;
 
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    year: "numeric",
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    year: 'numeric',
   }).format(new Date(Number(year), Number(month) - 1));
 }
 
@@ -171,7 +202,7 @@ function BulletList({ items }: { items: string[] }) {
     <View style={styles.bullets}>
       {items.map((item) => (
         <View key={item} style={styles.bulletRow}>
-          <Text style={styles.bullet}>■</Text>
+          <Text style={styles.bullet}>•</Text>
           <Text style={styles.bulletText}>{item}</Text>
         </View>
       ))}
@@ -184,7 +215,12 @@ function Metadata({ children }: { children: React.ReactNode }) {
 }
 
 function SectionTitle({ children }: { children: string }) {
-  return <Text style={styles.sectionTitle}>{children}</Text>;
+  return (
+    <View style={styles.sectionTitleRow}>
+      <View style={styles.sectionTitleBar} />
+      <Text style={styles.sectionTitle}>{children}</Text>
+    </View>
+  );
 }
 
 export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
@@ -194,23 +230,31 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
   return (
     <Document
       author={basics?.name}
-      title={`${basics?.name ?? "Resume"} - Resume`}
+      title={`${basics?.name ?? 'Resume'} - Resume`}
     >
       <Page size="LETTER" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{basics?.name}</Text>
-          <Text style={styles.label}>
-            {basics?.label ?? "Software Engineer"}
-          </Text>
+          <View style={styles.headerMain}>
+            <Text style={styles.label}>
+              {basics?.label ?? 'Software Engineer'}
+            </Text>
+            <Text style={styles.name}>{basics?.name}</Text>
+          </View>
           <View style={styles.contacts}>
-            {basics?.email && <Text>{basics.email}</Text>}
+            {basics?.email && (
+              <Text style={styles.contactText}>{basics.email}</Text>
+            )}
             {basics?.url && (
-              <Link src={basics.url} style={styles.link}>
-                {basics.url.replace(/^https?:\/\//, "")}
+              <Link src={basics.url} style={[styles.link, styles.contactText]}>
+                {basics.url.replace(/^https?:\/\//, '')}
               </Link>
             )}
             {profiles.map((profile) => (
-              <Link key={profile.url} src={profile.url!} style={styles.link}>
+              <Link
+                key={profile.url}
+                src={profile.url!}
+                style={[styles.link, styles.contactText]}
+              >
                 {profile.network}
               </Link>
             ))}
@@ -221,10 +265,12 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
           <View style={styles.section}>
             <SectionTitle>Skills</SectionTitle>
             {resume.skills.map((skill) => (
-              <Text key={skill.name} style={styles.skill}>
-                <Text style={styles.muted}>{skill.name}: </Text>
-                {skill.keywords?.join(", ")}
-              </Text>
+              <View key={skill.name} style={styles.bulletRow}>
+                <Text style={[styles.skill, styles.bulletText]}>
+                  <Text style={styles.muted}>{skill.name}: </Text>
+                  {skill.keywords?.join(', ')}
+                </Text>
+              </View>
             ))}
           </View>
         )}
@@ -243,10 +289,10 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
                     <Text style={styles.role}>{entry.position}</Text>
                   </View>
                   <Metadata>
-                    <Text style={styles.metadataStrong}>
+                    <Text style={[styles.metadataStrong, styles.metadataText]}>
                       {dateRange(entry.startDate, entry.endDate)}
                     </Text>
-                    <Text>{entry.location}</Text>
+                    <Text style={styles.metadataText}>{entry.location}</Text>
                   </Metadata>
                 </View>
                 {entry.highlights?.length ? (
@@ -267,17 +313,20 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
                     <Text style={styles.entryTitle}>{project.name}</Text>
                     {project.keywords?.length ? (
                       <Text style={styles.role}>
-                        {project.keywords.join(", ")}
+                        {project.keywords.join(', ')}
                       </Text>
                     ) : null}
                   </View>
                   <Metadata>
-                    <Text style={styles.metadataStrong}>
+                    <Text style={[styles.metadataStrong, styles.metadataText]}>
                       {dateRange(project.startDate, project.endDate)}
                     </Text>
                     {project.url && (
-                      <Link src={project.url} style={styles.link}>
-                        {project.url.replace(/^https?:\/\//, "")}
+                      <Link
+                        src={project.url}
+                        style={[styles.link, styles.metadataText]}
+                      >
+                        {project.url.replace(/^https?:\/\//, '')}
                       </Link>
                     )}
                   </Metadata>
@@ -308,10 +357,10 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
                     </Text>
                   </View>
                   <Metadata>
-                    <Text style={styles.metadataStrong}>
+                    <Text style={[styles.metadataStrong, styles.metadataText]}>
                       {dateRange(entry.startDate, entry.endDate)}
                     </Text>
-                    <Text>{entry.location}</Text>
+                    <Text style={styles.metadataText}>{entry.location}</Text>
                   </Metadata>
                 </View>
               </View>
