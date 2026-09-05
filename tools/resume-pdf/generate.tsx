@@ -9,7 +9,7 @@ import type { PdfResumeData } from './ResumePdf';
 const inputPath = path.resolve(
   process.argv[2] ?? 'src/data/resume-public.json'
 );
-const outputPath = path.resolve('public/resume.pdf');
+const outputPath = path.resolve('public/kylekent-resume.pdf');
 const require = createRequire(import.meta.url);
 
 function normalizeForSchemaValidation(resume: PdfResumeData) {

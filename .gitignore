@@ -19,7 +19,7 @@
 
 # production
 /build
-/public/resume.pdf
+/public/kylekent-resume.pdf
 
 # misc
 .DS_Store
