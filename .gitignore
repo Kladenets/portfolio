@@ -22,6 +22,8 @@
 /public/kylekent-resume.pdf
 
 # misc
+opencode.json
+.serena/*
 .DS_Store
 *.pem
 
