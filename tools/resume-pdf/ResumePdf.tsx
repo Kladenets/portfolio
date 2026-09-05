@@ -197,9 +197,15 @@ function dateRange(startDate?: string, endDate?: string) {
   return `${start} - ${end}`;
 }
 
-function BulletList({ items }: { items: string[] }) {
+function BulletList({
+  items,
+  marginTop = 6,
+}: {
+  items: string[];
+  marginTop?: number;
+}) {
   return (
-    <View style={styles.bullets}>
+    <View style={[styles.bullets, { marginTop }]}>
       {items.map((item) => (
         <View key={item} style={styles.bulletRow}>
           <Text style={styles.bullet}>•</Text>
@@ -303,7 +309,7 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
                   ) : null}
                 </View>
                 {entry.highlights && entry.highlights.length > 1 ? (
-                  <BulletList items={entry.highlights.slice(1)} />
+                  <BulletList items={entry.highlights.slice(1)} marginTop={0} />
                 ) : null}
               </View>
             ))}
