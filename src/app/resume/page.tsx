@@ -13,7 +13,7 @@ export default function ResumePage() {
     <div className="resume-page">
       <div className="resume-back-link">
         <Link href="/">&larr; kylekent.dev</Link>
-        <a href="/resume.pdf" download>
+        <a href="/kylekent-resume.pdf" download="kylekent-resume.pdf">
           Download PDF
         </a>
       </div>

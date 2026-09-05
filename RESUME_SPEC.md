@@ -85,7 +85,7 @@ The theme must:
 
 ### Objective
 
-Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using the current static Cloudflare Pages deployment model. The page is generated from a local copy of `resume-public.json`. The PDF is generated locally by a separate `@react-pdf/renderer` CLI and committed or copied into `public/resume.pdf` before deployment.
+Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using the current static Cloudflare Pages deployment model. The page is generated from a local copy of `resume-public.json`. The PDF is generated locally by a separate `@react-pdf/renderer` CLI and committed or copied into `public/kylekent-resume.pdf` before deployment.
 
 ### Data requirements
 
@@ -108,7 +108,7 @@ Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using 
 - The route must use ordinary responsive scrolling rather than the portfolio's full-page snap-scroll container.
 - The existing JSON Resume registry link must no longer be the primary resume destination after the self-hosted route is ready.
 - The registry URL may remain available outside the primary resume call to action during transition, but it must not remain the primary public resume destination.
-- The page may provide a static `/resume.pdf` download link to the bundled PDF asset.
+- The page may provide a static `/kylekent-resume.pdf` download link to the bundled PDF asset.
 
 ### PDF requirements
 
@@ -116,7 +116,7 @@ Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using 
 - Browser print support should remain usable through the website's print CSS, but it is separate from the recruiter PDF.
 - A local CLI must read a JSON Resume file and generate a PDF using `@react-pdf/renderer`.
 - The CLI must support both `resume-public.json` and temporary job-specific JSON files.
-- The generated public PDF may be stored as `public/resume.pdf` and bundled with the static deployment.
+- The generated public PDF may be stored as `public/kylekent-resume.pdf` and bundled with the static deployment.
 - The printable renderer may have independent layout and styling from the website resume.
 - The CLI must not require the website route to be deployed or running.
 
@@ -129,7 +129,7 @@ Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using 
 - The exhaustive working master can be rendered locally by the PDF renderer without layout failure.
 - A minimal JSON Resume fixture with optional sections absent can be rendered without empty headings or broken layout.
 - The local PDF command generates a readable, selectable PDF with working links and controlled page breaks.
-- The bundled `public/resume.pdf` is available from the deployed static site.
+- The bundled `public/kylekent-resume.pdf` is available from the deployed static site.
 - The current portfolio remains functional when the resume page is not visited.
 
 ## Phase 2: Cloudflare Workers Deployment with Public Resume Data
@@ -202,7 +202,7 @@ Validation must use the real `resume-working-master.json` and `resume-public.jso
 - Local `@react-pdf/renderer` PDF output.
 - Browser print preview.
 - Static Phase 1 `/resume` output.
-- Static Phase 1 `/resume.pdf` output.
+- Static Phase 1 `/kylekent-resume.pdf` output.
 - Workers Phase 2 server response.
 - Narrow mobile viewport.
 - Text selection and copy/paste.
@@ -227,7 +227,7 @@ Validation must use the real `resume-working-master.json` and `resume-public.jso
 
 After Phase 2 is stable, the project may evaluate:
 
-- On-demand `/resume.pdf` generation from the remote public JSON, if its operational cost and Workers compatibility are justified.
+- On-demand `/kylekent-resume.pdf` generation from the remote public JSON, if its operational cost and Workers compatibility are justified.
 - Generating and publishing the static PDF through CI instead of committing the binary artifact.
 - Moving the public JSON from a Gist to a more controlled public source.
 - A build or projection that shares selected resume facts with the manually curated portfolio experience section.
