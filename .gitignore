@@ -21,6 +21,8 @@
 /build
 
 # misc
+opencode.json
+.serena/*
 .DS_Store
 *.pem
 
