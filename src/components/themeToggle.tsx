@@ -49,7 +49,7 @@ const ThemeToggle = () => {
   // theme = currently selected theme ('light', 'dark', or 'system')
   // resolvedTheme = the theme actually being used ('light' or 'dark'), takes 'system' into account
   // setTheme = function to change the theme
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme, systemTheme } = useTheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -75,7 +75,8 @@ const ThemeToggle = () => {
   const isDarkMode = resolvedTheme === 'dark';
 
   const toggleTheme = () => {
-    setTheme(isDarkMode ? 'light' : 'dark');
+    const nextTheme = isDarkMode ? 'light' : 'dark';
+    setTheme(nextTheme === systemTheme ? 'system' : nextTheme);
   };
 
   return (
