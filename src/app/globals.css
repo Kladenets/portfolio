@@ -169,6 +169,9 @@ html {
 }
 
 .resume-back-link {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: 52rem;
   padding: 1rem;
@@ -181,6 +184,10 @@ html {
   font-weight: 600;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
+}
+
+.resume-back-link a:last-child {
+  color: var(--color-secondary-700);
 }
 
 @media print {
