@@ -71,7 +71,7 @@ jobs:
           custom_tag: ${{ needs.calculate-version.outputs.new_tag }}
           tag_prefix: ''
           custom_release_rules: config:patch:Configuration Changes,chore:patch:Miscellaneous,
-      - uses: ncipollo/release-action@v1.16.0
+      - uses: ncipollo/release-action@v1.21.0
         with:
           tag: ${{ needs.calculate-version.outputs.new_tag }}
           name: Release ${{ needs.calculate-version.outputs.new_tag }}
