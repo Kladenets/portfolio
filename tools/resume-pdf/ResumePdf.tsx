@@ -283,20 +283,27 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
                 key={`${entry.name}-${entry.startDate}`}
                 style={styles.entry}
               >
-                <View style={styles.entryHeader}>
-                  <View style={styles.entryMain}>
-                    <Text style={styles.entryTitle}>{entry.name}</Text>
-                    <Text style={styles.role}>{entry.position}</Text>
+                <View wrap={false}>
+                  <View style={styles.entryHeader}>
+                    <View style={styles.entryMain}>
+                      <Text style={styles.entryTitle}>{entry.name}</Text>
+                      <Text style={styles.role}>{entry.position}</Text>
+                    </View>
+                    <Metadata>
+                      <Text
+                        style={[styles.metadataStrong, styles.metadataText]}
+                      >
+                        {dateRange(entry.startDate, entry.endDate)}
+                      </Text>
+                      <Text style={styles.metadataText}>{entry.location}</Text>
+                    </Metadata>
                   </View>
-                  <Metadata>
-                    <Text style={[styles.metadataStrong, styles.metadataText]}>
-                      {dateRange(entry.startDate, entry.endDate)}
-                    </Text>
-                    <Text style={styles.metadataText}>{entry.location}</Text>
-                  </Metadata>
+                  {entry.highlights?.[0] ? (
+                    <BulletList items={[entry.highlights[0]]} />
+                  ) : null}
                 </View>
-                {entry.highlights?.length ? (
-                  <BulletList items={entry.highlights} />
+                {entry.highlights && entry.highlights.length > 1 ? (
+                  <BulletList items={entry.highlights.slice(1)} />
                 ) : null}
               </View>
             ))}
