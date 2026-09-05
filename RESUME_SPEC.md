@@ -19,33 +19,23 @@ The resume theme is based on the supplied minimal, single-column PDF reference a
 - The JSON Resume registry metadata should remain `"macchiato"` unless a demonstrated compatibility requirement changes it.
 - The existing registry link will be replaced only after the self-hosted resume route is available.
 
-## Shared Theme Requirements
+## Shared Data and Integration Requirements
 
-The custom theme must be a standalone React theme package that can be consumed by both the resume tooling and the portfolio site.
+The website resume and printable PDF are intentionally separate renderers. They share the JSON Resume data contract and validation boundary, but they do not share layout components or styling. This avoids forcing responsive web layout and fixed-page PDF layout into one implementation.
 
 ### Target technology
 
 - The portfolio integration must target Next.js.
-- The shared theme must target React 19.
-- Theme and portfolio integration code must target TypeScript, with typed boundaries for resume data, theme options, and data-loading failures.
+- The website integration must target React 19.
+- Website and PDF tooling code must target TypeScript, with typed boundaries for resume data and validation failures.
 - The portfolio route must support React Server Components and keep the resume document server-renderable.
 - The implementation should be compatible with the React Compiler and follow the repository's compiler guidance rather than adding manual memoization by default.
-- Tailwind CSS may be used for portfolio integration and theme styling where it improves consistency with the existing site, but generated resume HTML must retain explicit print and standalone CSS behavior.
-- The implementation must use a JSON Resume schema-validation boundary before rendering externally sourced data.
+- Tailwind CSS may be used by the website integration. The printable renderer may use its own React PDF styles.
+- Both renderers must use a JSON Resume schema-validation boundary before rendering data.
 - Browser-level rendering and interaction checks must use an established browser test tool, such as Playwright, when the repository's test setup is introduced.
-- The implementation must not require a specific Cloudflare adapter in the shared theme package. The deployment adapter is an application concern and must preserve the theme's React and `render(resume)` interfaces.
-
-### Public interface
-
-The package must expose:
-
-```ts
-render(resume): string
-```
-
-The `render` function must return a complete HTML document suitable for local HTML preview and PDF generation.
-
-The package must also expose the React resume component for direct use by the portfolio's `/resume` route.
+- The website renderer must remain independent of the PDF renderer and must not require a Cloudflare adapter.
+- The printable renderer must be local-first and use `@react-pdf/renderer` to produce a PDF from React PDF primitives.
+- No standalone shared theme package or `render(resume): string` interface is required for Phase 1.
 
 ### Visual requirements
 
@@ -67,8 +57,8 @@ The theme must:
 ### Typography and assets
 
 - Use a commonly used, permissively licensed font bundled with the theme or its consuming application.
-- The font must render consistently in browser, print preview, Chromium PDF output, and local CLI tools.
-- The theme must define robust fallback fonts if bundled font loading is unavailable.
+- The website and PDF renderer may use separate font-loading implementations, but each must define robust fallbacks.
+- The PDF renderer must register a local font where needed for deterministic CLI output.
 - Source Sans 3 or IBM Plex Sans are preferred initial candidates; the final choice must be made after visual comparison with the PDF reference.
 - Body text must prioritize legibility at resume density. Display and monospace fonts must not reduce readability.
 
@@ -86,17 +76,16 @@ The theme must:
 
 - The document must render as a normal scrolling page at narrow viewport widths.
 - The desktop presentation must remain readable without horizontal scrolling.
-- Print styles must define page size, margins, colors, links, and break behavior.
-- Work entries and bullet groups must avoid awkward splits where browser/PDF support allows.
-- Section headings should not be stranded at the bottom of a page.
-- The design must remain usable when the exhaustive master spans more pages than the public resume.
-- Screen and print variants must share the same document structure and content.
+- The website print styles must remain usable for browser printing, but do not need to be the source of the bundled recruiter PDF.
+- The PDF renderer must define page size, margins, colors, links, page wrapping, and break behavior using React PDF primitives.
+- Work entries and bullet groups must avoid awkward splits where React PDF supports it.
+- The PDF design must remain usable when the exhaustive master spans more pages than the public resume.
 
 ## Phase 1: Static Deployment with Custom Resume Theme
 
 ### Objective
 
-Phase 1 provides a self-hosted resume page using the current static Cloudflare Pages deployment model. The page is generated from a local copy of `resume-public.json`, and resume content changes become public only after the portfolio is rebuilt and deployed.
+Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using the current static Cloudflare Pages deployment model. The page is generated from a local copy of `resume-public.json`. The PDF is generated locally by a separate `@react-pdf/renderer` CLI and committed or copied into `public/resume.pdf` before deployment.
 
 ### Data requirements
 
@@ -106,11 +95,12 @@ Phase 1 provides a self-hosted resume page using the current static Cloudflare P
 - The local public file must be manually maintainable with agentic assistance.
 - The portfolio experience section may remain separately curated and manually maintained.
 - The homepage must not depend on the resume page's data loading or theme rendering to function.
+- The public JSON remains the source of truth for both the website renderer and the printable renderer.
 
 ### Route and integration requirements
 
 - A dedicated `/resume` route must exist in the portfolio.
-- The route must render the shared React theme package directly.
+- The route must render the website-specific React resume component directly.
 - The primary resume presentation must not be an iframe or embedded generated HTML document.
 - The route must render a normal, indexable HTML document in the static build output.
 - The route must provide a clear path back to the portfolio.
@@ -118,14 +108,17 @@ Phase 1 provides a self-hosted resume page using the current static Cloudflare P
 - The route must use ordinary responsive scrolling rather than the portfolio's full-page snap-scroll container.
 - The existing JSON Resume registry link must no longer be the primary resume destination after the self-hosted route is ready.
 - The registry URL may remain available outside the primary resume call to action during transition, but it must not remain the primary public resume destination.
+- The page may provide a static `/resume.pdf` download link to the bundled PDF asset.
 
 ### PDF requirements
 
-- Phase 1 does not require a web PDF download or server-side PDF generation.
-- Browser print support must be usable through print CSS.
-- PDFs must be generated locally when needed using the shared theme and `resume-cli` and/or `resumed`.
-- Temporary job-specific JSON files must be renderable locally through the same theme.
-- No recruiter-specific resume copies need to be stored in the portfolio repository.
+- Phase 1 does not require request-time or server-side PDF generation.
+- Browser print support should remain usable through the website's print CSS, but it is separate from the recruiter PDF.
+- A local CLI must read a JSON Resume file and generate a PDF using `@react-pdf/renderer`.
+- The CLI must support both `resume-public.json` and temporary job-specific JSON files.
+- The generated public PDF may be stored as `public/resume.pdf` and bundled with the static deployment.
+- The printable renderer may have independent layout and styling from the website resume.
+- The CLI must not require the website route to be deployed or running.
 
 ### Phase 1 acceptance criteria
 
@@ -133,9 +126,10 @@ Phase 1 provides a self-hosted resume page using the current static Cloudflare P
 - The route is usable on desktop and narrow mobile viewports.
 - The page has correct heading hierarchy, selectable text, readable links, and logical copy/paste order.
 - The layout matches the PDF's minimal single-column character while sharing restrained visual cues with the portfolio.
-- The exhaustive working master can be rendered locally without layout failure.
+- The exhaustive working master can be rendered locally by the PDF renderer without layout failure.
 - A minimal JSON Resume fixture with optional sections absent can be rendered without empty headings or broken layout.
-- Local HTML preview and PDF generation work through the selected resume tooling.
+- The local PDF command generates a readable, selectable PDF with working links and controlled page breaks.
+- The bundled `public/resume.pdf` is available from the deployed static site.
 - The current portfolio remains functional when the resume page is not visited.
 
 ## Phase 2: Cloudflare Workers Deployment with Public Resume Data
@@ -184,7 +178,7 @@ The deployment must support request-time server rendering and React Server Compo
 - A failed build-time fetch prevents deployment of an unvalidated public resume.
 - The bundled validated copy is available as the runtime fallback.
 - The deployment remains within the tested free-tier request and CPU constraints for expected traffic.
-- The resume theme continues to work for local HTML and PDF generation after the Workers migration.
+- The website renderer and independent PDF renderer must continue to work after the Workers migration.
 
 ## Validation Requirements
 
@@ -205,17 +199,16 @@ Validation must use the real `resume-working-master.json` and `resume-public.jso
 ### Output coverage
 
 - Local browser HTML preview.
-- `resume-cli` HTML output.
-- `resume-cli` PDF output.
-- `resumed` rendering where practical.
+- Local `@react-pdf/renderer` PDF output.
 - Browser print preview.
 - Static Phase 1 `/resume` output.
+- Static Phase 1 `/resume.pdf` output.
 - Workers Phase 2 server response.
 - Narrow mobile viewport.
 - Text selection and copy/paste.
 - Plain-text extraction from generated PDFs.
 - Link behavior in browser and PDF.
-- Font loading with bundled fonts and fallbacks.
+- PDF font loading with registered fonts and fallbacks.
 - Runtime fallback when the public Gist is unavailable.
 
 ## Explicit Non-Goals
@@ -225,7 +218,7 @@ Validation must use the real `resume-working-master.json` and `resume-public.jso
 - Publishing the working master on the portfolio.
 - Adding hidden keywords, invisible content, off-screen text, or scraper-specific content.
 - Adding proficiency rankings to capability-based skill categories.
-- Requiring a web PDF download in Phase 1.
+- Requiring request-time PDF generation in Phase 1.
 - Making the homepage experience section depend on runtime availability of the public resume Gist.
 - Registering the custom theme in the JSON Resume registry during these phases.
 - Replacing the existing registry metadata with a custom slug without a demonstrated need.
@@ -234,8 +227,8 @@ Validation must use the real `resume-working-master.json` and `resume-public.jso
 
 After Phase 2 is stable, the project may evaluate:
 
-- A visible PDF download generated and published through CI.
-- On-demand PDF generation, if its operational cost and Workers compatibility are justified.
+- On-demand `/resume.pdf` generation from the remote public JSON, if its operational cost and Workers compatibility are justified.
+- Generating and publishing the static PDF through CI instead of committing the binary artifact.
 - Moving the public JSON from a Gist to a more controlled public source.
 - A build or projection that shares selected resume facts with the manually curated portfolio experience section.
 - Publishing the theme to npm and pursuing official JSON Resume registry registration.
