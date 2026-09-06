@@ -1,4 +1,3 @@
-// components/Header.tsx
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
@@ -6,7 +5,6 @@ import { useState } from 'react';
 
 import ThemeToggle from './themeToggle';
 
-// Simple Hamburger Icon SVG
 const HamburgerIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -19,12 +17,11 @@ const HamburgerIcon = ({ className }: { className?: string }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      d="M4 6h16M4 12h16m-7 6h7" // Adjusted one line for a slightly different look
+      d="M4 6h16M4 12h16m-7 6h7"
     ></path>
   </svg>
 );
 
-// Simple Close Icon SVG
 const CloseIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -67,7 +64,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed lg:static top-0 left-0 right-0 z-100">
-        <nav className="w-full lg:container flex lg:mx-auto px-6 py-2 justify-between items-center">
+        <nav className="w-full lg:container flex lg:mx-auto px-6 py-2 lg:py-1 justify-between items-center">
           {/* Logo/Name */}
           <a
             href="#intro"
@@ -83,7 +80,7 @@ export default function Header() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className=" text-text py-1 px-4 hover:bg-secondary-200 dark:hover:bg-secondary-700 active:bg-secondary-300 fmy-transition-colors"
+                  className="text-text py-1 px-4 hover:bg-secondary-200 dark:hover:bg-secondary-700 active:bg-secondary-300 my-transition-colors"
                   whileTap={{ scale: 0.95 }}
                   whileHover={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -121,7 +118,6 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay (using AnimatePresence for animation) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -129,7 +125,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-[56px] z-40 md:hidden bg-background shadow-lg pt-5 pb-5 px-6 my-transition-colors" // Adjust top-[px] based on header height
+            className="fixed inset-x-0 top-[56px] z-40 md:hidden bg-background shadow-lg pt-5 pb-5 px-6 my-transition-colors"
           >
             <nav className="flex flex-col space-y-5 items-center">
               {navItems.map((item) => (
@@ -137,7 +133,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className="text-lg text-text hover:text-primary dark:hover:text-secondary my-transition-colors"
-                  onClick={handleLinkClick} // Close menu on click
+                  onClick={handleLinkClick}
                   whileTap={{ scale: 0.95 }}
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}

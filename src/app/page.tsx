@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      {/* Scroll Container - takes available space */}
-      <main className="lg:overflow-y-scroll lg:snap-y lg:snap-mandatory scroll-smooth">
+      {/* Keep content below the transparent fixed header at every breakpoint. */}
+      <main className="mt-14 h-[calc(100dvh-3.5rem)] lg:mt-0 overflow-y-scroll lg:snap-y lg:snap-mandatory scroll-smooth">
         <Introduction id="intro" />
         <Skills id="skills" />
         <Experience id="experience" />
