@@ -4,7 +4,7 @@
   --resume-paper: var(--color-background);
   --resume-shadow: var(--color-secondary);
   min-height: 100vh;
-  background: var(--color-background);
+  background: transparent;
   color: var(--resume-ink);
   font-family: var(--font-geist-sans), 'Helvetica Neue', sans-serif;
   padding: 2.5rem 1rem;
@@ -17,7 +17,7 @@
 .document {
   width: min(100%, 64rem);
   margin: 0 auto;
-  background: var(--resume-paper);
+  background: transparent;
   padding: clamp(2rem, 5vw, 4rem);
   box-shadow: 0 0.75rem 2rem
     color-mix(in srgb, var(--resume-shadow) 12%, transparent);
