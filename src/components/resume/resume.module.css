@@ -15,7 +15,7 @@
 }
 
 .document {
-  width: min(100%, 52rem);
+  width: min(100%, 64rem);
   margin: 0 auto;
   background: var(--resume-paper);
   padding: clamp(2rem, 5vw, 4rem);

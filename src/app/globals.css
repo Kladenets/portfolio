@@ -171,31 +171,51 @@ html {
 .resume-back-link {
   align-items: baseline;
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 52rem;
+  max-width: 64rem;
   padding: 1rem;
   text-align: left;
 }
 
-.resume-back-link a {
+.resume-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.resume-menu-button {
   color: var(--color-text);
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.25rem 1rem;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
+  transition:
+    background-color 500ms ease-out,
+    color 500ms ease-out;
 }
 
-.resume-back-link a:last-child {
-  color: var(--color-secondary-700);
+.resume-menu-button:hover {
+  background: var(--color-secondary-200);
 }
 
-.dark .resume-back-link a:last-child {
-  color: var(--color-secondary-300);
+.dark .resume-menu-button:hover {
+  background: var(--color-secondary-700);
 }
 
 @media print {
   .resume-back-link {
     display: none;
+  }
+}
+
+@media (max-width: 38rem) {
+  .resume-back-link {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .resume-actions {
+    width: 100%;
   }
 }
