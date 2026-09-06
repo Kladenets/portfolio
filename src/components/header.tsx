@@ -67,7 +67,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed lg:static top-0 left-0 right-0 z-100 my-transition-colors bg-background">
-        <nav className="w-full lg:container flex lg:mx-auto px-6 py-2 justify-between items-center border-b-1 border-text/30 my-transition-colors">
+        <nav className="w-full lg:container flex lg:mx-auto px-6 py-2 justify-between items-center my-transition-colors">
           {/* Logo/Name */}
           <a
             href="#intro"

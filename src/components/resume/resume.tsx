@@ -109,8 +109,8 @@ export default function Resume({ resume }: { resume: ResumeData }) {
   } as CSSProperties;
 
   return (
-    <main className={styles.page} style={accentStyle}>
-      <article className={styles.document}>
+    <main className={`${styles.page} my-transition-colors`} style={accentStyle}>
+      <article className={`${styles.document} my-transition-colors`}>
         <ShadowBox
           className={styles.headerBox}
           shadowBorderStyles="h-full w-full border-4 border-secondary-200 dark:border-secondary-800"
