@@ -38,7 +38,7 @@ jobs:
       changed: ${{ steps.compare.outputs.changed }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Check resume Gist hash
         id: compare
         env:
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -138,7 +138,7 @@ jobs:
     if: needs.check-resume.outputs.changed == 'true'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Download resume hash
         uses: actions/download-artifact@v4
         with:
