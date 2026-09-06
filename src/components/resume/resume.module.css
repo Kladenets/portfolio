@@ -1,0 +1,258 @@
+.page {
+  --resume-ink: var(--color-text);
+  --resume-muted: var(--color-secondary-700);
+  --resume-paper: var(--color-background);
+  --resume-shadow: var(--color-secondary);
+  min-height: 100vh;
+  background: transparent;
+  color: var(--resume-ink);
+  font-family: var(--font-geist-sans), 'Helvetica Neue', sans-serif;
+  padding: 2.5rem 1rem;
+}
+
+:global(.dark) .page {
+  --resume-muted: var(--color-secondary-300);
+}
+
+.document {
+  width: min(100%, 64rem);
+  margin: 0 auto;
+  background: transparent;
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: 0 0.75rem 2rem
+    color-mix(in srgb, var(--resume-shadow) 12%, transparent);
+}
+
+.headerBox {
+  margin-bottom: 2rem;
+}
+
+.header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem;
+}
+
+.kicker {
+  color: var(--resume-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.35rem;
+  text-indent: 0.35em;
+  text-transform: uppercase;
+  transition: color 500ms ease-out;
+}
+
+.header h1 {
+  font-size: clamp(1.8rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.contact {
+  align-items: flex-end;
+  color: var(--resume-muted);
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.contact a,
+.project a {
+  color: inherit;
+  overflow-wrap: anywhere;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.section {
+  break-inside: avoid;
+  margin-top: 2rem;
+}
+
+.sectionHeading {
+  border-left: 5px solid var(--color-text-600);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.1;
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0 0.65rem 0.75rem;
+  text-transform: uppercase;
+  transition:
+    color 500ms ease-out,
+    border-color 500ms ease-out;
+}
+
+.skills {
+  padding-top: 0.05rem;
+}
+
+.skills p,
+.project p {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  margin: 0.38rem 0;
+}
+
+.skills strong {
+  color: var(--resume-muted);
+}
+
+.entries {
+  display: grid;
+  gap: 1.55rem;
+}
+
+.entry,
+.project {
+  break-inside: avoid;
+}
+
+.entryHeader {
+  align-items: start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.entry h3,
+.project h3 {
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.entry .role,
+.entry .meta p:last-child {
+  color: var(--color-secondary-700);
+}
+
+:global(.dark) .entry .role,
+:global(.dark) .entry .meta p:last-child {
+  color: var(--color-secondary-300);
+}
+
+.role,
+.meta p {
+  color: var(--resume-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  margin: 0.2rem 0 0;
+}
+
+.meta {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.meta p:first-child {
+  color: var(--resume-ink);
+  font-weight: 600;
+}
+
+.entry ul,
+.project ul {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.entry li,
+.project li {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 0.32rem 0;
+  padding-left: 0.2rem;
+  position: relative;
+}
+
+.entry li::before,
+.project li::before {
+  background: var(--resume-accent);
+  content: '';
+  height: 0.38rem;
+  left: -1.05rem;
+  position: absolute;
+  top: 0.55rem;
+  width: 0.38rem;
+}
+
+.project .role {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  margin: 0.2rem 0 0;
+}
+
+.project .meta a {
+  color: var(--resume-muted);
+  overflow-wrap: anywhere;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.contact,
+.skills strong,
+.role,
+.meta p,
+.project .meta a,
+.entry li::before {
+  transition:
+    color 500ms ease-out,
+    background-color 500ms ease-out,
+    border-color 500ms ease-out;
+}
+
+@media (max-width: 38rem) {
+  .page {
+    padding: 0;
+  }
+
+  .document {
+    box-shadow: none;
+    padding: 1.5rem 1.1rem 3rem;
+  }
+
+  .header,
+  .entryHeader {
+    flex-direction: column;
+  }
+
+  .header {
+    gap: 1.25rem;
+  }
+
+  .contact,
+  .meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media print {
+  .page {
+    background: white;
+    padding: 0;
+  }
+
+  .document {
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  @page {
+    margin: 0.55in;
+    size: letter;
+  }
+}

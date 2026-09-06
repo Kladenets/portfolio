@@ -10,15 +10,16 @@ const projects = [
   {
     title: "Portfolio Website (you're here!)",
     description:
-      'Single page portfolio website showcasing my projects, skills, and work experience. Built with Next.js, Tailwind CSS, Framer Motion, and TypeScript.',
+      'Personal portfolio with a curated resume, accessible resume page, and downloadable PDF built for static deployment.',
     tech: [
       'Next.js (App Router)',
       'React',
       'Tailwind CSS',
       'Motion',
       'TypeScript',
-      'Github Pages',
-      'Google AI Studio',
+      'JSON Resume',
+      '@react-pdf/renderer',
+      'Cloudflare Pages',
     ],
     link: 'https://github.com/Kladenets/portfolio',
     liveLink: null, // Add if deployed

@@ -162,3 +162,60 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.resume-page {
+  height: 100dvh;
+  overflow-y: auto;
+}
+
+.resume-back-link {
+  align-items: baseline;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 64rem;
+  padding: 1rem;
+  text-align: left;
+}
+
+.resume-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.resume-menu-button {
+  color: var(--color-text);
+  padding: 0.25rem 1rem;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  transition:
+    background-color 500ms ease-out,
+    color 500ms ease-out;
+}
+
+.resume-menu-button:hover {
+  background: var(--color-secondary-200);
+}
+
+.dark .resume-menu-button:hover {
+  background: var(--color-secondary-700);
+}
+
+@media print {
+  .resume-back-link {
+    display: none;
+  }
+}
+
+@media (max-width: 38rem) {
+  .resume-back-link {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .resume-actions {
+    width: 100%;
+  }
+}

@@ -19,6 +19,7 @@
 
 # production
 /build
+/public/kylekent-resume.pdf
 
 # misc
 opencode.json

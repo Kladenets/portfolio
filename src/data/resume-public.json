@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "theme": "macchiato"
+  },
+  "basics": {
+    "name": "Kyle Kent",
+    "label": "Software Engineer",
+    "email": "contact@kylekent.dev",
+    "phone": "(267) 824-0296",
+    "url": "https://kylekent.dev",
+    "location": {
+      "city": "Philadelphia",
+      "region": "Pennsylvania",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "kylekentpa",
+        "url": "https://linkedin.com/in/kylekentpa"
+      },
+      {
+        "network": "GitHub",
+        "username": "Kladenets",
+        "url": "https://github.com/Kladenets"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "Frontend & Web Platforms",
+      "keywords": [
+        "React (v16-19)",
+        "JavaScript (ES6+)",
+        "TypeScript",
+        "HTML/CSS",
+        "Redux",
+        "Preact",
+        "Next.js",
+        "Jest/React Testing Library",
+        "Optimizely",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "name": "Web Architecture & Edge Computing",
+      "keywords": [
+        "Microfrontends",
+        "Server-Side Rendering (SSR)",
+        "Client-Side Rendering (CSR)",
+        "Edge Computing",
+        "Cloudflare Workers",
+        "Edge Caching",
+        "Edge Side Includes (ESI)",
+        "Dynamic Web Framework (IKEA)",
+        "Edge Variant Service (EVS)"
+      ]
+    },
+    {
+      "name": "Cloud, DevOps & Delivery",
+      "keywords": [
+        "Git",
+        "GCP",
+        "Terraform",
+        "GitHub Actions",
+        "CI/CD",
+        "GitHub Advanced Security"
+      ]
+    },
+    {
+      "name": "Backend & Data",
+      "keywords": [
+        "Python/Django",
+        "Java",
+        "C/C++/C#",
+        "REST APIs",
+        "GraphQL",
+        "SQL",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "Engineering Practices",
+      "keywords": ["Agile/Scrum", "A/B Testing", "Engineering Mentorship"]
+    }
+  ],
+  "work": [
+    {
+      "name": "IKEA North America Services, LLC",
+      "position": "Software Engineer",
+      "location": "Conshohocken, PA",
+      "startDate": "2022-06",
+      "endDate": "Present",
+      "highlights": [
+        "Co-owned the fragment and PIP ownership transition to Buy; built and owned server- and client-rendered microfrontends on IKEA's edge-rendering platform (Dynamic Web Framework and Edge Variant Service), leading translations, SSR availability loading, and CI/CD work across Buy and Navigation",
+        "Managed edge caching, request context, and production/test deployments for independently delivered fragments across Cloudflare Workers, resolving cross-fragment state, server-side rendering, and pub/sub integration issues",
+        "Co-designed the Buy monorepo migration CLI and CI/CD pattern, consolidating 52 per-market production deployments into one deployment per release and driving adoption by the Navigation team",
+        "Diagnosed and fixed geolocation reliability and data-integrity issues, including an 11% reduction so far in Google Geocoding API cost, a customer-visible validation regression affecting 27 markets, and cross-user server-side rendering state leakage",
+        "Drove development of Vaka, a greenfield real-time observability platform built with Fastly, Dynamic Web Framework, Preact, GCP, and MongoDB that enhanced error resolution in customer-facing online shopping systems and significantly reduced Mean Time to Recovery (MTTR)",
+        "Modernized Checkout and Buy foundations through ESLint 9, Node, OpenTelemetry, dependency governance, security, and TypeScript upgrades across several repositories; mentored an engineer new to web development through a personalized plan spanning HTML/CSS, TypeScript, React, and AI-assisted tooling"
+      ]
+    },
+    {
+      "name": "Proconex",
+      "position": "Software Engineer",
+      "location": "Royersford, PA",
+      "startDate": "2021-02",
+      "endDate": "2022-06",
+      "highlights": [
+        "Architected and developed Angular components including a dynamic reporting table, interactive OPC device parameter navigation, and editable data tables with conditional logic",
+        "Designed a configurable alert infrastructure integrating SQL stored procedures, Angular dialogs, and web API hooks to automate notifications",
+        "Optimized SQL stored procedures, significantly reducing query latency and improving overall response times",
+        "Refactored legacy Angular and SQL codebases to eliminate performance bottlenecks and improve maintainability"
+      ]
+    },
+    {
+      "name": "BrickSimple, LLC",
+      "position": "Software Engineer",
+      "location": "Doylestown, PA",
+      "startDate": "2020-02",
+      "endDate": "2021-01",
+      "highlights": [
+        "Developed a HIPAA-compliant NLP healthcare chat app for post-surgery patient questions using Google Dialogflow, React/Redux, and Django",
+        "Developed virtual assistant UI components in React, leading to increased user engagement and streamlined conversational feature integration"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfolio",
+      "startDate": "2025-05",
+      "keywords": ["Next.js", "Tailwind CSS", "Motion", "TypeScript"],
+      "description": "Single-page portfolio website showcasing projects, skills, and work experience.",
+      "url": "https://kylekent.dev"
+    }
+  ],
+  "education": [
+    {
+      "studyType": "BS",
+      "area": "Computer Science, Economics",
+      "startDate": "2013-09",
+      "endDate": "2017-05",
+      "institution": "Wheaton College",
+      "location": "Wheaton, IL"
+    }
+  ]
+}
