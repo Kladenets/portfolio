@@ -43,6 +43,7 @@
   margin: 0 0 0.35rem;
   text-indent: 0.35em;
   text-transform: uppercase;
+  transition: color 500ms ease-out;
 }
 
 .header h1 {
@@ -87,6 +88,9 @@
   margin: 0 0 0.85rem;
   padding: 0.65rem 0 0.65rem 0.75rem;
   text-transform: uppercase;
+  transition:
+    color 500ms ease-out,
+    border-color 500ms ease-out;
 }
 
 .skills {
@@ -194,6 +198,18 @@
   overflow-wrap: anywhere;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.16em;
+}
+
+.contact,
+.skills strong,
+.role,
+.meta p,
+.project .meta a,
+.entry li::before {
+  transition:
+    color 500ms ease-out,
+    background-color 500ms ease-out,
+    border-color 500ms ease-out;
 }
 
 @media (max-width: 38rem) {
