@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 import AnimatedText from '@/components/animatedText';
 
@@ -8,12 +9,10 @@ interface SectionProps {
   id: string;
 }
 
-// In your component file
-
 const commonTransition = {
-  type: 'tween', // Use tween for smooth, duration-based animation
-  duration: 0.2, // Adjust duration as needed (e.g., 0.2 for 200ms)
-  ease: 'easeInOut', // Common easing function
+  type: 'tween',
+  duration: 0.2,
+  ease: 'easeInOut',
 };
 
 const wrapperVariants = {
@@ -22,7 +21,7 @@ const wrapperVariants = {
 };
 
 const shadowBackgroundVariants = {
-  rest: { x: 6, y: 6 }, // Initial offset (4px down, 4px right)
+  rest: { x: 6, y: 6 },
 };
 
 export default function Contact({ id }: SectionProps) {
@@ -36,18 +35,22 @@ export default function Contact({ id }: SectionProps) {
     {
       text: 'View My GitHub',
       href: githubUrl,
+      external: true,
     },
     {
       text: 'View My Resume',
       href: resumeUrl,
+      external: false,
     },
     {
       text: 'Connect on LinkedIn',
       href: linkedinUrl,
+      external: true,
     },
     {
       text: 'Send Me an Email',
       href: mailToLink,
+      external: true,
     },
   ];
 
@@ -70,41 +73,51 @@ export default function Contact({ id }: SectionProps) {
         </AnimatedText>
 
         <div className="space-y-6 md:space-y-8 w-full">
-          {/* Social & Resume Links */}
-
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-10 mt-6 w-full">
             {links.map((link, index) => (
               <motion.div
                 key={index}
                 className="relative inline-block cursor-pointer w-full"
-                // No padding needed on wrapper if offsets are purely via transform on children
                 variants={wrapperVariants}
                 initial="rest"
                 whileHover="hover"
-                whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position when in view
-                viewport={{ once: true }} // Only animate once
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }} // Control animation speed and delay
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               >
-                {/* Black "Shadow" Background Layer */}
                 <motion.div
                   className="absolute top-0 left-0 w-full h-full border-4 border-accent-200 dark:border-accent-800 z-0 my-transition-colors" // Fills the button's space
                   variants={shadowBackgroundVariants}
                 />
 
-                {/* Actual Button Content with Yellow Border */}
-                <motion.a
-                  className="contact-link my-transition-colors underline lg:no-underline"
-                  // Animation for the button itself (lifting)
-                  initial={{ x: 0, y: 0 }} // Explicitly set initial state
-                  whileHover={{ x: -3, y: -3 }} // Lifts up and left by 4px
-                  whileTap={{ scale: 0.98 }}
-                  transition={commonTransition} // Use the defined smooth transition
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.text}
-                </motion.a>
+                {link.external ? (
+                  <motion.a
+                    className="contact-link my-transition-colors underline lg:no-underline"
+                    initial={{ x: 0, y: 0 }}
+                    whileHover={{ x: -3, y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={commonTransition}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.text}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    initial={{ x: 0, y: 0 }}
+                    whileHover={{ x: -3, y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={commonTransition}
+                  >
+                    <Link
+                      className="contact-link my-transition-colors underline lg:no-underline"
+                      href={link.href}
+                    >
+                      {link.text}
+                    </Link>
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </div>
