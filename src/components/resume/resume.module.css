@@ -1,8 +1,7 @@
 .page {
   --resume-ink: var(--color-text);
-  --resume-muted: #66595a;
+  --resume-muted: var(--color-secondary-700);
   --resume-paper: var(--color-background);
-  --resume-rule: #d9d0d0;
   --resume-shadow: var(--color-secondary);
   min-height: 100vh;
   background: var(--color-background);
@@ -11,12 +10,17 @@
   padding: 2.5rem 1rem;
 }
 
+:global(.dark) .page {
+  --resume-muted: var(--color-secondary-300);
+}
+
 .document {
   width: min(100%, 52rem);
   margin: 0 auto;
   background: var(--resume-paper);
   padding: clamp(2rem, 5vw, 4rem);
-  box-shadow: 0 0.75rem 2rem rgb(33 29 30 / 12%);
+  box-shadow: 0 0.75rem 2rem
+    color-mix(in srgb, var(--resume-shadow) 12%, transparent);
 }
 
 .headerBox {
@@ -75,7 +79,7 @@
 }
 
 .sectionHeading {
-  border-left: 5px solid var(--color-secondary-600);
+  border-left: 5px solid var(--color-text-600);
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.09em;
@@ -83,10 +87,6 @@
   margin: 0 0 0.85rem;
   padding: 0.65rem 0 0.65rem 0.75rem;
   text-transform: uppercase;
-}
-
-:global(.dark) .sectionHeading {
-  border-left-color: var(--color-secondary-300);
 }
 
 .skills {
@@ -126,6 +126,16 @@
   font-size: 1rem;
   line-height: 1.25;
   margin: 0;
+}
+
+.entry .role,
+.entry .meta p:last-child {
+  color: var(--color-secondary-700);
+}
+
+:global(.dark) .entry .role,
+:global(.dark) .entry .meta p:last-child {
+  color: var(--color-secondary-300);
 }
 
 .role,
