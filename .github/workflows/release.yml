@@ -18,7 +18,7 @@ jobs:
       new_version: ${{ steps.tag_version_dry_run.outputs.new_version }}
       release_type: ${{ steps.tag_version_dry_run.outputs.release_type }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: tag_version_dry_run
         uses: mathieudutour/github-tag-action@v6.2
         with:
@@ -63,7 +63,7 @@ jobs:
       status: ${{ steps.failure.outputs.status }}
       changelog: ${{ steps.tag_version.outputs.changelog }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
@@ -87,7 +87,7 @@ jobs:
     needs: [calculate-version, create-release, validate-rollback-tag]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: release
 
