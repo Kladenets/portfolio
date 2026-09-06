@@ -72,8 +72,8 @@ const ThemeToggle = () => {
         whileHover={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
-        <SunIcon className="hidden h-6 w-6 text-text dark:inline" />
-        <MoonIcon className="h-6 w-6 text-text dark:hidden" />
+        <SunIcon className="hidden h-6 w-6 text-text dark:block" />
+        <MoonIcon className="block h-6 w-6 text-text dark:hidden" />
       </motion.button>
     </div>
   );
