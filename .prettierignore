@@ -11,6 +11,9 @@ dist/
 build/
 out/
 
+# Local-only exhaustive resume data
+src/data/resume-working-master.json
+
 # Logs
 *.log
 npm-debug.log*

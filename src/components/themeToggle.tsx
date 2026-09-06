@@ -1,9 +1,8 @@
 // components/ThemeToggle.tsx
 'use client'; // This component uses client-side hooks (useState, useEffect, useTheme)
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
 // Simple SVG Icons (you can replace these with more complex ones if desired)
 const SunIcon = ({ className }: { className?: string }) => (
@@ -45,37 +44,16 @@ const MoonIcon = ({ className }: { className?: string }) => (
 );
 
 const ThemeToggle = () => {
-  const [mounted, setMounted] = useState(false);
   // theme = currently selected theme ('light', 'dark', or 'system')
   // resolvedTheme = the theme actually being used ('light' or 'dark'), takes 'system' into account
   // setTheme = function to change the theme
-  const { resolvedTheme, setTheme } = useTheme();
-
-  // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // // Render nothing or a placeholder on the server and initial client render to prevent hydration mismatch
-  if (!mounted) {
-    // Return a placeholder button to prevent layout shift maybe?
-    return (
-      <button
-        aria-label="Toggle theme"
-        type="button"
-        className="p-2 h-10 w-10 rounded-md text-text/50" // Use semi-transparent color
-        disabled
-      >
-        <div className="h-6 w-6 animate-pulse bg-gray-300 dark:bg-gray-700 rounded"></div>{' '}
-        {/* Simple pulse animation */}
-      </button>
-    );
-  }
+  const { resolvedTheme, setTheme, systemTheme } = useTheme();
 
   const isDarkMode = resolvedTheme === 'dark';
 
   const toggleTheme = () => {
-    setTheme(isDarkMode ? 'light' : 'dark');
+    const nextTheme = isDarkMode ? 'light' : 'dark';
+    setTheme(nextTheme === systemTheme ? 'system' : nextTheme);
   };
 
   return (
@@ -87,19 +65,15 @@ const ThemeToggle = () => {
       }
     >
       <motion.button
-        aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+        aria-label="Toggle color theme"
         type="button"
         className="p-2 text-text hover:bg-secondary-100 dark:hover:bg-secondary-700 focus:outline-none cursor-pointer rounded-full my-transition-colors"
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1 }}
-        disabled={!mounted}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
-        {isDarkMode ? (
-          <SunIcon className="h-6 w-6 text-text" />
-        ) : (
-          <MoonIcon className="h-6 w-6 text-text" />
-        )}
+        <SunIcon className="hidden h-6 w-6 text-text dark:block" />
+        <MoonIcon className="block h-6 w-6 text-text dark:hidden" />
       </motion.button>
     </div>
   );
