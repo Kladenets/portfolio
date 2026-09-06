@@ -190,6 +190,10 @@ html {
   color: var(--color-secondary-700);
 }
 
+.dark .resume-back-link a:last-child {
+  color: var(--color-secondary-300);
+}
+
 @media print {
   .resume-back-link {
     display: none;
