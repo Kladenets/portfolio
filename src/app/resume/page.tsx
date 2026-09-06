@@ -2,14 +2,16 @@ import Link from 'next/link';
 
 import Resume from '@/components/resume/resume';
 import ThemeToggle from '@/components/themeToggle';
-import resume from '@/data/resume-public.json';
+import getResume from '@/data/resume';
 
 export const metadata = {
   title: 'Resume | Kyle Kent',
   description: 'Resume for Kyle Kent, Software Engineer.',
 };
 
-export default function ResumePage() {
+export default async function ResumePage() {
+  const resume = await getResume();
+
   return (
     <div className="resume-page">
       <div className="resume-back-link">

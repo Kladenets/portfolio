@@ -15,12 +15,12 @@
     },
     "profiles": [
       {
-        "network": "LinkedIn",
+        "network": "Linkedin",
         "username": "kylekentpa",
         "url": "https://linkedin.com/in/kylekentpa"
       },
       {
-        "network": "GitHub",
+        "network": "Github",
         "username": "Kladenets",
         "url": "https://github.com/Kladenets"
       }
@@ -31,15 +31,14 @@
       "name": "Frontend & Web Platforms",
       "keywords": [
         "React (v16-19)",
-        "JavaScript (ES6+)",
         "TypeScript",
+        "JavaScript (ES6+)",
         "HTML/CSS",
         "Redux",
         "Preact",
         "Next.js",
         "Jest/React Testing Library",
-        "Optimizely",
-        "Tailwind CSS"
+        "Optimizely"
       ]
     },
     {
@@ -70,9 +69,9 @@
     {
       "name": "Backend & Data",
       "keywords": [
+        "C/C++/C#",
         "Python/Django",
         "Java",
-        "C/C++/C#",
         "REST APIs",
         "GraphQL",
         "SQL",
@@ -80,7 +79,7 @@
       ]
     },
     {
-      "name": "Engineering Practices",
+      "name": "Software Development",
       "keywords": ["Agile/Scrum", "A/B Testing", "Engineering Mentorship"]
     }
   ],
@@ -90,14 +89,13 @@
       "position": "Software Engineer",
       "location": "Conshohocken, PA",
       "startDate": "2022-06",
-      "endDate": "Present",
       "highlights": [
-        "Co-owned the fragment and PIP ownership transition to Buy; built and owned server- and client-rendered microfrontends on IKEA's edge-rendering platform (Dynamic Web Framework and Edge Variant Service), leading translations, SSR availability loading, and CI/CD work across Buy and Navigation",
-        "Managed edge caching, request context, and production/test deployments for independently delivered fragments across Cloudflare Workers, resolving cross-fragment state, server-side rendering, and pub/sub integration issues",
-        "Co-designed the Buy monorepo migration CLI and CI/CD pattern, consolidating 52 per-market production deployments into one deployment per release and driving adoption by the Navigation team",
-        "Diagnosed and fixed geolocation reliability and data-integrity issues, including an 11% reduction so far in Google Geocoding API cost, a customer-visible validation regression affecting 27 markets, and cross-user server-side rendering state leakage",
-        "Drove development of Vaka, a greenfield real-time observability platform built with Fastly, Dynamic Web Framework, Preact, GCP, and MongoDB that enhanced error resolution in customer-facing online shopping systems and significantly reduced Mean Time to Recovery (MTTR)",
-        "Modernized Checkout and Buy foundations through ESLint 9, Node, OpenTelemetry, dependency governance, security, and TypeScript upgrades across several repositories; mentored an engineer new to web development through a personalized plan spanning HTML/CSS, TypeScript, React, and AI-assisted tooling"
+        "Co-owned the transition of the Product Information Page’s availability and services to a DWF fragment under the Buy Experience team; built and operated server- and client-rendered microfrontends on IKEA’s edge-rendering platform (EVS), while leading localized translation architecture and implementation, SSR availability loading, and CI/CD work for the fragments",
+        "Managed edge caching, request context, and production/test deployments for independently delivered fragments, resolving cross-fragment state, SSR, and pub/sub integration issues across Cloudflare Workers",
+        "Co-designed the Buy Experience team monorepo migration CLI and CI/CD pattern, consolidating 52 per-market production deployments into one deployment per release and personally drove adoption by the Navigation team",
+        "Diagnosed and fixed geolocation reliability and data-integrity issues, including an 11% reduction so far in Google Geocoding API cost, a customer-visible validation regression affecting 27 markets, and cross-user SSR state leakage",
+        "Drove development of Vaka, a greenfield, real-time observability platform built with Fastly, Dynamic Web Framework, Preact, GCP, and MongoDB that enhanced error resolution in customer-facing online shopping systems, significantly reducing Mean Time to Recovery (MTTR)",
+        "Modernized checkout foundations owned by the Buy Experience team through ESLint, our internal design system components, Renovate, security, and TypeScript upgrades across several repositories"
       ]
     },
     {
@@ -107,7 +105,7 @@
       "startDate": "2021-02",
       "endDate": "2022-06",
       "highlights": [
-        "Architected and developed Angular components including a dynamic reporting table, interactive OPC device parameter navigation, and editable data tables with conditional logic",
+        "Architected and developed Angular components such as a dynamic reporting table, interactive OPC device parameter navigation, and editable data tables with conditional logic",
         "Designed a configurable alert infrastructure integrating SQL stored procedures, Angular dialogs, and web API hooks to automate notifications",
         "Optimized SQL stored procedures, significantly reducing query latency and improving overall response times",
         "Refactored legacy Angular and SQL codebases to eliminate performance bottlenecks and improve maintainability"
@@ -120,8 +118,8 @@
       "startDate": "2020-02",
       "endDate": "2021-01",
       "highlights": [
-        "Developed a HIPAA-compliant NLP healthcare chat app for post-surgery patient questions using Google Dialogflow, React/Redux, and Django",
-        "Developed virtual assistant UI components in React, leading to increased user engagement and streamlined conversational feature integration"
+        "Developed a HIPAA compliant, NLP healthcare chat app designed to answer patients' post-surgery care questions. Built using Google DialogFlow with a React/Redux frontend and Django backend",
+        "Developed virtual assistant UI components in React, leading to an increase in user engagement and streamlined conversational feature integration"
       ]
     }
   ],
