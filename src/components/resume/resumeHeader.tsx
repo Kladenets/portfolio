@@ -77,25 +77,51 @@ export default function ResumeHeader({
     </address>
   );
 
+  const toggleContent = (
+    <>
+      <span>
+        <span className={styles.kicker}>Software Engineer</span>
+        <motion.span
+          className={styles.name}
+          layout
+          role="heading"
+          aria-level={1}
+        >
+          {name}
+        </motion.span>
+      </span>
+      <AnimatePresence>
+        {isMobile && (
+          <motion.span
+            animate={{ opacity: 1, rotate: isExpanded ? 180 : 0 }}
+            aria-hidden="true"
+            className={styles.expandIcon}
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, rotate: 0 }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.2,
+              ease: 'easeInOut',
+            }}
+          >
+            {isExpanded ? '−' : '+'}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </>
+  );
+
   return (
     <motion.header
-      aria-controls={isMobile ? 'resume-contact' : undefined}
-      aria-expanded={isMobile ? isExpanded : undefined}
       className={`${styles.header} ${isMobile ? styles.mobileHeader : styles.desktopHeader}`}
       data-breakpoint-transitioning={isBreakpointTransitioning || undefined}
+      data-expanded={isMobile && isExpanded ? 'true' : undefined}
       layout="size"
       layoutDependency={isMobile ? isExpanded : 'desktop'}
-      onClick={() => {
-        if (isMobile) setIsExpanded((expanded) => !expanded);
+      onClick={(event) => {
+        if (!isMobile) return;
+        if ((event.target as HTMLElement).closest('a')) return;
+        setIsExpanded((expanded) => !expanded);
       }}
-      onKeyDown={(event) => {
-        if (isMobile && (event.key === 'Enter' || event.key === ' ')) {
-          event.preventDefault();
-          setIsExpanded((expanded) => !expanded);
-        }
-      }}
-      role={isMobile ? 'button' : undefined}
-      tabIndex={isMobile ? 0 : undefined}
       transition={{
         layout: {
           duration: shouldReduceMotion || isBreakpointTransitioning ? 0 : 0.3,
@@ -103,43 +129,27 @@ export default function ResumeHeader({
         },
       }}
     >
-      <motion.div className={styles.headerToggle} layout>
-        <span>
-          <span className={styles.kicker}>Software Engineer</span>
-          <motion.span
-            className={styles.name}
-            layout
-            role="heading"
-            aria-level={1}
-          >
-            {name}
-          </motion.span>
-        </span>
-        <AnimatePresence initial={false}>
-          {isMobile && (
-            <motion.span
-              animate={{ opacity: 1, rotate: isExpanded ? 180 : 0 }}
-              aria-hidden="true"
-              className={styles.expandIcon}
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0, rotate: 0 }}
-              transition={{
-                duration: shouldReduceMotion ? 0 : 0.2,
-                ease: 'easeInOut',
-              }}
-            >
-              {isExpanded ? '−' : '+'}
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.div>
+      {isMobile ? (
+        <motion.button
+          aria-controls="resume-contact"
+          aria-expanded={isExpanded}
+          className={styles.headerToggle}
+          layout
+          type="button"
+        >
+          {toggleContent}
+        </motion.button>
+      ) : (
+        <motion.div className={styles.headerToggle} layout>
+          {toggleContent}
+        </motion.div>
+      )}
       <motion.div
         aria-hidden={isMobile && !isExpanded}
         className={styles.contactPanel}
         id="resume-contact"
         inert={isMobile && !isExpanded}
         initial={false}
-        onClick={(event) => event.stopPropagation()}
       >
         {contact}
       </motion.div>

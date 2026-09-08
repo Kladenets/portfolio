@@ -49,13 +49,20 @@
 }
 
 .headerToggle {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
   min-width: 0;
+  padding: 0;
+  text-align: left;
 }
 
 .mobileHeader .headerToggle {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
   width: 100%;
 }
 
@@ -68,7 +75,7 @@
   font-size: 2.75rem;
 }
 
-.mobileHeader:focus-visible {
+.mobileHeader .headerToggle:focus-visible {
   outline: 2px solid var(--color-accent-600);
   outline-offset: 0.35rem;
 }
@@ -128,7 +135,7 @@
   width: 100%;
 }
 
-.mobileHeader[aria-expanded='true'] .contactPanel {
+.mobileHeader[data-expanded='true'] .contactPanel {
   grid-template-rows: 1fr;
   margin-top: 1rem;
   opacity: 1;
