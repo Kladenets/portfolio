@@ -77,7 +77,7 @@ export default function Contact({ id }: SectionProps) {
             {links.map((link, index) => (
               <motion.div
                 key={index}
-                className="relative inline-block cursor-pointer w-full"
+                className="relative inline-block w-full"
                 variants={wrapperVariants}
                 initial="rest"
                 whileHover="hover"
@@ -86,15 +86,14 @@ export default function Contact({ id }: SectionProps) {
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               >
                 <motion.div
-                  className="absolute top-0 left-0 w-full h-full border-4 border-accent-200 dark:border-accent-800 z-0 my-transition-colors" // Fills the button's space
+                  className="absolute top-0 left-0 w-full h-full border-4 border-accent-200 dark:border-accent-800 z-0 cursor-default pointer-events-none my-transition-colors"
                   variants={shadowBackgroundVariants}
                 />
 
                 {link.external ? (
                   <motion.a
-                    className="contact-link my-transition-colors underline lg:no-underline w-full"
+                    className="contact-link my-transition-colors underline lg:no-underline w-full cursor-pointer"
                     initial={{ x: 0, y: 0 }}
-                    whileHover={{ x: -3, y: -3 }}
                     whileTap={{ scale: 0.98 }}
                     transition={commonTransition}
                     href={link.href}
@@ -107,12 +106,11 @@ export default function Contact({ id }: SectionProps) {
                   <motion.div
                     className="w-full"
                     initial={{ x: 0, y: 0 }}
-                    whileHover={{ x: -3, y: -3 }}
                     whileTap={{ scale: 0.98 }}
                     transition={commonTransition}
                   >
                     <Link
-                      className="contact-link my-transition-colors underline lg:no-underline w-full"
+                      className="contact-link my-transition-colors underline lg:no-underline w-full cursor-pointer"
                       href={link.href}
                     >
                       {link.text}
