@@ -123,12 +123,12 @@ export default function ResumeHeader({
       <AnimatePresence initial={false}>
         {isMobile && isExpanded && (
           <motion.div
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: 'auto', marginTop: '1rem', opacity: 1 }}
             aria-hidden={false}
             className={styles.contactPanel}
-            exit={{ height: 0, opacity: 0 }}
+            exit={{ height: 0, marginTop: 0, opacity: 0 }}
             id="resume-contact"
-            initial={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, marginTop: 0, opacity: 0 }}
             onClick={(event) => event.stopPropagation()}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.3,
