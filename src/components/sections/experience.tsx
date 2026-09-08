@@ -4,7 +4,6 @@ interface SectionProps {
   id: string;
 }
 
-// can I pull my experiences from my resume json site?
 const experiences = [
   {
     company: 'IKEA North America Services, LLC',
@@ -12,11 +11,12 @@ const experiences = [
     dates: 'June 2022 – Present',
     location: 'Conshohocken, PA',
     points: [
-      'Co-led development of Vaka, a greenfield observability platform, significantly reducing MTTR for customer-facing systems.',
-      'Enhanced Cart SPA with React Router for robust A/B testing and smoother UX.',
-      'Developed/optimized checkout features (React, TypeScript) improving load times and UI clarity.',
-      'Founded and led a DevOps Guild standardizing workflows across GCP, Terraform, and GitHub Actions.',
-      'Mentored 4 new engineers, accelerating onboarding with hands-on guidance (React, TS, Git).',
+      'Co-owned the transition of product availability and services to a DWF fragment, leading localized translation architecture, SSR availability loading, and CI/CD for server- and client-rendered microfrontends.',
+      'Managed edge caching, request context, and production/test deployments for independently delivered fragments across Cloudflare Workers.',
+      'Co-designed the Buy Experience monorepo migration CLI and CI/CD pattern, consolidating 52 per-market production deployments into one deployment per release.',
+      'Diagnosed geolocation and data-integrity issues, including an 11% reduction in Google Geocoding API cost, a validation regression affecting 27 markets, and cross-user SSR state leakage.',
+      'Drove development of Vaka, a real-time observability platform that improved error resolution in customer-facing online shopping systems and reduced MTTR.',
+      'Modernized checkout foundations through ESLint, design-system, Renovate, security, and TypeScript upgrades across several repositories.',
     ],
   },
   {
@@ -37,19 +37,8 @@ const experiences = [
     dates: 'Feb 2020 – Jan 2021',
     location: 'Doylestown, PA',
     points: [
-      'Developed a HIPAA compliant NLP healthcare chat app using DialogFlow, React/Redux, and Django.',
-      'Built React UI components for a virtual assistant, increasing user engagement.',
-      'Worked directly with clients from requirements gathering to delivery.',
-    ],
-  },
-  {
-    company: 'First Trust Portfolios',
-    role: 'Software Engineer',
-    dates: 'Aug 2016 – Sep 2018',
-    location: 'Wheaton, IL',
-    points: [
-      'Modernized legacy financial applications, improving code readability and maintainability.',
-      'Created SQL tools for database optimization and data integrity.',
+      'Developed a HIPAA-compliant NLP healthcare chat app for post-surgery care using DialogFlow, React/Redux, and Django.',
+      'Developed virtual assistant UI components in React, increasing user engagement and streamlining conversational feature integration.',
     ],
   },
 ];
