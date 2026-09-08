@@ -10,6 +10,7 @@
   color: var(--resume-ink);
   font-family: var(--font-geist-sans), 'Helvetica Neue', sans-serif;
   padding: var(--resume-page-padding) 1rem;
+  transition: padding 300ms ease-in-out;
 }
 
 :global(.dark) .page {
@@ -23,6 +24,7 @@
   padding: var(--resume-document-padding);
   box-shadow: 0 0.75rem 2rem
     color-mix(in srgb, var(--resume-shadow) 12%, transparent);
+  transition: padding 300ms ease-in-out;
 }
 
 .headerBox {

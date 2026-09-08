@@ -70,7 +70,7 @@ export default function ResumeHeader({
       aria-controls={isMobile ? 'resume-contact' : undefined}
       aria-expanded={isMobile ? isExpanded : undefined}
       className={`${styles.header} ${isMobile ? styles.mobileHeader : styles.desktopHeader}`}
-      layout
+      layout="size"
       onClick={() => {
         if (isMobile) setIsExpanded((expanded) => !expanded);
       }}
@@ -83,8 +83,10 @@ export default function ResumeHeader({
       role={isMobile ? 'button' : undefined}
       tabIndex={isMobile ? 0 : undefined}
       transition={{
-        duration: shouldReduceMotion ? 0 : 0.22,
-        ease: 'easeOut',
+        layout: {
+          duration: shouldReduceMotion ? 0 : 0.3,
+          ease: 'easeInOut',
+        },
       }}
     >
       <motion.div className={styles.headerToggle} layout>
@@ -118,23 +120,25 @@ export default function ResumeHeader({
         </AnimatePresence>
       </motion.div>
       {!isMobile && <div className={styles.contactPanel}>{contact}</div>}
-      {isMobile && isExpanded && (
-        <motion.div
-          animate={{ height: 'auto', opacity: 1 }}
-          aria-hidden={false}
-          className={styles.contactPanel}
-          id="resume-contact"
-          initial={{ height: 0, opacity: 0 }}
-          layout
-          onClick={(event) => event.stopPropagation()}
-          transition={{
-            duration: shouldReduceMotion ? 0 : 0.22,
-            ease: 'easeOut',
-          }}
-        >
-          {contact}
-        </motion.div>
-      )}
+      <AnimatePresence initial={false}>
+        {isMobile && isExpanded && (
+          <motion.div
+            animate={{ height: 'auto', opacity: 1 }}
+            aria-hidden={false}
+            className={styles.contactPanel}
+            exit={{ height: 0, opacity: 0 }}
+            id="resume-contact"
+            initial={{ height: 0, opacity: 0 }}
+            onClick={(event) => event.stopPropagation()}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.3,
+              ease: 'easeOut',
+            }}
+          >
+            {contact}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
