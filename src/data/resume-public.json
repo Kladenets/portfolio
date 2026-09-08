@@ -128,7 +128,7 @@
       "name": "Portfolio",
       "startDate": "2025-05",
       "keywords": ["Next.js", "Tailwind CSS", "Motion", "TypeScript"],
-      "description": "Single-page portfolio website showcasing projects, skills, and work experience.",
+        "description": "Production-grade Next.js portfolio and resume application with a typed component system, responsive desktop/mobile UI, dark mode, automated browser testing, and CI/CD reading my resume data from a separately hosted public JSON.",
       "url": "https://kylekent.dev"
     }
   ],

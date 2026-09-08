@@ -92,7 +92,7 @@ export default function Contact({ id }: SectionProps) {
 
                 {link.external ? (
                   <motion.a
-                    className="contact-link my-transition-colors underline lg:no-underline"
+                    className="contact-link my-transition-colors underline lg:no-underline w-full"
                     initial={{ x: 0, y: 0 }}
                     whileHover={{ x: -3, y: -3 }}
                     whileTap={{ scale: 0.98 }}
@@ -105,13 +105,14 @@ export default function Contact({ id }: SectionProps) {
                   </motion.a>
                 ) : (
                   <motion.div
+                    className="w-full"
                     initial={{ x: 0, y: 0 }}
                     whileHover={{ x: -3, y: -3 }}
                     whileTap={{ scale: 0.98 }}
                     transition={commonTransition}
                   >
                     <Link
-                      className="contact-link my-transition-colors underline lg:no-underline"
+                      className="contact-link my-transition-colors underline lg:no-underline w-full"
                       href={link.href}
                     >
                       {link.text}
