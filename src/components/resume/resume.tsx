@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 
 import AnimatedHeaderBox from './animatedHeaderBox';
+import AnimatedResumePage from './animatedResumePage';
 import styles from './resume.module.css';
 import ResumeHeader from './resumeHeader';
 
@@ -109,137 +110,129 @@ export default function Resume({ resume }: { resume: ResumeData }) {
   } as CSSProperties;
 
   return (
-    <main className={`${styles.page} my-transition-colors`} style={accentStyle}>
-      <article className={`${styles.document} my-transition-colors`}>
-        <AnimatedHeaderBox>
-          <ResumeHeader
-            email={basics?.email}
-            name={basics?.name}
-            profiles={profiles}
-            url={basics?.url}
-          />
-        </AnimatedHeaderBox>
+    <AnimatedResumePage style={accentStyle}>
+      <AnimatedHeaderBox>
+        <ResumeHeader
+          email={basics?.email}
+          name={basics?.name}
+          profiles={profiles}
+          url={basics?.url}
+        />
+      </AnimatedHeaderBox>
 
-        {resume.skills?.length ? (
-          <section className={styles.section} aria-labelledby="skills-heading">
-            <SectionHeading id="skills-heading">Skills</SectionHeading>
-            <div className={styles.skills}>
-              {resume.skills.map((skill) => (
-                <p key={skill.name}>
-                  <strong>{skill.name}:</strong> {skill.keywords?.join(', ')}
-                </p>
-              ))}
-            </div>
-          </section>
-        ) : null}
+      {resume.skills?.length ? (
+        <section className={styles.section} aria-labelledby="skills-heading">
+          <SectionHeading id="skills-heading">Skills</SectionHeading>
+          <div className={styles.skills}>
+            {resume.skills.map((skill) => (
+              <p key={skill.name}>
+                <strong>{skill.name}:</strong> {skill.keywords?.join(', ')}
+              </p>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-        {resume.work?.length ? (
-          <section
-            className={styles.section}
-            aria-labelledby="experience-heading"
-          >
-            <SectionHeading id="experience-heading">Experience</SectionHeading>
-            <div className={styles.entries}>
-              {resume.work.map((entry) => (
-                <article
-                  className={styles.entry}
-                  key={`${entry.name}-${entry.startDate}`}
-                >
-                  <div className={styles.entryHeader}>
-                    <div>
-                      <h3>{entry.name}</h3>
-                      <p className={styles.role}>{entry.position}</p>
-                    </div>
-                    <div className={styles.meta}>
-                      <p>{dateRange(entry.startDate, entry.endDate)}</p>
-                      <p>{entry.location}</p>
-                    </div>
-                  </div>
-                  {entry.highlights?.length ? (
-                    <ul>
-                      {entry.highlights.map((highlight) => (
-                        <li key={highlight}>{highlight}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </article>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        {resume.projects?.length ? (
-          <section
-            className={styles.section}
-            aria-labelledby="projects-heading"
-          >
-            <SectionHeading id="projects-heading">Projects</SectionHeading>
-            <div className={styles.entries}>
-              {resume.projects.map((project) => (
-                <article className={styles.project} key={project.name}>
-                  <div className={styles.entryHeader}>
-                    <div>
-                      <h3>{project.name}</h3>
-                      {project.keywords?.length ? (
-                        <p className={styles.role}>
-                          {project.keywords.join(', ')}
-                        </p>
-                      ) : null}
-                    </div>
-                    <div className={styles.meta}>
-                      {(project.startDate || project.endDate) && (
-                        <p>{dateRange(project.startDate, project.endDate)}</p>
-                      )}
-                      {project.url && (
-                        <p>
-                          <ExternalLink href={project.url}>
-                            {project.url.replace(/^https?:\/\//, '')}
-                          </ExternalLink>
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  {project.description && (
-                    <ul>
-                      <li>{project.description}</li>
-                    </ul>
-                  )}
-                </article>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        {resume.education?.length ? (
-          <section
-            className={styles.section}
-            aria-labelledby="education-heading"
-          >
-            <SectionHeading id="education-heading">Education</SectionHeading>
-            <div className={styles.entries}>
-              {resume.education.map((entry) => (
-                <article
-                  className={styles.entryHeader}
-                  key={`${entry.institution}-${entry.startDate}`}
-                >
+      {resume.work?.length ? (
+        <section
+          className={styles.section}
+          aria-labelledby="experience-heading"
+        >
+          <SectionHeading id="experience-heading">Experience</SectionHeading>
+          <div className={styles.entries}>
+            {resume.work.map((entry) => (
+              <article
+                className={styles.entry}
+                key={`${entry.name}-${entry.startDate}`}
+              >
+                <div className={styles.entryHeader}>
                   <div>
-                    <h3>{entry.institution}</h3>
-                    <p className={styles.role}>
-                      {entry.studyType && entry.area
-                        ? `${entry.studyType}: ${entry.area}`
-                        : entry.studyType || entry.area}
-                    </p>
+                    <h3>{entry.name}</h3>
+                    <p className={styles.role}>{entry.position}</p>
                   </div>
                   <div className={styles.meta}>
                     <p>{dateRange(entry.startDate, entry.endDate)}</p>
                     <p>{entry.location}</p>
                   </div>
-                </article>
-              ))}
-            </div>
-          </section>
-        ) : null}
-      </article>
-    </main>
+                </div>
+                {entry.highlights?.length ? (
+                  <ul>
+                    {entry.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {resume.projects?.length ? (
+        <section className={styles.section} aria-labelledby="projects-heading">
+          <SectionHeading id="projects-heading">Projects</SectionHeading>
+          <div className={styles.entries}>
+            {resume.projects.map((project) => (
+              <article className={styles.project} key={project.name}>
+                <div className={styles.entryHeader}>
+                  <div>
+                    <h3>{project.name}</h3>
+                    {project.keywords?.length ? (
+                      <p className={styles.role}>
+                        {project.keywords.join(', ')}
+                      </p>
+                    ) : null}
+                  </div>
+                  <div className={styles.meta}>
+                    {(project.startDate || project.endDate) && (
+                      <p>{dateRange(project.startDate, project.endDate)}</p>
+                    )}
+                    {project.url && (
+                      <p>
+                        <ExternalLink href={project.url}>
+                          {project.url.replace(/^https?:\/\//, '')}
+                        </ExternalLink>
+                      </p>
+                    )}
+                  </div>
+                </div>
+                {project.description && (
+                  <ul>
+                    <li>{project.description}</li>
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {resume.education?.length ? (
+        <section className={styles.section} aria-labelledby="education-heading">
+          <SectionHeading id="education-heading">Education</SectionHeading>
+          <div className={styles.entries}>
+            {resume.education.map((entry) => (
+              <article
+                className={styles.entryHeader}
+                key={`${entry.institution}-${entry.startDate}`}
+              >
+                <div>
+                  <h3>{entry.institution}</h3>
+                  <p className={styles.role}>
+                    {entry.studyType && entry.area
+                      ? `${entry.studyType}: ${entry.area}`
+                      : entry.studyType || entry.area}
+                  </p>
+                </div>
+                <div className={styles.meta}>
+                  <p>{dateRange(entry.startDate, entry.endDate)}</p>
+                  <p>{entry.location}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </AnimatedResumePage>
   );
 }
