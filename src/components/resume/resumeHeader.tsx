@@ -34,12 +34,15 @@ export default function ResumeHeader({
 }: ResumeHeaderProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isBreakpointTransitioning, setIsBreakpointTransitioning] =
+    useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 30rem)');
     const handleChange = () => {
       const nextIsMobile = mediaQuery.matches;
+      setIsBreakpointTransitioning(true);
       setIsMobile(nextIsMobile);
       if (nextIsMobile) setIsExpanded(false);
     };
@@ -48,6 +51,15 @@ export default function ResumeHeader({
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
+
+  useEffect(() => {
+    if (!isBreakpointTransitioning) return;
+
+    const frame = requestAnimationFrame(() => {
+      setIsBreakpointTransitioning(false);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [isBreakpointTransitioning]);
 
   const contact = (
     <address className={styles.contact}>
@@ -70,7 +82,9 @@ export default function ResumeHeader({
       aria-controls={isMobile ? 'resume-contact' : undefined}
       aria-expanded={isMobile ? isExpanded : undefined}
       className={`${styles.header} ${isMobile ? styles.mobileHeader : styles.desktopHeader}`}
+      data-breakpoint-transitioning={isBreakpointTransitioning || undefined}
       layout="size"
+      layoutDependency={isMobile ? isExpanded : 'desktop'}
       onClick={() => {
         if (isMobile) setIsExpanded((expanded) => !expanded);
       }}
@@ -84,7 +98,7 @@ export default function ResumeHeader({
       tabIndex={isMobile ? 0 : undefined}
       transition={{
         layout: {
-          duration: shouldReduceMotion ? 0 : 0.3,
+          duration: shouldReduceMotion || isBreakpointTransitioning ? 0 : 0.3,
           ease: 'easeInOut',
         },
       }}
@@ -119,26 +133,16 @@ export default function ResumeHeader({
           )}
         </AnimatePresence>
       </motion.div>
-      {!isMobile && <div className={styles.contactPanel}>{contact}</div>}
-      <AnimatePresence initial={false}>
-        {isMobile && isExpanded && (
-          <motion.div
-            animate={{ height: 'auto', marginTop: '1rem', opacity: 1 }}
-            aria-hidden={false}
-            className={styles.contactPanel}
-            exit={{ height: 0, marginTop: 0, opacity: 0 }}
-            id="resume-contact"
-            initial={{ height: 0, marginTop: 0, opacity: 0 }}
-            onClick={(event) => event.stopPropagation()}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.3,
-              ease: 'easeOut',
-            }}
-          >
-            {contact}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        aria-hidden={isMobile && !isExpanded}
+        className={styles.contactPanel}
+        id="resume-contact"
+        inert={isMobile && !isExpanded}
+        initial={false}
+        onClick={(event) => event.stopPropagation()}
+      >
+        {contact}
+      </motion.div>
     </motion.header>
   );
 }
