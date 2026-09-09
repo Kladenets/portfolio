@@ -18,9 +18,9 @@ jobs:
       new_version: ${{ steps.tag_version_dry_run.outputs.new_version }}
       release_type: ${{ steps.tag_version_dry_run.outputs.release_type }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - id: tag_version_dry_run
-        uses: mathieudutour/github-tag-action@v6.2
+        uses: mathieudutour/github-tag-action@a22cf08638b34d5badda920f9daf6e72c477b07b # v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_prefix: ''
@@ -63,15 +63,15 @@ jobs:
       status: ${{ steps.failure.outputs.status }}
       changelog: ${{ steps.tag_version.outputs.changelog }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
+        uses: mathieudutour/github-tag-action@a22cf08638b34d5badda920f9daf6e72c477b07b # v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: ${{ needs.calculate-version.outputs.new_tag }}
           tag_prefix: ''
           custom_release_rules: config:patch:Configuration Changes,chore:patch:Miscellaneous,
-      - uses: ncipollo/release-action@v1.16.0
+      - uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174 # v1.16.0
         with:
           tag: ${{ needs.calculate-version.outputs.new_tag }}
           name: Release ${{ needs.calculate-version.outputs.new_tag }}
@@ -87,7 +87,7 @@ jobs:
     needs: [calculate-version, create-release, validate-rollback-tag]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: release
 

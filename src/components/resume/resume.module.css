@@ -3,11 +3,14 @@
   --resume-muted: var(--color-secondary-700);
   --resume-paper: var(--color-background);
   --resume-shadow: var(--color-secondary);
+  --resume-page-padding: clamp(1rem, 4vw, 2.5rem);
+  --resume-document-padding: clamp(1.25rem, 5vw, 4rem);
   min-height: 100vh;
   background: transparent;
   color: var(--resume-ink);
   font-family: var(--font-geist-sans), 'Helvetica Neue', sans-serif;
-  padding: 2.5rem 1rem;
+  padding: var(--resume-page-padding) 1rem;
+  transition: padding 300ms ease-in-out;
 }
 
 :global(.dark) .page {
@@ -18,9 +21,10 @@
   width: min(100%, 64rem);
   margin: 0 auto;
   background: transparent;
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: var(--resume-document-padding);
   box-shadow: 0 0.75rem 2rem
     color-mix(in srgb, var(--resume-shadow) 12%, transparent);
+  transition: padding 300ms ease-in-out;
 }
 
 .headerBox {
@@ -30,9 +34,50 @@
 .header {
   align-items: flex-start;
   display: flex;
-  justify-content: space-between;
   gap: 2rem;
   padding: 1.1rem;
+}
+
+.desktopHeader {
+  justify-content: space-between;
+}
+
+.mobileHeader {
+  cursor: pointer;
+  flex-direction: column;
+  gap: 0;
+}
+
+.headerToggle {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.mobileHeader .headerToggle {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+}
+
+.kicker,
+.name {
+  display: block;
+}
+
+.mobileHeader .name {
+  font-size: 2.75rem;
+}
+
+.mobileHeader .headerToggle:focus-visible {
+  outline: 2px solid var(--color-accent-600);
+  outline-offset: 0.35rem;
 }
 
 .kicker {
@@ -50,12 +95,64 @@
   color: var(--color-secondary-300);
 }
 
-.header h1 {
-  font-size: clamp(1.8rem, 5vw, 3.25rem);
+.header h1,
+.name {
+  font-size: clamp(2.75rem, 5.5vw, 3.25rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.95;
   margin: 0;
+  transition: font-size 220ms ease-out;
+}
+
+.expandIcon {
+  color: var(--resume-muted);
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-right: 0.35rem;
+  transform-origin: center;
+}
+
+.desktopHeader .expandIcon {
+  display: none;
+}
+
+.contactPanel {
+  display: block;
+}
+
+.mobileHeader .contactPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    grid-template-rows 300ms ease-in-out,
+    margin-top 300ms ease-in-out,
+    opacity 300ms ease-in-out;
+  width: 100%;
+}
+
+.mobileHeader[data-expanded='true'] .contactPanel {
+  grid-template-rows: 1fr;
+  margin-top: 1rem;
+  opacity: 1;
+}
+
+.mobileHeader .contactPanel > .contact {
+  min-height: 0;
+}
+
+.mobileHeader[data-breakpoint-transitioning='true'] .contactPanel {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobileHeader .contactPanel {
+    transition: none;
+  }
 }
 
 .contact {
@@ -127,6 +224,7 @@
   display: flex;
   gap: 1rem;
   justify-content: space-between;
+  min-width: 0;
 }
 
 .entry h3,
@@ -216,29 +314,58 @@
     border-color 500ms ease-out;
 }
 
-@media (max-width: 38rem) {
+@media (max-width: 30rem) {
   .page {
     padding: 0;
   }
 
   .document {
     box-shadow: none;
-    padding: 1.5rem 1.1rem 3rem;
+    padding: 1.5rem clamp(1rem, 5vw, 1.5rem) 3rem;
   }
 
-  .header,
   .entryHeader {
     flex-direction: column;
-  }
-
-  .header {
-    gap: 1.25rem;
   }
 
   .contact,
   .meta {
     align-items: flex-start;
     text-align: left;
+  }
+
+  .section {
+    margin-top: 1.5rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+    padding-block: 0.5rem;
+  }
+
+  .entries {
+    gap: 1.25rem;
+  }
+
+  .entryHeader {
+    gap: 0.35rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.75rem;
+  }
+
+  .meta p {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 22rem) {
+  .mobileHeader .name {
+    font-size: 2.5rem;
   }
 }
 

@@ -6,61 +6,60 @@ interface SectionProps {
   id: string;
 }
 
-// TODO: use boxed shadows instead of classic shadows to stay with the sharper theme (will these work in the header buttons?)
 export default function Skills({ id }: SectionProps) {
-  // Consider organizing skills into categories
   const skillCategories = [
     {
-      title: 'Frontend Development',
+      title: 'Frontend, Testing & Experimentation',
       skills: [
         'React (v16-19)',
-        'Next.js',
         'TypeScript',
         'JavaScript (ES6+)',
-        'HTML5',
-        'CSS3',
-        'Tailwind CSS',
+        'HTML/CSS',
         'Redux',
-        'React Router',
         'Preact',
-        'Angular',
-        'Jest',
-        'React Testing Library',
+        'Next.js',
+        'Jest/React Testing Library',
+        'Optimizely',
+        'A/B Testing',
       ],
     },
     {
-      title: 'DevOps & Cloud',
+      title: 'Web Architecture & Edge Computing',
+      skills: [
+        'Microfrontends',
+        'Server-Side Rendering (SSR)',
+        'Client-Side Rendering (CSR)',
+        'Edge Computing',
+        'Cloudflare Workers',
+        'Edge Caching',
+        'Edge Side Includes (ESI)',
+        'Dynamic Web Framework (IKEA)',
+        'Edge Variant Service (EVS)',
+      ],
+    },
+    {
+      title: 'Cloud, Delivery & Practice',
       skills: [
         'Git',
+        'GCP',
+        'Terraform',
         'GitHub Actions',
-        'Google Cloud Platform (GCP)',
-        'Infrastructure as Code (Terraform)',
-        'Workload Identity Federation',
-        'GHAS (GitHub Advanced Security)',
+        'CI/CD',
+        'GitHub Advanced Security',
+        'Agile/Scrum',
+        'Engineering Mentorship',
       ],
     },
     {
-      title: 'Backend & Database',
+      title: 'Backend & Data',
       skills: [
-        'REST',
+        'C/C++/C#',
+        'Python/Django',
+        'Java',
+        'REST APIs',
         'GraphQL',
         'SQL',
         'PostgreSQL',
-        'Node.js',
-        'Python (Django)',
-        'C++/C#',
-        'Java',
-      ],
-    },
-    {
-      title: 'Tools & Practices',
-      skills: [
-        'Agile/Scrum',
-        'A/B Testing (Optimizely)',
-        'CI/CD',
-        'Mentoring Engineers',
-        'Pair Programming',
-        'Code Reviews',
       ],
     },
   ];
@@ -77,7 +76,7 @@ export default function Skills({ id }: SectionProps) {
           </h2>
         </AnimatedText>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-[repeat(4,14rem)] lg:justify-between">
           {skillCategories.map((category, index) => (
             <AnimatedText
               key={category.title}
@@ -90,7 +89,7 @@ export default function Skills({ id }: SectionProps) {
                 mainBorderStyles="p-6 h-full w-full border-4 border-secondary-500 dark:border-secondary-300"
               >
                 {/* border on h3 is just on the bottom and separates the title from the content */}
-                <h3 className="border-b-1 pb-2 border-text/30 font-semibold mb-4 text-text my-transition-colors">
+                <h3 className="border-b-1 pb-2 border-text/30 font-semibold mb-4 text-lg text-text my-transition-colors lg:flex lg:min-h-[4rem] lg:items-end">
                   {category.title}
                 </h3>
                 <ul className="space-y-2 h-full">

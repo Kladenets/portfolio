@@ -7,7 +7,7 @@ import React from 'react';
 import type { PdfResumeData } from './ResumePdf';
 
 const inputPath = path.resolve(
-  process.argv[2] ?? 'src/data/resume-public.json'
+  process.argv[2] ?? '.generated/resume-public.json'
 );
 const outputPath = path.resolve('public/kylekent-resume.pdf');
 const require = createRequire(import.meta.url);
