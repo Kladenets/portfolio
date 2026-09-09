@@ -6,6 +6,7 @@
     "dev": "npm run resume:fetch && next dev --turbopack",
     "build": "npm run resume:fetch && npm run resume:pdf && next build",
     "start": "next start",
+    "serve:export": "serve --listen tcp://127.0.0.1:3000 out",
     "resume:fetch": "tsx tools/resume-pdf/fetch.ts",
     "resume:pdf": "tsx tools/resume-pdf/generate.tsx .generated/resume-public.json",
     "test:e2e": "playwright test",
@@ -36,6 +37,7 @@
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.5.3",
+    "serve": "^14.2.6",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
     "typescript": "^5"
