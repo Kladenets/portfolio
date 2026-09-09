@@ -85,11 +85,11 @@ The theme must:
 
 ### Objective
 
-Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using the current static Cloudflare Pages deployment model. The page is generated from a local copy of `resume-public.json`. The PDF is generated locally by a separate `@react-pdf/renderer` CLI and committed or copied into `public/kylekent-resume.pdf` before deployment.
+Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using the current static Cloudflare Pages deployment model. The page and PDF are generated from the validated public resume fetched into `.generated/resume-public.json`. The PDF is generated locally by a separate `@react-pdf/renderer` CLI and committed or copied into `public/kylekent-resume.pdf` before deployment.
 
 ### Data requirements
 
-- The portfolio must use a local `resume-public.json` copy for Phase 1.
+- The portfolio must fetch and validate the hosted public `resume-public.json` before rendering in Phase 1.
 - The local public file must contain the curated all-purpose resume, not `resume-working-master.json`.
 - The working master must not be published to the portfolio or included in the public resume route.
 - The local public file must be manually maintainable with agentic assistance.
@@ -122,7 +122,7 @@ Phase 1 provides a self-hosted resume page and a bundled downloadable PDF using 
 
 ### Phase 1 acceptance criteria
 
-- The public resume renders at `/resume` from local `resume-public.json`.
+- The public resume renders at `/resume` from the fetched `.generated/resume-public.json`.
 - The route is usable on desktop and narrow mobile viewports.
 - The page has correct heading hierarchy, selectable text, readable links, and logical copy/paste order.
 - The layout matches the PDF's minimal single-column character while sharing restrained visual cues with the portfolio.

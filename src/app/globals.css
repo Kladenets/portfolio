@@ -209,13 +209,21 @@ html {
   }
 }
 
-@media (max-width: 38rem) {
+@media (max-width: 30rem) {
   .resume-back-link {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-inline: 0.75rem;
   }
 
   .resume-actions {
-    width: 100%;
+    flex: 0 1 auto;
+    margin-left: auto;
+    width: fit-content;
+  }
+
+  .resume-menu-button {
+    padding-inline: 0.5rem;
   }
 }

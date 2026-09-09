@@ -8,44 +8,29 @@ interface SectionProps {
 
 const projects = [
   {
-    title: "Portfolio Website (you're here!)",
+    title: 'Portfolio',
     description:
-      'Personal portfolio with a curated resume, accessible resume page, and downloadable PDF built for static deployment.',
-    tech: [
-      'Next.js (App Router)',
-      'React',
-      'Tailwind CSS',
-      'Motion',
-      'TypeScript',
-      'JSON Resume',
-      '@react-pdf/renderer',
-      'Cloudflare Pages',
-    ],
-    link: 'https://github.com/Kladenets/portfolio',
-    liveLink: null, // Add if deployed
+      'Production-grade Next.js portfolio and resume application with a typed component system, responsive desktop/mobile UI, dark mode, automated browser testing, and CI/CD reading my resume data from a separately hosted public JSON.',
+    tech: ['Next.js', 'Tailwind CSS', 'Motion', 'TypeScript', 'Cloudflare'],
+    link: null,
+    liveLink: null,
   },
   {
-    title: 'To-dos App',
+    title: 'Monorepo Migration CLI',
     description:
-      'A (WIP!) basic todo list application built for learning purposes, focusing on implementing Tailwind CSS, the Next.js App Router, and MinimongoDB for local storage.',
-    tech: [
-      'Next.js (App Router)',
-      'React',
-      'Tailwind CSS',
-      'TypeScript',
-      'MinimongoDB',
-    ],
-    link: 'https://github.com/Kladenets/next-intro',
-    liveLink: null, // Add if deployed
+      'CLI and CI/CD pattern for migrating repositories into either a new or existing monorepo, preserving git history and merging workflows and other github root configurations.',
+    tech: ['TypeScript', 'Node.js', 'git-filter-repo', 'GitHub CLI'],
+    link: null,
+    liveLink: null,
   },
-  // Add more projects here as needed
-  // {
-  //   title: 'Project Title 2',
-  //   description: 'Description of another cool project.',
-  //   tech: ['React', 'Firebase', 'Material UI'],
-  //   link: 'https://github.com/yourusername/project2',
-  //   liveLink: 'https://project2.example.com',
-  // },
+  {
+    title: 'Resume Repository',
+    description:
+      'JSON Resume data layer and GitHub Actions workflow that generates, validates, and publishes a curated public resume in JSON format.',
+    tech: ['JSON Resume', 'GitHub Actions', 'Node.js', 'TypeScript'],
+    link: null,
+    liveLink: null,
+  },
 ];
 
 export default function Projects({ id }: SectionProps) {
@@ -124,16 +109,6 @@ export default function Projects({ id }: SectionProps) {
               </ShadowBox>
             </AnimatedText>
           ))}
-          {/* Placeholder for more projects */}
-          {projects.length < 2 && ( // Show placeholder if few projects
-            <AnimatedText delay={projects.length * 0.15}>
-              <div className="bg-background/50 dark:bg-accent/50 p-6 rounded-lg shadow-md border-2 border-dashed border-gray-400 dark:border-gray-600 flex items-center justify-center h-full min-h-[200px] my-transition-colors">
-                <p className="text-center text-gray-500 dark:text-gray-400 my-transition-colors">
-                  More projects coming soon!
-                </p>
-              </div>
-            </AnimatedText>
-          )}
         </div>
       </div>
     </section>
