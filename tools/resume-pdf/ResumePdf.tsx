@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     width: 156,
   },
   section: {
-    marginBottom: 18,
+    marginBottom: 14,
   },
   sectionTitle: {
     color: '#3f3937',
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     height: 30,
-    marginBottom: 8,
+    marginBottom: 5,
   },
   sectionTitleBar: {
     backgroundColor: '#8a7d6c',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     width: 3,
   },
   skill: {
-    marginBottom: 3,
+    marginBottom: 2,
   },
   muted: {
     color: '#66595a',
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     fontWeight: 700,
   },
   entry: {
-    marginBottom: 10,
+    marginBottom: 9,
   },
   entryHeader: {
     flexDirection: 'row',
@@ -156,11 +156,11 @@ const styles = StyleSheet.create({
     fontWeight: 700,
   },
   bullets: {
-    marginTop: 6,
+    marginTop: 4,
   },
   bulletRow: {
     flexDirection: 'row',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   bullet: {
     color: '#3f3937',
