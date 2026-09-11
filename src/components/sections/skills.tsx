@@ -9,7 +9,7 @@ interface SectionProps {
 export default function Skills({ id }: SectionProps) {
   const skillCategories = [
     {
-      title: 'Frontend, Testing & Experimentation',
+      title: 'Frontend & Web Platforms',
       skills: [
         'React (v16-19)',
         'TypeScript',
@@ -24,21 +24,7 @@ export default function Skills({ id }: SectionProps) {
       ],
     },
     {
-      title: 'Web Architecture & Edge Computing',
-      skills: [
-        'Microfrontends',
-        'Server-Side Rendering (SSR)',
-        'Client-Side Rendering (CSR)',
-        'Edge Computing',
-        'Cloudflare Workers',
-        'Edge Caching',
-        'Edge Side Includes (ESI)',
-        'Dynamic Web Framework (IKEA)',
-        'Edge Variant Service (EVS)',
-      ],
-    },
-    {
-      title: 'Cloud, Delivery & Practice',
+      title: 'Cloud, Delivery, & Agentic Tools',
       skills: [
         'Git',
         'GCP',
@@ -46,20 +32,37 @@ export default function Skills({ id }: SectionProps) {
         'GitHub Actions',
         'CI/CD',
         'GitHub Advanced Security',
-        'Agile/Scrum',
-        'Engineering Mentorship',
+        'Cloudflare',
+        'Agentic Development Workflows',
+        'MCP Servers',
+        'GitHub Copilot',
       ],
     },
     {
-      title: 'Backend & Data',
+      title: 'Web Architecture & Edge Computing',
       skills: [
-        'C/C++/C#',
-        'Python/Django',
-        'Java',
-        'REST APIs',
-        'GraphQL',
+        'Microfrontends',
+        'Server-Side Rendering (SSR)',
+        'Client-Side Rendering (CSR)',
+        'Edge Web Delivery',
+        'Cloudflare Workers',
+        'Edge Side Includes (ESI)',
+        'Dynamic Web Framework',
+        'Edge Variant Service (EVS)',
+      ],
+    },
+    {
+      title: 'Backend, Data, & Development',
+      skills: [
         'SQL',
         'PostgreSQL',
+        'REST APIs',
+        'GraphQL',
+        'C++/C#',
+        'Python/Django',
+        'Java',
+        'Agile Development (Scrum/Kanban)',
+        'Engineering Mentorship',
       ],
     },
   ];
