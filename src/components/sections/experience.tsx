@@ -41,6 +41,16 @@ const experiences = [
       'Developed virtual assistant UI components in React, increasing user engagement and streamlining conversational feature integration.',
     ],
   },
+  {
+    company: 'First Trust Portfolios',
+    role: 'Software Engineer',
+    dates: 'Aug 2016 – Sep 2018',
+    location: 'Wheaton, IL',
+    points: [
+      'Modernized legacy financial applications by refactoring outdated architecture and improving code readability and maintainability.',
+      'Created SQL tools for database optimization, enhancing data integrity and boosting query performance.',
+    ],
+  },
 ];
 
 export default function Experience({ id }: SectionProps) {
