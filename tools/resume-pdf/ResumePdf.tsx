@@ -117,6 +117,10 @@ const styles = StyleSheet.create({
   muted: {
     color: '#66595a',
   },
+  skillHeading: {
+    color: '#66595a',
+    fontWeight: 700,
+  },
   entry: {
     marginBottom: 10,
   },
@@ -273,7 +277,7 @@ export default function ResumePdf({ resume }: { resume: PdfResumeData }) {
             {resume.skills.map((skill) => (
               <View key={skill.name} style={styles.bulletRow}>
                 <Text style={[styles.skill, styles.bulletText]}>
-                  <Text style={styles.muted}>{skill.name}: </Text>
+                  <Text style={styles.skillHeading}>{skill.name}: </Text>
                   {skill.keywords?.join(', ')}
                 </Text>
               </View>

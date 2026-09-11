@@ -207,6 +207,7 @@
 
 .skills strong {
   color: var(--resume-muted);
+  font-weight: 700;
 }
 
 .entries {
