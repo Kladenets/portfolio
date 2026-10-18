@@ -11,8 +11,7 @@
         "start-mcp-server",
         "--context",
         "ide",
-        "--project",
-        "/Users/kyle.kent/source/random/portfolio"
+        "--project-from-cwd"
       ],
       "enabled": true
     }
