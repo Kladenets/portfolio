@@ -49,6 +49,14 @@ npm run dev
 The dev command fetches and validates the current public resume before
 starting Next.js at [http://localhost:3000](http://localhost:3000).
 
+### GitHub Codespaces
+
+The `.devcontainer` setup installs Node 24 (matching `.nvmrc`), runs `npm ci`,
+and installs the OpenCode CLI and `uv` (for the Serena MCP). The dev server is
+not started automatically; run `npm run dev` (port 3000 is forwarded). Provide
+`OPENROUTER_API_KEY` as a Codespaces secret for this repository; it is injected
+into the environment and never stored in the repo.
+
 ## Resume Workflow
 
 The public resume source is a raw GitHub Gist. It is fetched into the ignored

@@ -1,0 +1,24 @@
+{
+  "name": "Portfolio Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24.11.0"
+    },
+    "ghcr.io/va-h/devcontainers-features/uv:1": {}
+  },
+  "secrets": {
+    "OPENROUTER_API_KEY": {
+      "description": "OpenRouter API key for OpenCode.",
+      "documentationUrl": "https://openrouter.ai/keys"
+    }
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Portfolio development server (npm run dev)",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "npm ci && npm install --global --allow-scripts=@opencode/cli @opencode/cli@latest"
+}
