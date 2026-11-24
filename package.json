@@ -37,7 +37,7 @@
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.5.3",
-    "serve": "^14.2.6",
+    "serve": "^14.2.8",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
     "typescript": "^5"
