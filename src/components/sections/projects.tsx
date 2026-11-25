@@ -8,6 +8,23 @@ interface SectionProps {
 
 const projects = [
   {
+    title: 'Job Tracker',
+    description:
+      'Local-first job discovery and application tracker built with TypeScript, React 19, Vite, Express, PostgreSQL, and Python JobSpy. Includes a bounded Gemini tool-calling agent and TypeSafe AI/JEV fit scoring.',
+    tech: [
+      'TypeScript',
+      'React 19',
+      'Vite',
+      'Express',
+      'PostgreSQL',
+      'Python JobSpy',
+      'Google Gemini',
+      'TypeSafe AI/JEV',
+    ],
+    link: 'https://github.com/Kladenets/job-tracker',
+    liveLink: null,
+  },
+  {
     title: 'Portfolio',
     description:
       'Production-grade Next.js portfolio and resume application with a typed component system, responsive desktop/mobile UI, dark mode, automated browser testing, and CI/CD reading my resume data from a separately hosted public JSON.',
